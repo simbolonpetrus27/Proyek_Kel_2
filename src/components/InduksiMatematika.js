@@ -22,6 +22,7 @@ function InduksiMatematika() {
           <li>Latihan Soal 3</li>
           <li>Latihan Soal 4</li>
           <li>Latihan Soal 5</li>
+          <li>Latihan Soal 6</li>
         </ol>
       </section>
     </div>
