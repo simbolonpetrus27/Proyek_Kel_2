@@ -1,9 +1,11 @@
 import React from 'react';
+import backgroundImage from './regist.jpg';
 
 function Home() {
   return (
     <div style={{
       height: '100vh',
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       display: 'flex',
