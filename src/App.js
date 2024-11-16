@@ -4,12 +4,16 @@ import Home from './components/Home';
 import Register from './Register';
 import Login from './Login';
 import Matrix from './components/Matrix';
+import Materi from './components/Materi Matrix';
+import ContohSoal from './components/ContohSoal Matrix';
+import Pembahasan from './components/Pembahasan Matrix';
 import InduksiMatematika from './components/InduksiMatematika';
 import Linear from './components/Linear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/materi_integral';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -57,6 +61,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/matrix" element={isAuthenticated ? <Matrix /> : <Navigate to="/login" />} />
+          {/* Rute baru untuk halaman Materi, Contoh Soal, dan Pembahasan */}
+          <Route path="/matrix/materi" element={isAuthenticated ? <Materi /> : <Navigate to="/login" />} />
+          <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
+          <Route path="/matrix/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Navigate to="/login" />} />
           <Route path="/linear" element={isAuthenticated ? <Linear /> : <Navigate to="/login" />} />
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Navigate to="/login" />} />
