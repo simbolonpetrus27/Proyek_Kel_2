@@ -1,9 +1,9 @@
 import React from 'react';
 
-function ContohSoal() {
+function ContohSoalLinear() {
   return (
     <div className="container">
-      <h2>Contoh Soal Matrix</h2>
+      <h2>Contoh Soal Linear</h2>
 
       <section className="soal">
         <h3>Soal 1: Penjumlahan dan Pengurangan Matriks</h3>
@@ -132,4 +132,4 @@ function ContohSoal() {
   );
 }
 
-export default ContohSoal;
+export default ContohSoalLinear;
