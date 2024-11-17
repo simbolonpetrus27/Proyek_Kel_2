@@ -14,7 +14,7 @@ import ContohSoalLinear from './components/ContohSoalLinear';
 import PembahasanLinear from './components/PembahasanLinear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/materi_integral';
-import './App.css';``
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
