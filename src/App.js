@@ -9,12 +9,12 @@ import ContohSoalMatrix from './components/ContohSoalMatrix';
 import PembahasanMatrix from './components/PembahasanMatrix';
 import InduksiMatematika from './components/InduksiMatematika';
 import Linear from './components/Linear';
-import MateriLinear from './components/Materi_Linear';
-import ContohSoalLinear from './components/ContohSoal_Linear';
-import PembahasanLinear from './components/Pembahasan_Linear';
+import MateriLinear from './components/MateriLinear';
+import ContohSoalLinear from './components/ContohSoalLinear';
+import PembahasanLinear from './components/PembahasanLinear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/materi_integral';
-import './App.css';
+import './App.css';``
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -64,14 +64,14 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/matrix" element={isAuthenticated ? <Matrix /> : <Navigate to="/login" />} />
           {/* Rute baru untuk halaman Materi, Contoh Soal, dan Pembahasan */}
-          <Route path="/matrix/materi" element={isAuthenticated ? <Materi /> : <Navigate to="/login" />} />
-          <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
-          <Route path="/matrix/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
+          <Route path="/matrix/materi" element={isAuthenticated ? <MateriMatrix /> : <Navigate to="/login" />} />
+          <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoalMatrix /> : <Navigate to="/login" />} />
+          <Route path="/matrix/pembahasan" element={isAuthenticated ? <PembahasanMatrix /> : <Navigate to="/login" />} />
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Navigate to="/login" />} />
           <Route path="/linear" element={isAuthenticated ? <Linear /> : <Navigate to="/login" /> } />
-          <Route path="/linear/materi" element={isAuthenticated ? <Materi /> : <Navigate to="/login" />} />
-          <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
-          <Route path="/linear/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
+          <Route path="/linear/materi" element={isAuthenticated ? <MateriLinear /> : <Navigate to="/login" />} />
+          <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoalLinear /> : <Navigate to="/login" />} />
+          <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Navigate to="/login" />} />
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Navigate to="/login" />} />
           <Route path="/materi_integral" element={isAuthenticated ? <MateriIntegral /> : <Navigate to="/login" />} />
         </Routes>
