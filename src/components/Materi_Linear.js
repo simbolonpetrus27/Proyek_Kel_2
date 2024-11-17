@@ -5,9 +5,9 @@ function Materi() {
   return (
     <div className="container">
       <section className="materi">
-        <h2>Materi Linear</h2>
+        <h2>Materi Matrix</h2>
         <p>
-          <strong>Linear</strong> adalah 
+          <strong>Matrix</strong> adalah susunan bilangan atau simbol yang ditulis dalam baris dan kolom tertentu, sehingga membentuk suatu tabel berbentuk persegi panjang. Matrix biasanya digunakan untuk menyelesaikan masalah yang melibatkan data dalam bentuk array dua dimensi.
         </p>
       </section>
 

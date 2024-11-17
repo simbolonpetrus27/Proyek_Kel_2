@@ -1,0 +1,132 @@
+/* Umum */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  h2, h3, h4 {
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* Kontainer */
+  .container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  /* Materi Matrix */
+  .materi {
+    background-color: #e8f5e9;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  
+  .materi h2 {
+    text-align: center;
+    color: #388e3c;
+    font-size: 2rem;
+  }
+  
+  /* Jenis Matriks */
+  .jenis-matriks {
+    background-color: #e3f2fd;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  
+  .jenis-matriks h3 {
+    color: #1e88e5;
+  }
+  
+  /* Operasi Matriks */
+  .operasi-matriks {
+    background-color: #fff8e1;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  
+  .operasi-matriks h3 {
+    color: #ff9800;
+  }
+  
+  .operasi-matriks h4 {
+    color: #f57c00;
+  }
+  
+  /* Manfaat Matriks */
+  .manfaat-matriks {
+    background-color: #fbe9e7;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .manfaat-matriks h3 {
+    color: #e64a19;
+  }
+  
+  /* Paragraf dan List */
+  p, li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  ol, ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  strong {
+    color: #ff5722;
+  }
+  
+  a {
+    color: #2196f3;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsif untuk layar kecil */
+  @media (max-width: 768px) {
+    body {
+      padding: 15px;
+    }
+  
+    .container {
+      padding: 20px;
+      max-width: 100%;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+    }
+  
+    p, li {
+      font-size: 0.9rem;
+    }
+  
+    .container {
+      margin: 15px;
+    }
+  }
+  

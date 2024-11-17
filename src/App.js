@@ -9,11 +9,13 @@ import ContohSoal from './components/ContohSoal Matrix';
 import Pembahasan from './components/Pembahasan Matrix';
 import InduksiMatematika from './components/InduksiMatematika';
 import Linear from './components/Linear';
+import Materi from './components/Materi Linear';
+import ContohSoal from './components/ContohSoal Linear';
+import Pembahasan from './components/Pembahasan Linear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/materi_integral';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -66,7 +68,9 @@ function App() {
           <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
           <Route path="/matrix/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Navigate to="/login" />} />
-          <Route path="/linear" element={isAuthenticated ? <Linear /> : <Navigate to="/login" />} />
+          <Route path="/linear/materi" element={isAuthenticated ? <Materi /> : <Navigate to="/login" />} />
+          <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
+          <Route path="/linear/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Navigate to="/login" />} />
           <Route path="/materi_integral" element={isAuthenticated ? <MateriIntegral /> : <Navigate to="/login" />} />
         </Routes>
