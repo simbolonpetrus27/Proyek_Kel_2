@@ -4,14 +4,14 @@ import Home from './components/Home';
 import Register from './Register';
 import Login from './Login';
 import Matrix from './components/Matrix';
-import Materi from './components/Materi Matrix';
-import ContohSoal from './components/ContohSoal Matrix';
-import Pembahasan from './components/Pembahasan Matrix';
+import MateriMatrix from './components/MateriMatrix';
+import ContohSoalMatrix from './components/ContohSoalMatrix';
+import PembahasanMatrix from './components/PembahasanMatrix';
 import InduksiMatematika from './components/InduksiMatematika';
 import Linear from './components/Linear';
-import Materi from './components/Materi Linear';
-import ContohSoal from './components/ContohSoal Linear';
-import Pembahasan from './components/Pembahasan Linear';
+import MateriLinear from './components/Materi_Linear';
+import ContohSoalLinear from './components/ContohSoal_Linear';
+import PembahasanLinear from './components/Pembahasan_Linear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/materi_integral';
 import './App.css';
@@ -68,6 +68,7 @@ function App() {
           <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
           <Route path="/matrix/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Navigate to="/login" />} />
+          <Route path="/linear" element={isAuthenticated ? <Linear /> : <Navigate to="/login" /> } />
           <Route path="/linear/materi" element={isAuthenticated ? <Materi /> : <Navigate to="/login" />} />
           <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoal /> : <Navigate to="/login" />} />
           <Route path="/linear/pembahasan" element={isAuthenticated ? <Pembahasan /> : <Navigate to="/login" />} />
