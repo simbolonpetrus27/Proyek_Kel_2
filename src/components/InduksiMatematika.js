@@ -1,29 +1,25 @@
 // src/components/InduksiMatematika.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function InduksiMatematika() {
   return (
     <div>
       <h2>Induksi Matematika</h2>
       <section>
-        <h3>Materi</h3>
-        <p>Penjelasan materi tentang Induksi Matematika...</p>
+        <Link to="/induksi-matematika/materi">
+          <h3>Materi</h3>
+        </Link>
       </section>
       <section>
-        <h3>Contoh Soal dan Pembahasan</h3>
-        <p>Soal 1: (Pembahasan Soal 1)</p>
-        <p>Soal 2: (Pembahasan Soal 2)</p>
+        <Link to="/induksi-matematika/contoh-soal">
+          <h3>Contoh Soal</h3>
+        </Link>
       </section>
       <section>
-        <h3>Latihan Soal</h3>
-        <ol>
-          <li>Latihan Soal 1</li>
-          <li>Latihan Soal 2</li>
-          <li>Latihan Soal 3</li>
-          <li>Latihan Soal 4</li>
-          <li>Latihan Soal 5</li>
-          <li>Latihan Soal 6</li>
-        </ol>
+        <Link to="/induksi-matematika/latihan-soal">
+          <h3>Latihan Soal</h3>
+        </Link>
       </section>
     </div>
   );
