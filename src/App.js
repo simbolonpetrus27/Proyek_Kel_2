@@ -13,7 +13,7 @@ import MateriLinear from './components/MateriLinear';
 import ContohSoalLinear from './components/ContohSoalLinear';
 import PembahasanLinear from './components/PembahasanLinear';
 import Integral from './components/Integral';
-import MateriIntegral from './components/materi_integral';
+import MateriIntegral from './components/MateriIntegral';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,7 +52,6 @@ function App() {
                 <Link to="/induksi-matematika">Induksi Matematika</Link>
                 <Link to="/linear">Linear</Link>
                 <Link to="/integral">Integral</Link>
-                <Link to="/materi_integral">Materi Integral</Link>
                 <button onClick={handleLogout}>Logout</button>
               </>
             )}
@@ -73,7 +72,7 @@ function App() {
           <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoalLinear /> : <Navigate to="/login" />} />
           <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Navigate to="/login" />} />
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Navigate to="/login" />} />
-          <Route path="/materi_integral" element={isAuthenticated ? <MateriIntegral /> : <Navigate to="/login" />} />
+          <Route path="/Integral/materi" element={isAuthenticated ? <MateriIntegral /> : <Navigate to="/login" />} />
         </Routes>
       </div>
     </Router>
