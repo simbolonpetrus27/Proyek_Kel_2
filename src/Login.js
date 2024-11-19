@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from './components/regist.jpg'; 
+import backgroundImage from './components/regist.jpg'; // Pastikan path file benar
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.username === username && u.password === password);
 
-    if (user) {
-      onLogin();
-      navigate('/');
-    } else {
-      setError('Username atau password Anda salah.');
-    }
+    // Login langsung tanpa validasi
+    onLogin(username); // Kirim nama pengguna ke App.js
+    navigate('/'); // Pindah ke halaman Home setelah login berhasil
   };
 
   const styles = {
@@ -28,7 +22,7 @@ function Login({ onLogin }) {
       alignItems: 'center',
       justifyContent: 'center',
       height: '100vh',
-      backgroundImage: `url(${backgroundImage})`, 
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       padding: '20px',
@@ -44,7 +38,7 @@ function Login({ onLogin }) {
       display: 'flex',
       flexDirection: 'column',
       width: '300px',
-      backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+      backgroundColor: 'rgba(255, 255, 255, 0.8)',
       padding: '20px',
       borderRadius: '8px',
     },
@@ -70,18 +64,11 @@ function Login({ onLogin }) {
       fontSize: '1rem',
       transition: 'background-color 0.3s',
     },
-    error: {
-      color: 'red',
-      marginBottom: '10px',
-    },
   };
 
   return (
     <div style={styles.container}>
-      <h2 style={{
-        color: '#000',
-        fontFamily: 'Quicksand',
-        }}>Login</h2>
+      <h2 style={styles.header}>Login</h2>
       <form onSubmit={handleLogin} style={styles.form}>
         <div>
           <label style={styles.label}>Username:</label>
@@ -103,7 +90,6 @@ function Login({ onLogin }) {
             style={styles.input}
           />
         </div>
-        {error && <p style={styles.error}>{error}</p>}
         <button type="submit" style={styles.button}>
           Login
         </button>
