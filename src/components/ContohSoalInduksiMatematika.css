@@ -1,0 +1,24 @@
+.container {
+    padding: 20px;
+  }
+  
+  .box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+    text-align: left; /* Mengatur teks agar rata kiri */
+  }
+  
+  .box:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .soal1 {
+    background-color: #e7f3fe; /* Warna latar belakang untuk Soal 1 */
+  }
+  
+  .soal2 {
+    background-color: #fce7f3; /* Warna latar belakang untuk Soal 2 */
+  }

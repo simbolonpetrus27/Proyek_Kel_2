@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const InduksiMatematika = () => {
-  // Gaya untuk komponen
   const styles = {
     container: {
       textAlign: 'center',
@@ -33,7 +32,7 @@ const InduksiMatematika = () => {
       color: '#007bff',
       textDecoration: 'none',
       fontWeight: 'bold',
-      marginBottom: '10px', // Menambahkan margin bawah untuk memberikan ruang
+      marginBottom: '10px', 
     },
     description: {
       marginTop: '10px',
@@ -47,7 +46,7 @@ const InduksiMatematika = () => {
       <div style={styles.linkContainer}>
         {[
           { text: 'Materi', path: '/induksi-matematika/materi' },
-          { text: 'Soal', path: '/induksi-matematika/contoh-soal' },
+          { text: 'Contoh Soal', path: '/induksi-matematika/contoh-soal' },
           { text: 'Pembahasan', path: '/induksi-matematika/latihan-soal' },
         ].map((item, index) => (
           <section
@@ -65,8 +64,6 @@ const InduksiMatematika = () => {
             <Link to={item.path} style={styles.linkText}>
               <h3>{item.text}</h3>
             </Link>
-            {/* Jika Anda ingin menambahkan deskripsi, aktifkan bagian ini */}
-            {/* {item.description && <p style={styles.description}>{item.description}</p>} */}
           </section>
         ))}
       </div>
