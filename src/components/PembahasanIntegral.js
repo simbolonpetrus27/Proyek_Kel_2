@@ -30,7 +30,7 @@ function PembahasanIntegral() {
           <em>= 12/2+1 x<sup>2+1</sup> - 4/1+1 x<sup>1+1</sup> + 1x + C</em>
           <br />
           <em>= 4x<sup>3</sup> - 2x<sup>2</sup> + x + C</em>
-          Maka pilihan yang sesuai adalah (D) 4x<sup>3</sup>- 2x<sup>2</sup> + x + C 
+          Maka pilihan yang sesuai adalah <strong>(D) 4x<sup>3</sup>- 2x<sup>2</sup> + x + C </strong> 
         </p>
       </section>
 
@@ -61,8 +61,7 @@ function PembahasanIntegral() {
           <br />
           <em>= x<sup>3</sup> - 5/2 x<sup>2</sup> + 4x + C </em>
           <br />
-          <em></em>
-          Maka pilihan yang tepat adalah (A) x<sup>3</sup> - 5/2x<sup>2</sup> + 4x + C
+          Maka pilihan yang tepat adalah <strong>(A) x<sup>3</sup> - 5/2x<sup>2</sup> + 4x + C</strong>
         </p>
       </section>
 
@@ -85,14 +84,29 @@ function PembahasanIntegral() {
         <h4>Pembahasan:</h4>
         <p>
           <br />
-          Dengan menerapkan aturan dasar integral ∫x<sup>n</sup> dx = 1/n+1 x<sup>n</sup> + c, n ≠ - 1 dan manipulasi aljabar, maka kita akan peroleh:
+          Untuk f (x) = a+ bx dan F(x) adalah anti turunan f(x) maka berlaku:
           <br />
-          <em>∫ (12x<sup>2</sup> - 4x + 1) dx </em>
+          <em>F(x) = ∫ f (x) dx</em>
           <br />
-          <em>= 12/2+1 x<sup>2+1</sup> - 4/1+1 x<sup>1+1</sup> + 1x + C</em>
+          <em>F(x) = ∫ (a + bx) dx</em>
           <br />
-          <em>= 4x<sup>3</sup> - 2x<sup>2</sup> + x + C</em>
-          Maka pilihan yang sesuai adalah (D) 4x<sup>3</sup>- 2x<sup>2</sup> + x + C 
+          <em>F(x) = ax + ½ bx2 + c</em>
+          <hr />
+          <em>F(1) = a(1) + 1/2 b(1)2 + c</em>
+          <br />
+          <em>F(1) = a + 1/2b + c</em>
+          <br />
+          <em>F(0) = a(0) + 1/2b(0)2 + c</em>
+          <br />
+          <em>F(0)=c</em>
+          <hr />
+          <em>F(1) - F(0) = a + ½ b + c - c </em>
+          <br />
+          <em>3 = a +1/2b</em>
+          <br />
+          <em>6 = 2a + b</em>
+          <br />
+          Maka pilihan yang sesuai adalah <strong>(B) 6</strong>
         </p>
       </section>
     </div>
