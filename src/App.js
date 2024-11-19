@@ -14,6 +14,9 @@ import ContohSoalLinear from './components/ContohSoalLinear';
 import PembahasanLinear from './components/PembahasanLinear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/MateriIntegral';
+import ContohSoalIntegral from './components/ContohSoalIntegral';
+import PembahasanIntegral from './components/PembahasanIntegral';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -73,6 +76,10 @@ function App() {
           <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Navigate to="/login" />} />
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Navigate to="/login" />} />
           <Route path="/Integral/materi" element={isAuthenticated ? <MateriIntegral /> : <Navigate to="/login" />} />
+          <Route path="/Integral/contoh-soal" element={isAuthenticated ? <ContohSoalIntegral /> : <Navigate to="/login" />} />
+          <Route path="/Integral/pembahasan" element={isAuthenticated ? <PembahasanIntegral /> : <Navigate to="/login" />} />
+
+
         </Routes>
       </div>
     </Router>

@@ -47,8 +47,8 @@ const InduksiMatematika = () => {
       <div style={styles.linkContainer}>
         {[
           { text: 'Materi', path: '/induksi-matematika/materi' },
-          { text: 'Contoh Soal', path: '/induksi-matematika/contoh-soal' },
-          { text: 'Latihan Soal', path: '/induksi-matematika/latihan-soal' },
+          { text: 'Soal', path: '/induksi-matematika/contoh-soal' },
+          { text: 'Pembahasan', path: '/induksi-matematika/latihan-soal' },
         ].map((item, index) => (
           <section
             key={index}

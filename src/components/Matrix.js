@@ -42,7 +42,7 @@ const Matrix = () => {
       <div style={styles.linkContainer}>
         {[
           { text: 'Materi', path: '/matrix/materi' },
-          { text: 'Contoh Soal', path: '/matrix/contoh-soal' },
+          { text: 'Soal', path: '/matrix/contoh-soal' },
           { text: 'Pembahasan', path: '/matrix/pembahasan' },
         ].map((item, index) => (
           <section

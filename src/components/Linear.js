@@ -12,7 +12,7 @@ function Linear() {
       </section>
       <section>
         <Link to="/matrix/contoh-soal">
-          <h3>Contoh Soal</h3>
+          <h3>Soal</h3>
         </Link>
       </section>
       <section>
