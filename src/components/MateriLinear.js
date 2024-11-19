@@ -7,40 +7,41 @@ function MateriLinear() {
       <section className="materi">
         <h2>Materi Linear</h2>
         <p>
-          <strong>Matrix</strong> adalah susunan bilangan atau simbol yang ditulis dalam baris dan kolom tertentu, sehingga membentuk suatu tabel berbentuk persegi panjang. Matrix biasanya digunakan untuk menyelesaikan masalah yang melibatkan data dalam bentuk array dua dimensi.
+          <strong>Linear</strong> adalah adalah istilah yang digunakan untuk menggambarkan suatu hubungan atau pola yang dapat diwakili oleh garis lurus.
         </p>
       </section>
 
       <section className="jenis-matriks">
-        <h3>Jenis-Jenis Matriks</h3>
+        <h3>Unsur-Unsur Linear</h3>
         <ol>
-          <li><strong>Matriks Baris:</strong> Matriks yang hanya memiliki satu baris.</li>
-          <li><strong>Matriks Kolom:</strong> Matriks yang hanya memiliki satu kolom.</li>
-          <li><strong>Matriks Persegi:</strong> Matriks yang jumlah barisnya sama dengan jumlah kolomnya.</li>
-          <li><strong>Matriks Nol:</strong> Matriks yang semua elemennya bernilai nol.</li>
-          <li><strong>Matriks Identitas:</strong> Matriks persegi yang elemen diagonal utamanya bernilai 1, sedangkan elemen lainnya 0.</li>
-          <li><strong>Matriks Diagonal:</strong> Matriks persegi yang elemen-elemen di luar diagonal utamanya bernilai nol.</li>
-          <li><strong>Matriks Skalar:</strong> Matriks diagonal di mana semua elemen diagonal utamanya bernilai sama.</li>
+          <li><strong>Variabel:</strong> Huruf pengganti suatu bilangan atau pernyataan yang belum diketahui nilainya.</li>
+          <li><strong>Koefisien:</strong> Bilangan yang menjelaskan jumlah dari suatu variabel. </li>
+          <li><strong>Konstanta:</strong> Nilai yang tidak diikuti variabel.</li>
+          <li><strong>Suku:</strong> Bentuk persamaan (gabungan konstanta dan variabel, variabel dan konstanta). </li>
         </ol>
       </section>
 
       <section className="operasi-matriks">
-        <h3>Operasi Matriks</h3>
-        <h4>1. Penjumlahan dan Pengurangan Matriks</h4>
+        <h3>Jenis-Jenis Linear</h3>
+        <h4>A. Persamaan Linear Satu Variabel</h4>
         <p>
-          Dua matriks dapat dijumlahkan atau dikurangkan jika memiliki ordo yang sama. Operasi dilakukan dengan menjumlahkan atau mengurangkan elemen-elemen yang sesuai.
+               Persamaaan linear satu variabel adalah persamaan yang memiliki satu variabel dengan pangkat 1 dan dapat dihubungkan dengan tanda “=”.
         </p>
 
-        <h4>2. Perkalian Matriks</h4>
+        <h4>B. Persamaan Linear Dua Variabel</h4>
         <p>
-          Dua matriks dapat dikalikan jika jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua. Operasi ini dilakukan dengan mengalikan elemen-elemen baris matriks pertama dengan elemen-elemen kolom matriks kedua, kemudian menjumlahkannya.
+               Persamaan linear dua variabel adalah persamaan yang memiliki dua variabel dengan pangkat 1 dan dapat dihubungkan dengan tanda “=”.
         </p>
 
-        <h4>3. Transpos Matriks</h4>
-        <p>Transpos dari matriks diperoleh dengan menukar baris menjadi kolom dan kolom menjadi baris.</p>
+        <h4>C. Persamaan Linear Tiga Variabel</h4>
+        <p>
+               Persamaan linear tiga variabel adalah persamaan yang memiliki tiga variabel dengan pangkat 1 dan dapat dihubungkan dengan tanda “=”.
+        </p>
 
-        <h4>4. Determinan Matriks</h4>
-        <p>Determinant matriks hanya didefinisikan untuk matriks persegi. Determinan digunakan untuk memeriksa apakah matriks memiliki invers.</p>
+        <h4>D. Pertidaksamaan Linear Dua Variabel</h4>
+        <p>
+               Pertidaksamaan linear dua variabel adalah bentuk pertidaksaaman yang memuat dua variabel dengan pangkat tertinggi variabel tersebut adalah satu dan dapat dihubungkan dengan tanda.
+        </p>
 
         <h4>5. Invers Matriks</h4>
         <p>Invers dari matriks persegi <em>A</em> didefinisikan sebagai matriks <em>A⁻¹</em> yang memenuhi <em>A × A⁻¹ = I</em>.</p>
