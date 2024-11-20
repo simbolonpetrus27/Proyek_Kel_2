@@ -41,7 +41,7 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <h1>MILI - Matematika Kelas 11</h1>
+          <h1>MILI</h1>
           <nav>
             <Link to="/">Home</Link>
             <Link to="/register">Register</Link>
