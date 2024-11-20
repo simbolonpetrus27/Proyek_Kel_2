@@ -55,6 +55,21 @@ function ContohSoalIntegral() {
         (E) 3
         </p>
       </section>
+
+      <section className="soal">
+        <h3>Soal 04</h3>
+        <p>
+        <em>Diketahui gradien garis singgung kurva di titik (x, y) adalah 6x + 5. Misalkan kurva tersebut melewati titik (1, 5), carilah persamaan kurvanya.</em>
+        </p>
+      </section>
+
+      <section className="soal">
+        <h3>Soal 05</h3>
+        <p>
+        <em>Diketahui fungsi y = f(x) memiliki f'(x) = 4x + 6. Misal kurva y = f(x) melalui titik (2, 8). Tentukan persamaan kurva tersebut.</em>
+        </p>
+      </section>
+
     </div>
   );
 }

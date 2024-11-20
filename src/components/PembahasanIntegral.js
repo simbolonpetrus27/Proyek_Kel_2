@@ -108,6 +108,65 @@ function PembahasanIntegral() {
           <br />
           Maka pilihan yang sesuai adalah <strong>(B) 6</strong>
         </p>
+
+        <section className="soal">
+      <h3>Soal 04</h3>
+        <p>
+        <em>Diketahui gradien garis singgung kurva di titik (x, y) adalah 6x + 5. Misalkan kurva tersebut melewati titik (1, 5), carilah persamaan kurvanya.</em>
+        </p>
+
+        <h4>Pembahasan:</h4>
+        <p>
+          <br />
+          f'(x) = 6x + 5
+          <br />
+          <em>f(x) = ʃ (6x +5) dx</em>
+          <br />
+          <em>f(x) = 3x2 + 5x + c</em>
+          <br />
+          <em>Karena kurva melalui titik (1, 5), maka f(1) = 5. Dengan mensubstitusikan ke f(x), diperoleh:</em>
+          <em>f(x) = 3x2 + 5x + c</em>
+          <br />
+          <em>f(1) = 3(1)2 + 5(1) + c</em>
+          <br />
+          <em>5 = 3 + 5 + c</em>
+          <br />
+          <em>c = -3</em>
+          <br />
+          <em>Jadi, persamaan kurva tersebut adalah <strong>y = f(x) = 3x2 + 5x - 3.</strong></em>
+          <br />
+        </p>
+      </section>
+
+      <section className="soal">
+      <h3>Soal 05</h3>
+        <p>
+        <em>Diketahui fungsi y = f(x) memiliki f'(x) = 4x + 6. Misal kurva y = f(x) melalui titik (2, 8). Tentukan persamaan kurva tersebut.</em>
+        </p>
+        <h4>Pembahasan:</h4>
+        <p>
+        <em>f(x) = ʃ f'(x), dan f'(x) = 4x + 6, maka</em>
+        <br />
+        <em>f(x) = ʃ (4x + 6) dx</em>
+        <br />
+        <em>f(x) = 2x2 + 6x + c</em>
+        <br />
+        <em>Karena kurva melalui titik (2, 8), maka f(2) = 8. Dengan mensubstitusikan ke f(x), diperoleh</em>
+        <br />
+        <em>f(x) = 2x2 + 6x + c</em>
+        <br />
+        <em>f(2) = 2(2)2 + 6(2) + c</em>
+        <br />
+        <em>8 = 8 + 12 + c</em>
+        <br />
+        <em>c = -12</em>
+        <br />
+        <em>Jadi, persamaan kurva tersebut adalah <strong>y = f(x) = 2x2 + 6x - 12</strong></em>
+        <br />
+        <em></em>
+        <br />
+        </p>
+      </section>
       </section>
     </div>
   );
