@@ -51,10 +51,7 @@ function App() {
             {!isAuthenticated && <Link to="/login">Login</Link>}
             {isAuthenticated && (
               <>
-                <Link to="/matrix">Matriks</Link>
-                <Link to="/induksi-matematika">Induksi Matematika</Link>
-                <Link to="/linear">Linear</Link>
-                <Link to="/integral">Integral</Link>
+
                 <span>Welcome, {username}</span> {/* Menampilkan username setelah login */}
                 <button onClick={handleLogout} className="logout-button">
                   Logout
