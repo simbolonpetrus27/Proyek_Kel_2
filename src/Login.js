@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from './components/regist.jpg'; // Pastikan path file benar
+import backgroundImage from './components/regist.jpg';
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -10,9 +10,19 @@ function Login({ onLogin }) {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Login langsung tanpa validasi
-    onLogin(username); // Kirim nama pengguna ke App.js
-    navigate('/'); // Pindah ke halaman Home setelah login berhasil
+    // Ambil daftar pengguna dari localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Validasi username dan password
+    const user = users.find((user) => user.username === username && user.password === password);
+
+    if (user) {
+      onLogin(username); // Set pengguna sebagai terautentikasi
+      alert('Login successful!');
+      navigate('/'); // Arahkan ke halaman Home
+    } else {
+      alert('Invalid username or password. Please try again.');
+    }
   };
 
   const styles = {
@@ -25,14 +35,6 @@ function Login({ onLogin }) {
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      padding: '20px',
-      borderRadius: '8px',
-      boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-    },
-    header: {
-      fontSize: '2rem',
-      marginBottom: '20px',
-      color: '#fff',
     },
     form: {
       display: 'flex',
@@ -42,17 +44,11 @@ function Login({ onLogin }) {
       padding: '20px',
       borderRadius: '8px',
     },
-    label: {
-      marginBottom: '5px',
-      fontWeight: 'bold',
-      color: '#555',
-    },
     input: {
       padding: '10px',
       marginBottom: '15px',
       border: '1px solid #ccc',
       borderRadius: '4px',
-      fontSize: '1rem',
     },
     button: {
       padding: '10px',
@@ -61,35 +57,29 @@ function Login({ onLogin }) {
       border: 'none',
       borderRadius: '4px',
       cursor: 'pointer',
-      fontSize: '1rem',
-      transition: 'background-color 0.3s',
     },
   };
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.header}>Login</h2>
+      <h2>Login</h2>
       <form onSubmit={handleLogin} style={styles.form}>
-        <div>
-          <label style={styles.label}>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            style={styles.input}
-          />
-        </div>
-        <div>
-          <label style={styles.label}>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={styles.input}
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+          style={styles.input}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          style={styles.input}
+        />
         <button type="submit" style={styles.button}>
           Login
         </button>
