@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from './components/regist.jpg';
+import backgroundImage from './components/bg2.jpg';
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -52,7 +52,7 @@ function Login({ onLogin }) {
     },
     button: {
       padding: '10px',
-      backgroundColor: '#ff69b4',
+      backgroundColor: '#8B4513',
       color: 'white',
       border: 'none',
       borderRadius: '4px',

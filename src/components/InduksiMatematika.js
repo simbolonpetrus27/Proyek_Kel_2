@@ -4,25 +4,26 @@ import { Link } from 'react-router-dom';
 const InduksiMatematika = () => {
   const styles = {
     container: {
-      textAlign: 'center',
+      textAlign: 'left', // Mengubah menjadi left untuk memastikan text align kiri
       padding: '50px 0',
     },
     linkContainer: {
       display: 'flex',
-      justifyContent: 'center',
-      marginTop: '20px',
-    },
-    linkBox: {
+      flexDirection: 'column', // Mengatur agar item ditampilkan secara vertikal
+      alignItems: 'flex-start', // Mengatur agar item terjajar ke kiri
+      width: '200px', // Mengatur lebar box
+      marginLeft: '20px', // Mengatur agar box berada di sebelah kiri
       backgroundColor: '#ffffff',
       border: '1px solid #ced4da',
       borderRadius: '10px',
-      padding: '30px',
-      margin: '0 15px',
+      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+    },
+    linkBox: {
+      padding: '20px',
       textAlign: 'center',
       transition: 'transform 0.3s, box-shadow 0.3s',
       cursor: 'pointer',
-      width: '150px',
-      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+      width: '100%', // Mengatur lebar box agar penuh
     },
     linkBoxHover: {
       transform: 'scale(1.05)',
@@ -32,12 +33,12 @@ const InduksiMatematika = () => {
       color: '#007bff',
       textDecoration: 'none',
       fontWeight: 'bold',
-      marginBottom: '10px', 
+      marginBottom: '10px',
     },
-    description: {
-      marginTop: '10px',
-      color: '#6c757d',
-      fontSize: '0.9rem',
+    separator: {
+      height: '1px',
+      backgroundColor: '#ced4da',
+      margin: '0', // Menghapus margin agar tidak ada jarak
     },
   };
 
@@ -49,22 +50,25 @@ const InduksiMatematika = () => {
           { text: 'Contoh Soal', path: '/induksi-matematika/contoh-soal' },
           { text: 'Pembahasan', path: '/induksi-matematika/latihan-soal' },
         ].map((item, index) => (
-          <section
-            key={index}
-            style={styles.linkBox}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = styles.linkBoxHover.transform;
-              e.currentTarget.style.boxShadow = styles.linkBoxHover.boxShadow;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.boxShadow = styles.linkBox.boxShadow;
-            }}
-          >
-            <Link to={item.path} style={styles.linkText}>
-              <h3>{item.text}</h3>
-            </Link>
-          </section>
+          <React.Fragment key={index}>
+            <section
+              style={styles.linkBox}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = styles.linkBoxHover.transform;
+                e.currentTarget.style.boxShadow = styles.linkBoxHover.boxShadow;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = 'none'; // Menghapus box shadow pada leave
+              }}
+            >
+              <Link to={item.path} style={styles.linkText}>
+                <h3>{item.text}</h3>
+              </Link>
+            </section>
+            {/* Menambahkan garis pemisah setelah setiap box kecuali yang terakhir */}
+            {index < 2 && <div style={styles.separator}></div>}
+          </React.Fragment>
         ))}
       </div>
     </div>

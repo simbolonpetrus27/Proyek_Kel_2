@@ -22,7 +22,7 @@ html, body, #root, .App {
 
 /* Header Styling */
 header {
-  background-color: #ff69b4; /* Pink theme */
+  background-color: #633a0e; /* Pink theme */
   color: white;
   padding: 20px 30px;
   display: flex;
@@ -70,7 +70,7 @@ nav span {
 
 nav button {
   background-color: white;
-  color: #ff69b4;
+  color: #925d12;
   border: none;
   padding: 8px 15px;
   border-radius: 5px;
@@ -79,7 +79,7 @@ nav button {
 }
 
 nav button:hover {
-  background-color: #ffc0cb; /* Light pink */
+  background-color: #906223; /* Light pink */
   transform: translateY(-2px);
 }
 
@@ -168,7 +168,7 @@ main {
 
 /* Footer Styling */
 footer {
-  background-color: #ff69b4;
+  background-color: #a6671f;
   color: white;
   text-align: center;
   padding: 15px 0;

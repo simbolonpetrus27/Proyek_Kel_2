@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from './regist.jpg';
+import backgroundImage from './bg2.jpg';
 
 function Home({ userName }) {
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ function Home({ userName }) {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         color: 'white',
@@ -25,50 +24,56 @@ function Home({ userName }) {
         padding: '20px',
       }}
     >
-      <div style={{ marginBottom: '40px' }}>
-        <h2
-          style={{
-            fontSize: '3rem',
-            fontWeight: 'bold',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-            fontFamily: 'Quicksand',
-          }}
-        >
-          Selamat Datang, {userName}!
-        </h2>
-        <p
-          style={{
-            fontSize: '1.5rem',
-            marginTop: '10px',
-            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
-            fontFamily: 'Quicksand',
-          }}
-        >
-          Matematika Kelas 11<br />
-          Matriks - Induksi Matematika - Linear - Integral
-        </p>
-      </div>
+      <div style={{ display: 'flex', width: '100%', maxWidth: '1200px' }}>
+        {/* Bagian Kiri untuk Sambutan */}
+        <div style={{ flex: 1, padding: '20px' }}>
+          <h2
+            style={{
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              fontFamily: 'Quicksand',
+            }}
+          >
+            Selamat Datang {userName}!
+          </h2>
+          <p
+            style={{
+              fontSize: '1.5rem',
+              marginTop: '10px',
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+              fontFamily: 'Quicksand',
+            }}
+          >
+            Matematika Kelas 11<br />
+            Matriks - Induksi Matematika - Linear - Integral
+          </p>
+        </div>
 
-      <div
-        style={{
-          display: 'flex',
-          gap: '20px',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          maxWidth: '800px',
-        }}
-      >
-        <div onClick={() => handleBoxClick('/matrix')} style={boxStyle}>
-          Matriks
-        </div>
-        <div onClick={() => handleBoxClick('/linear')} style={boxStyle}>
-          Linear
-        </div>
-        <div onClick={() => handleBoxClick('/induksi-matematika')} style={boxStyle}>
-          Induksi Matematika
-        </div>
-        <div onClick={() => handleBoxClick('/integral')} style={boxStyle}>
-          Integral
+        {/* Bagian Kanan untuk Materi */}
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            gap: '20px',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '20px',
+          }}
+        >
+          <div onClick={() => handleBoxClick('/matrix')} style={boxStyle}>
+            Matriks
+          </div>
+          <div onClick={() => handleBoxClick('/linear')} style={boxStyle}>
+            Linear
+          </div>
+          <div onClick={() => handleBoxClick('/induksi-matematika')} style={boxStyle}>
+            Induksi Matematika
+          </div>
+          <div onClick={() => handleBoxClick('/integral')} style={boxStyle}>
+            Integral
+          </div>
         </div>
       </div>
     </div>

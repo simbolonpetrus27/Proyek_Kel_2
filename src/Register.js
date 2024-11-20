@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Container, Form, Button, Card } from 'react-bootstrap';
-import backgroundImage from './components/regist.jpg';
+import backgroundImage from './components/bg2.jpg';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -64,7 +64,7 @@ function Register() {
               variant="primary"
               type="submit"
               className="w-100"
-              style={{ backgroundColor: '#ff69b4', borderColor: '#ff69b4' }}
+              style={{ backgroundColor: '#8B4513', borderColor: '#ff69b4' }}
             >
               Register
             </Button>

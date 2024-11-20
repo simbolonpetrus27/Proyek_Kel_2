@@ -51,7 +51,7 @@ function App() {
             {!isAuthenticated && <Link to="/login">Login</Link>}
             {isAuthenticated && (
               <>
-                <Link to="/matrix">Matrix</Link>
+                <Link to="/matrix">Matriks</Link>
                 <Link to="/induksi-matematika">Induksi Matematika</Link>
                 <Link to="/linear">Linear</Link>
                 <Link to="/integral">Integral</Link>
