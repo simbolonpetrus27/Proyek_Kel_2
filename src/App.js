@@ -23,29 +23,32 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  // Mengelola state login dan username di dalam App.js
+  // State untuk autentikasi dan pengguna saat ini
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
 
+  // Fungsi login: mengatur status autentikasi dan nama pengguna
   const handleLogin = (username) => {
     setIsAuthenticated(true);
     setUsername(username);
   };
 
+  // Fungsi logout: menghapus autentikasi dan mengosongkan nama pengguna
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUsername('');
+    alert('You have been logged out. Please register or login again.');
   };
 
   return (
     <Router>
       <div className="App">
         <header>
-          <h1>MILI - Matematika Kelas 11</h1>
+          <h1>MILI - Kelas 11 Matematika</h1>
           <nav>
             <Link to="/">Home</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
+            {!isAuthenticated && <Link to="/register">Register</Link>}
+            {!isAuthenticated && <Link to="/login">Login</Link>}
             {isAuthenticated && (
               <>
                 <Link to="/matrix">Matrix</Link>
@@ -53,32 +56,39 @@ function App() {
                 <Link to="/linear">Linear</Link>
                 <Link to="/integral">Integral</Link>
                 <span>Welcome, {username}</span> {/* Menampilkan username setelah login */}
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} className="logout-button">
+                  Logout
+                </button>
               </>
             )}
-            {!isAuthenticated && (
-              <div>
-                <span>Welcome, Guest</span>
-              </div>
-            )}
+            {!isAuthenticated && <span>Welcome, Guest</span>}
           </nav>
         </header>
 
         <Routes>
+          {/* Rute utama */}
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+
+          {/* Matrix */}
           <Route path="/matrix" element={isAuthenticated ? <Matrix /> : <Navigate to="/login" />} />
           <Route path="/matrix/materi" element={isAuthenticated ? <MateriMatrix /> : <Navigate to="/login" />} />
           <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoalMatrix /> : <Navigate to="/login" />} />
           <Route path="/matrix/pembahasan" element={isAuthenticated ? <PembahasanMatrix /> : <Navigate to="/login" />} />
+
+          {/* Induksi Matematika */}
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Navigate to="/login" />} />
           <Route path="/induksi-matematika/materi" element={isAuthenticated ? <MateriInduksiMatematika /> : <Navigate to="/login" />} />
           <Route path="/induksi-matematika/contoh-soal" element={isAuthenticated ? <ContohSoalInduksiMatematika /> : <Navigate to="/login" />} />
+
+          {/* Linear */}
           <Route path="/linear" element={isAuthenticated ? <Linear /> : <Navigate to="/login" />} />
           <Route path="/linear/materi" element={isAuthenticated ? <MateriLinear /> : <Navigate to="/login" />} />
           <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoalLinear /> : <Navigate to="/login" />} />
           <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Navigate to="/login" />} />
+
+          {/* Integral */}
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Navigate to="/login" />} />
           <Route path="/integral/materi" element={isAuthenticated ? <MateriIntegral /> : <Navigate to="/login" />} />
           <Route path="/integral/contoh-soal" element={isAuthenticated ? <ContohSoalIntegral /> : <Navigate to="/login" />} />
