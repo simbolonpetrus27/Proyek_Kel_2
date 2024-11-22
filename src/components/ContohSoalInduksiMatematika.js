@@ -46,7 +46,7 @@ function ContohSoalInduksiMatematika() {
           Untuk n = 20, kita dapat menggunakan rumus S<sub>n</sub> = n(n + 1) / 2.
         </p>
         <p>
-          S<sub>20</sub> = 20(20 + 1) / 2 = 20 × 21 / 2 = 210.
+          S<sub>20</sub> = 20(20 + 1) / 2 = 20 x 21 / 2 = 210.
         </p>
         <p>
           Sehingga dengan basis induksi dan langkah induksi, kita membuktikan bahwa S<sub>n</sub> = n(n + 1) / 2 untuk setiap n bilangan bulat positif, termasuk untuk n = 20.

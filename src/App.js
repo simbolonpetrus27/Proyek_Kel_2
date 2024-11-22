@@ -4,6 +4,7 @@ import Header from './components/Header'; // Komponen Header dengan avatar dan n
 import Home from './components/Home';
 import Register from './Register';
 import Login from './Login';
+import FormDiskusi from './components/FormDiskusi';
 import Logout from './components/Logout';
 import Matrix from './components/Matrix';
 import MateriMatrix from './components/MateriMatrix';
@@ -52,6 +53,7 @@ function App() {
             <Link to="/">Home</Link>
             {!isAuthenticated && <Link to="/register">Register</Link>}
             {!isAuthenticated && <Link to="/login">Login</Link>}
+            {!isAuthenticated && <Link to="/FormDiskusi">Diskusi</Link>}
             {isAuthenticated && (
               <div className="logout-container">
                 <button onClick={handleLogout} className="logout-button">
@@ -73,6 +75,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/formdiskusi" element={<FormDiskusi />} />
+
 
           {/* Logout */}
           <Route path="/logout" element={<Logout username={username} />} />

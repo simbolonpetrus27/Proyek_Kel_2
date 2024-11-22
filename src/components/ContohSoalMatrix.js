@@ -43,16 +43,16 @@ function ContohSoalMatrix() {
           <strong>B = </strong>
           <em>[ 5  6;  7  8 ]</em>
           <br />
-          Hitunglah A × B!
+          Hitunglah A x B!
         </p>
 
         <h4>Pembahasan:</h4>
         <p>
-          Perkalian Matriks A × B dilakukan dengan mengalikan baris matriks A dengan kolom matriks B:
+          Perkalian Matriks A x B dilakukan dengan mengalikan baris matriks A dengan kolom matriks B:
           <br />
-          <em>A × B = [(1×5 + 2×7)  (1×6 + 2×8);  (3×5 + 4×7)  (3×6 + 4×8)]</em>
+          <em>A x B = [(1 x 5 + 2 x 7)  (1 x 6 + 2 x 8);  (3 x 5 + 4 x 7)  (3 x 6 + 4 x 8)]</em>
           <br />
-          <em>A × B = [ 19  22;  43  50 ]</em>
+          <em>A x B = [ 19  22;  43  50 ]</em>
         </p>
       </section>
 
@@ -90,13 +90,13 @@ function ContohSoalMatrix() {
         <p>
           Determinan matriks 2x2 dapat dihitung dengan rumus:
           <br />
-          <em>det(A) = (a × d) - (b × c)</em>
+          <em>det(A) = (a x d) - (b x c)</em>
           <br />
           Diketahui matriks A = [a b; c d] = [3 4; 5 6],
           <br />
           Maka:
           <br />
-          <em>det(A) = (3 × 6) - (4 × 5) = 18 - 20 = -2</em>
+          <em>det(A) = (3 x 6) - (4 x 5) = 18 - 20 = -2</em>
         </p>
       </section>
 
@@ -115,17 +115,17 @@ function ContohSoalMatrix() {
         <p>
           Matriks A adalah matriks 2x2, sehingga inversnya dapat dihitung dengan rumus:
           <br />
-          <em>A⁻¹ = (1/det(A)) × [d  -b; -c  a]</em>
+          <em>A⁻¹ = (1/det(A)) x [d  -b; -c  a]</em>
           <br />
           Diketahui matriks A = [4 7; 2 6], maka:
           <br />
           Determinan A adalah:
           <br />
-          <em>det(A) = (4 × 6) - (7 × 2) = 24 - 14 = 10</em>
+          <em>det(A) = (4 x 6) - (7 x 2) = 24 - 14 = 10</em>
           <br />
           Invers A:
           <br />
-          <em>A⁻¹ = (1/10) × [6  -7; -2  4] = [0.6  -0.7; -0.2  0.4]</em>
+          <em>A⁻¹ = (1/10) x [6  -7; -2  4] = [0.6  -0.7; -0.2  0.4]</em>
         </p>
       </section>
     </div>
