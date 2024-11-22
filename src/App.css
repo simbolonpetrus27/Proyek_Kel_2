@@ -63,11 +63,6 @@ nav a:hover {
   transform: translateY(-3px);
 }
 
-nav span {
-  margin-left: 20px;
-  font-weight: bold;
-}
-
 nav button {
   background-color: white;
   color: #925d12;
@@ -91,15 +86,46 @@ nav button:hover {
 }
 
 .navbar-logo img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  width: 60px; /* Ukuran logo lebih besar */
+  height: 60px;
+  border-radius: 50%; /* Membuat logo bulat */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-logo img:hover {
   transform: rotate(360deg); /* Rotasi logo saat hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout Button Styling */
+.logout-button {
+  background-color: #fff;
+  color: #925d12;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #906223; /* Light pink */
+  transform: translateY(-2px);
+}
+
+/* Styling for Logout Container */
+.logout-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logout-container button {
+  padding: 8px 15px;
+  border-radius: 50%;
 }
 
 /* Main Content Styling */
@@ -176,15 +202,32 @@ footer {
   font-size: 16px;
 }
 
-/* Animation for header */
-@keyframes slideIn {
-  from {
+/* Notification Styling */
+.notification-card {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background-color: #5a2d08;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  animation: fadeInOut 3s;
+}
+
+@keyframes fadeInOut {
+  0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateY(20px);
   }
-  to {
+  10%, 90% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
   }
 }
 

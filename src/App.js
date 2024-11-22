@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Header from './components/Header'; // Komponen Header dengan avatar dan notifikasi
 import Home from './components/Home';
 import Register from './Register';
 import Login from './Login';
-import Logout from './components/Logout'; // Import komponen Logout
+import Logout from './components/Logout';
 import Matrix from './components/Matrix';
 import MateriMatrix from './components/MateriMatrix';
 import ContohSoalMatrix from './components/ContohSoalMatrix';
@@ -20,11 +21,11 @@ import MateriIntegral from './components/MateriIntegral';
 import ContohSoalIntegral from './components/ContohSoalIntegral';
 import PembahasanIntegral from './components/PembahasanIntegral';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
+  const [showNotification, setShowNotification] = useState(false);
 
   // Fungsi login
   const handleLogin = (username) => {
@@ -36,24 +37,33 @@ function App() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUsername('');
+    setShowNotification(true); // Tampilkan notifikasi
+    setTimeout(() => setShowNotification(false), 3000); // Sembunyikan setelah 3 detik
   };
 
   return (
     <Router>
       <div className="App">
+        {/* Header */}
+        <Header userName={isAuthenticated ? username : 'Guest'} onLogout={handleLogout} />
+
         <header>
-          <h1>MILI - Kelas 11 Matematika</h1>
           <nav>
             <Link to="/">Home</Link>
             {!isAuthenticated && <Link to="/register">Register</Link>}
             {!isAuthenticated && <Link to="/login">Login</Link>}
             {isAuthenticated && (
-              <>
-                <span>Welcome, {username}</span>
+              <div className="logout-container">
                 <button onClick={handleLogout} className="logout-button">
-                  <Link to="/logout">Logout</Link>
+                  Logout
                 </button>
-              </>
+                {/* Notifikasi Logout */}
+                {showNotification && (
+                  <div className="notification-card">
+                    <p>Goodbye, {username}!</p>
+                  </div>
+                )}
+              </div>
             )}
           </nav>
         </header>
@@ -65,10 +75,7 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
 
           {/* Logout */}
-          <Route
-            path="/logout"
-            element={<Logout username={username} />}
-          />
+          <Route path="/logout" element={<Logout username={username} />} />
 
           {/* Matrix */}
           <Route path="/matrix" element={isAuthenticated ? <Matrix /> : <Login onLogin={handleLogin} />} />
@@ -93,6 +100,7 @@ function App() {
           <Route path="/integral/contoh-soal" element={isAuthenticated ? <ContohSoalIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/pembahasan" element={isAuthenticated ? <PembahasanIntegral /> : <Login onLogin={handleLogin} />} />
         </Routes>
+
       </div>
     </Router>
   );
