@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from './bg2.jpg';
 
 function Home({ userName }) {
   const navigate = useNavigate();
+  const [hoveredBox, setHoveredBox] = useState(null);
 
   const handleBoxClick = (path) => {
     navigate(path);
+  };
+
+  const handleMouseEnter = (box) => {
+    setHoveredBox(box);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredBox(null);
   };
 
   return (
@@ -18,21 +27,25 @@ function Home({ userName }) {
         backgroundPosition: 'center',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         color: 'white',
         textAlign: 'center',
-        padding: '20px',
+        padding: '0',
+        margin: '0',
       }}
     >
-      <div style={{ display: 'flex', width: '100%', maxWidth: '1200px' }}>
-        {/* Bagian Kiri untuk Sambutan */}
-        <div style={{ flex: 1, padding: '20px' }}>
+      <div style={{ display: 'flex', width: '100%', maxWidth: '1200px', height: '100%' }}>
+        <div style={{ flex: 2, padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '100px' }}>
           <h2
             style={{
               fontSize: '3rem',
               fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
               fontFamily: 'Quicksand',
+              margin: '0',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
             }}
           >
             Selamat Datang {userName}!
@@ -50,41 +63,44 @@ function Home({ userName }) {
           </p>
         </div>
 
-        {/* Bagian Kanan untuk Materi */}
         <div
           style={{
-            flex: 1,
             display: 'flex',
-            gap: '20px',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '20px',
+            flexDirection: 'row',
+            width: '100%',
+            height: '100%',
+            padding: '0',
+            margin: '0',
+            justifyContent: 'flex-end',
+            boxSizing: 'border-box',
           }}
         >
-          <div onClick={() => handleBoxClick('/matrix')} style={boxStyle}>
-            Matriks
-          </div>
-          <div onClick={() => handleBoxClick('/linear')} style={boxStyle}>
-            Linear
-          </div>
-          <div onClick={() => handleBoxClick('/induksi-matematika')} style={boxStyle}>
-            Induksi Matematika
-          </div>
-          <div onClick={() => handleBoxClick('/integral')} style={boxStyle}>
-            Integral
-          </div>
+          {['Matriks', 'Induksi Matematika', 'Linear', 'Integral'].map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleBoxClick(item === 'Matriks' ? '/matrix' : `/${item.toLowerCase().replace(' ', '-')}`)}
+              onMouseEnter={() => handleMouseEnter(item)}
+              onMouseLeave={handleMouseLeave}
+              style={{ ...fullHeightBoxStyle, ...(hoveredBox === item ? hoverStyle : {}) }}
+            >
+              {item.charAt(0)}
+              {hoveredBox === item && (
+                <div style={descriptionStyle}>
+                  {item} - Penjelasan tentang {item.toLowerCase()}.
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-const boxStyle = {
-  width: '180px',
-  height: '180px',
+const fullHeightBoxStyle = {
+  width: '100px',
   backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  borderRadius: '15px',
+  borderRadius: '0',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -95,6 +111,27 @@ const boxStyle = {
   cursor: 'pointer',
   boxShadow: '0 6px 15px rgba(0, 0, 0, 0.4)',
   transition: 'transform 0.3s, background-color 0.3s',
+  height: '100%',
+  position: 'relative', // To position the description text
+};
+
+// Define hover style
+const hoverStyle = {
+  transform: 'translateY(-10px)', // Move the box up on hover
+  backgroundColor: 'rgba(255, 255, 255, 1)', // Optional: Change background color on hover
+};
+
+const descriptionStyle = {
+  position: 'absolute',
+  bottom: '-30px', // Position below the box
+  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  borderRadius: '5px',
+  padding: '5px',
+  fontSize: '0.9rem',
+  color: '#333',
+  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+  transition: 'opacity 0.3s',
+  opacity: 1,
 };
 
 export default Home;
