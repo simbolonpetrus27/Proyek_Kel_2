@@ -49,6 +49,8 @@ const InduksiMatematika = () => {
           { text: 'Materi', path: '/induksi-matematika/materi' },
           { text: 'Contoh Soal', path: '/induksi-matematika/contoh-soal' },
           { text: 'Pembahasan', path: '/induksi-matematika/latihan-soal' },
+          { text: 'Quiz', path: '/induksi-matematika/quiz' },
+
         ].map((item, index) => (
           <React.Fragment key={index}>
             <section

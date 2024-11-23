@@ -49,6 +49,7 @@ const Integral = () => {
           { text: 'Materi', path: '/integral/materi' },
           { text: 'Soal', path: '/integral/contoh-soal' },
           { text: 'Pembahasan', path: '/integral/pembahasan' },
+          { text: 'Quiz', path: '/integral/quiz' },
         ].map((item, index) => (
           <React.Fragment key={index}>
             <section

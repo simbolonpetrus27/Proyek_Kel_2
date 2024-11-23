@@ -49,6 +49,8 @@ const Linear = () => {
           { text: 'Materi', path: '/linear/materi' },
           { text: 'Soal', path: '/linear/contoh-soal' },
           { text: 'Pembahasan', path: '/linear/pembahasan' },
+          { text: 'Quiz', path: '/linear/quiz' },
+
         ].map((item, index) => (
           <React.Fragment key={index}>
             <section

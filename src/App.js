@@ -21,6 +21,7 @@ import Integral from './components/Integral';
 import MateriIntegral from './components/MateriIntegral';
 import ContohSoalIntegral from './components/ContohSoalIntegral';
 import PembahasanIntegral from './components/PembahasanIntegral';
+import Quiz from './components/Quiz';
 import './App.css';
 
 function App() {
@@ -86,23 +87,31 @@ function App() {
           <Route path="/matrix/materi" element={isAuthenticated ? <MateriMatrix /> : <Login onLogin={handleLogin} />} />
           <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoalMatrix /> : <Login onLogin={handleLogin} />} />
           <Route path="/matrix/pembahasan" element={isAuthenticated ? <PembahasanMatrix /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matrix/quiz" element={isAuthenticated ? <Quiz topic="Matrix" /> : <Login onLogin={handleLogin} />} />
+
 
           {/* Induksi Matematika */}
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Login onLogin={handleLogin} />} />
           <Route path="/induksi-matematika/materi" element={isAuthenticated ? <MateriInduksiMatematika /> : <Login onLogin={handleLogin} />} />
           <Route path="/induksi-matematika/contoh-soal" element={isAuthenticated ? <ContohSoalInduksiMatematika /> : <Login onLogin={handleLogin} />} />
+          <Route path="/induksi-matematika/quiz" element={isAuthenticated ? <Quiz topic="InduksiMatematika" /> : <Login onLogin={handleLogin} />} />
+
 
           {/* Linear */}
           <Route path="/linear" element={isAuthenticated ? <Linear /> : <Login onLogin={handleLogin} />} />
           <Route path="/linear/materi" element={isAuthenticated ? <MateriLinear /> : <Login onLogin={handleLogin} />} />
           <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoalLinear /> : <Login onLogin={handleLogin} />} />
           <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/linear/quiz" element={isAuthenticated ? <Quiz topic="Linear" /> : <Login onLogin={handleLogin} />} />
+          
 
           {/* Integral */}
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/materi" element={isAuthenticated ? <MateriIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/contoh-soal" element={isAuthenticated ? <ContohSoalIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/pembahasan" element={isAuthenticated ? <PembahasanIntegral /> : <Login onLogin={handleLogin} />} />
+          <Route path="/integral/quiz" element={isAuthenticated ? <Quiz topic="Integral" /> : <Login onLogin={handleLogin} />} />
+
         </Routes>
 
       </div>
