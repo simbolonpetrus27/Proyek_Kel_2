@@ -25,7 +25,6 @@ function Home({ userName }) {
       }}
     >
       <div style={{ display: 'flex', width: '100%', maxWidth: '1200px' }}>
-        {/* Bagian Kiri untuk Sambutan */}
         <div style={{ flex: 1, padding: '20px' }}>
           <h2
             style={{
@@ -49,8 +48,7 @@ function Home({ userName }) {
             Matriks - Induksi Matematika - Linear - Integral
           </p>
         </div>
-
-        {/* Bagian Kanan untuk Materi */}
+        
         <div
           style={{
             flex: 1,
