@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from './bg2.jpg';
 
 function Home({ userName }) {
   const navigate = useNavigate();
+  const [hoveredBox, setHoveredBox] = useState(null);
 
   const handleBoxClick = (path) => {
     navigate(path);
+  };
+
+  const handleMouseEnter = (box) => {
+    setHoveredBox(box);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredBox(null);
   };
 
   return (
@@ -18,11 +27,11 @@ function Home({ userName }) {
         backgroundPosition: 'center',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'flex-start', // Align items at the start (top)
+        alignItems: 'flex-start',
         color: 'white',
         textAlign: 'center',
-        padding: '0', // Remove padding from the outer container
-        margin: '0', // Remove margin from the outer container
+        padding: '0',
+        margin: '0',
       }}
     >
       <div style={{ display: 'flex', width: '100%', maxWidth: '1200px', height: '100%' }}>
@@ -33,10 +42,10 @@ function Home({ userName }) {
               fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
               fontFamily: 'Quicksand',
-              margin: '0', // Remove default margin
-              whiteSpace: 'nowrap', // Prevent wrapping
-              overflow: 'hidden', // Hide overflow
-              textOverflow: 'ellipsis', // Add ellipsis if text overflows
+              margin: '0',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
             }}
           >
             Selamat Datang {userName}!
@@ -57,27 +66,31 @@ function Home({ userName }) {
         <div
           style={{
             display: 'flex',
-            flexDirection: 'row', // Arrange boxes in a row
-            width: '100%', // Full width of the container
-            height: '100%', // Full height of the container
-            padding: '0', // Remove all padding
-            margin: '0', // Remove any margin
-            justifyContent: 'flex-end', // Align boxes to the right
-            boxSizing: 'border-box', // Include padding and border in element's total width and height
+            flexDirection: 'row',
+            width: '100%',
+            height: '100%',
+            padding: '0',
+            margin: '0',
+            justifyContent: 'flex-end',
+            boxSizing: 'border-box',
           }}
         >
-          <div onClick={() => handleBoxClick('/matrix')} style={fullHeightBoxStyle}>
-            M
-          </div>
-          <div onClick={() => handleBoxClick('/induksi-matematika')} style={fullHeightBoxStyle}>
-            I
-          </div>
-          <div onClick={() => handleBoxClick('/linear')} style={fullHeightBoxStyle}>
-            L
-          </div>
-          <div onClick={() => handleBoxClick('/integral')} style={fullHeightBoxStyle}>
-            I
-          </div>
+          {['Matriks', 'Induksi Matematika', 'Linear', 'Integral'].map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleBoxClick(item === 'Matriks' ? '/matrix' : `/${item.toLowerCase().replace(' ', '-')}`)}
+              onMouseEnter={() => handleMouseEnter(item)}
+              onMouseLeave={handleMouseLeave}
+              style={{ ...fullHeightBoxStyle, ...(hoveredBox === item ? hoverStyle : {}) }}
+            >
+              {item.charAt(0)}
+              {hoveredBox === item && (
+                <div style={descriptionStyle}>
+                  {item} - Penjelasan tentang {item.toLowerCase()}.
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -85,9 +98,9 @@ function Home({ userName }) {
 }
 
 const fullHeightBoxStyle = {
-  width: '100px', // Set a larger fixed width for the boxes
+  width: '100px',
   backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  borderRadius: '0', // Set borderRadius to 0 for sharp corners
+  borderRadius: '0',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -98,7 +111,27 @@ const fullHeightBoxStyle = {
   cursor: 'pointer',
   boxShadow: '0 6px 15px rgba(0, 0, 0, 0.4)',
   transition: 'transform 0.3s, background-color 0.3s',
-  height: '100%', // Full height of the parent container
+  height: '100%',
+  position: 'relative', // To position the description text
+};
+
+// Define hover style
+const hoverStyle = {
+  transform: 'translateY(-10px)', // Move the box up on hover
+  backgroundColor: 'rgba(255, 255, 255, 1)', // Optional: Change background color on hover
+};
+
+const descriptionStyle = {
+  position: 'absolute',
+  bottom: '-30px', // Position below the box
+  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  borderRadius: '5px',
+  padding: '5px',
+  fontSize: '0.9rem',
+  color: '#333',
+  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+  transition: 'opacity 0.3s',
+  opacity: 1,
 };
 
 export default Home;
