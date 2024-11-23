@@ -18,20 +18,25 @@ function Home({ userName }) {
         backgroundPosition: 'center',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start', // Align items at the start (top)
         color: 'white',
         textAlign: 'center',
-        padding: '20px',
+        padding: '0', // Remove padding from the outer container
+        margin: '0', // Remove margin from the outer container
       }}
     >
-      <div style={{ display: 'flex', width: '100%', maxWidth: '1200px' }}>
-        <div style={{ flex: 1, padding: '20px' }}>
+      <div style={{ display: 'flex', width: '100%', maxWidth: '1200px', height: '100%' }}>
+        <div style={{ flex: 2, padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '100px' }}>
           <h2
             style={{
               fontSize: '3rem',
               fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
               fontFamily: 'Quicksand',
+              margin: '0', // Remove default margin
+              whiteSpace: 'nowrap', // Prevent wrapping
+              overflow: 'hidden', // Hide overflow
+              textOverflow: 'ellipsis', // Add ellipsis if text overflows
             }}
           >
             Selamat Datang {userName}!
@@ -48,29 +53,30 @@ function Home({ userName }) {
             Matriks - Induksi Matematika - Linear - Integral
           </p>
         </div>
-        
+
         <div
           style={{
-            flex: 1,
             display: 'flex',
-            gap: '20px',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '20px',
+            flexDirection: 'row', // Arrange boxes in a row
+            width: '100%', // Full width of the container
+            height: '100%', // Full height of the container
+            padding: '0', // Remove all padding
+            margin: '0', // Remove any margin
+            justifyContent: 'flex-end', // Align boxes to the right
+            boxSizing: 'border-box', // Include padding and border in element's total width and height
           }}
         >
-          <div onClick={() => handleBoxClick('/matrix')} style={boxStyle}>
-            Matriks
+          <div onClick={() => handleBoxClick('/matrix')} style={fullHeightBoxStyle}>
+            M
           </div>
-          <div onClick={() => handleBoxClick('/linear')} style={boxStyle}>
-            Linear
+          <div onClick={() => handleBoxClick('/induksi-matematika')} style={fullHeightBoxStyle}>
+            I
           </div>
-          <div onClick={() => handleBoxClick('/induksi-matematika')} style={boxStyle}>
-            Induksi Matematika
+          <div onClick={() => handleBoxClick('/linear')} style={fullHeightBoxStyle}>
+            L
           </div>
-          <div onClick={() => handleBoxClick('/integral')} style={boxStyle}>
-            Integral
+          <div onClick={() => handleBoxClick('/integral')} style={fullHeightBoxStyle}>
+            I
           </div>
         </div>
       </div>
@@ -78,11 +84,10 @@ function Home({ userName }) {
   );
 }
 
-const boxStyle = {
-  width: '180px',
-  height: '180px',
+const fullHeightBoxStyle = {
+  width: '100px', // Set a larger fixed width for the boxes
   backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  borderRadius: '15px',
+  borderRadius: '0', // Set borderRadius to 0 for sharp corners
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -93,6 +98,7 @@ const boxStyle = {
   cursor: 'pointer',
   boxShadow: '0 6px 15px rgba(0, 0, 0, 0.4)',
   transition: 'transform 0.3s, background-color 0.3s',
+  height: '100%', // Full height of the parent container
 };
 
 export default Home;
