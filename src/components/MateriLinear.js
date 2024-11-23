@@ -1,5 +1,6 @@
 import React from 'react';
 import './MateriLinear.css';
+import SL1 from './src/components/SL1.png';
 
 function MateriLinear() {
   return (
@@ -7,7 +8,7 @@ function MateriLinear() {
       <section className="materi">
         <h2>Materi Linear</h2>
         <p>
-          <strong>Linear</strong> adalah adalah istilah yang digunakan untuk menggambarkan suatu hubungan atau pola yang dapat diwakili oleh garis lurus.
+          <strong>Linear</strong> adalah istilah yang digunakan untuk menggambarkan suatu hubungan atau pola yang dapat diwakili oleh garis lurus.
         </p>
       </section>
 
@@ -43,9 +44,23 @@ function MateriLinear() {
                Pertidaksamaan linear dua variabel adalah bentuk pertidaksaaman yang memuat dua variabel dengan pangkat tertinggi variabel tersebut adalah satu dan dapat dihubungkan dengan tanda.
         </p>
 
-        <h4>5. Invers Matriks</h4>
-        <p>Invers dari matriks persegi <em>A</em> didefinisikan sebagai matriks <em>A⁻¹</em> yang memenuhi <em>A × A⁻¹ = I</em>.</p>
-      </section>
+        <h3>Jenis-Jenis Metode Penyelesaian Persamaan dan Pertidaksamaan Linear</h3>
+        <h4>A. Metode Substitusi</h4>
+        <p>
+               Metode substitusi adalah metode yang dilakukan dengan cara mengganti atau menukarkan posisi suatu variabel, koefisien, konstanta dan suku. 
+               Contoh:
+
+               <br />
+               2x + 3y = 5
+               <br />
+               2x + 4y = 6
+               <br />
+
+               Jawab:
+
+              
+        </p>       
+        </section>
 
       <section className="manfaat-matriks">
         <h3>Manfaat Matriks</h3>
