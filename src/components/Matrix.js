@@ -50,7 +50,7 @@ const Matrix = () => {
           { text: 'Materi', path: '/matrix/materi' },
           { text: 'Soal', path: '/matrix/contoh-soal' },
           { text: 'Pembahasan', path: '/matrix/pembahasan' },
-          { text: 'Quiz', path: '/matrix/quiz' },
+          { text: 'Mini Quiz', path: '/matrix/miniquiz' },
           
         ].map((item, index) => (
           <React.Fragment key={index}>

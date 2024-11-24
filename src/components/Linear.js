@@ -49,7 +49,7 @@ const Linear = () => {
           { text: 'Materi', path: '/linear/materi' },
           { text: 'Soal', path: '/linear/contoh-soal' },
           { text: 'Pembahasan', path: '/linear/pembahasan' },
-          { text: 'Quiz', path: '/linear/quiz' },
+          { text: 'Mini Quiz', path: '/linear/miniquiz' },
 
         ].map((item, index) => (
           <React.Fragment key={index}>

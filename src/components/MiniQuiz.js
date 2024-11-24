@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Quiz({ topic }) {
+function MiniQuiz({ topic }) {
 const [answers, setAnswers] = useState([]);
 const [isFinished, setIsFinished]= useState(false); 
 const [essayAnswers, setEssayAnswers] = useState([]); 
@@ -132,4 +132,4 @@ return (
 );
 }
 
-export default Quiz;
+export default MiniQuiz;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './MateriLinear.css';
-import SL1 from './src/components/SL1.png';
+
 
 function MateriLinear() {
   return (
