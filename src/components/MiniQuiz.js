@@ -6,29 +6,95 @@ const [isFinished, setIsFinished]= useState(false);
 const [essayAnswers, setEssayAnswers] = useState([]); 
 const [score, setScore] = useState(0);
 
-const questions = [
+const questionBank = {
+  'Matrix': [
   {
-    type: "multiple-choice", // Jenis soal pilihan ganda
-    question: "Apa itu Matrix?",
-    options: ["A", "B", "C", "D"],
+    type: "multiple-choice",   //PILIHAN GANDA
+    question: "1) 1+ 1 = ?",
+    options: [
+      { value: "A", label: "2" },
+      { value: "B", label: "3" },
+      { value: "C", label: "4" },
+      { value: "D", label: "5" },
+      { value: "E", label: "6" },
+    ],
     answer: "A",
-    explanation: "Matrix adalah sekumpulan bilangan yang disusun dalam bentuk baris dan kolom."
+    explanation: "2"
   },
   {
-    type: "multiple-choice", // Jenis soal pilihan ganda
-    question: "Apa itu Induksi Matematika?",
-    options: ["A", "B", "C", "D"],
-    answer: "B",
-    explanation: "Induksi matematika adalah metode pembuktian untuk membuktikan suatu proposisi matematika."
-  },
-  {
-    type: "essay", // Jenis soal essay
-    question: "Jelaskan konsep Integral secara singkat!",
-    answer: "Integral adalah operasi matematika yang digunakan untuk menghitung luas di bawah kurva.",
-    explanation: "Integral adalah konsep dasar dalam kalkulus yang digunakan untuk menghitung luas atau volume dari suatu objek matematis."
-  },
+    type: "essay", //ESSAY
+    question: "2) 1 + 1 = ?",
+    answer: "2",
+    explanation: "2" 
+  }
+  ],
 
-];
+  'Induksi Matematika': [
+    {
+      type: "multiple-choice",   //PILIHAN GANDA
+      question: "1) 1+ 1 = ?",
+      options: [
+        { value: "A", label: "2" },
+        { value: "B", label: "3" },
+        { value: "C", label: "4" },
+        { value: "D", label: "5" },
+        { value: "E", label: "6" },
+      ],
+      answer: "A",
+      explanation: "2"
+    },
+    {
+      type: "essay", //ESSAY
+      question: "2) 1 + 1 = ?",
+      answer: "2",
+      explanation: "2" 
+    }
+    ],
+
+    'Linear': [
+      {
+        type: "multiple-choice",   //PILIHAN GANDA
+        question: "1) 1+ 1 = ?",
+        options: [
+          { value: "A", label: "2" },
+          { value: "B", label: "3" },
+          { value: "C", label: "4" },
+          { value: "D", label: "5" },
+          { value: "E", label: "6" },
+        ],
+        answer: "A",
+        explanation: "2"
+      },
+      {
+        type: "essay", //ESSAY
+        question: "2) 1 + 1 = ?",
+        answer: "2",
+        explanation: "2" 
+      }
+      ],
+
+      'Integral': [
+        {
+          type: "multiple-choice",   //PILIHAN GANDA
+          question: "1) 1+ 1 = ?",
+          options: [
+            { value: "A", label: "2" },
+            { value: "B", label: "3" },
+            { value: "C", label: "4" },
+            { value: "D", label: "5" },
+            { value: "E", label: "6" },
+          ],
+          answer: "A",
+          explanation: "2"
+        },
+        {
+          type: "essay", //ESSAY
+          question: "2) 1 + 1 = ?",
+          answer: "2",
+          explanation: "2" 
+        }
+        ],
+      }
 
 const handleAnswerChange = (questionIndex, answer) => {
   const newAnswers = [...answers];
