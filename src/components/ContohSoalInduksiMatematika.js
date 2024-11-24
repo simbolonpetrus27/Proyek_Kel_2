@@ -1,13 +1,39 @@
 import React from 'react';
-import './ContohSoalInduksiMatematika.css'; // Pastikan untuk membuat file CSS ini jika diperlukan
 
 function ContohSoalInduksiMatematika() {
+  const styles = {
+    container: {
+      padding: '20px',
+    },
+    box: {
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+      padding: '15px',
+      marginBottom: '20px',
+      transition: 'background-color 0.3s',
+      textAlign: 'left', // Mengatur teks agar rata kiri
+    },
+    boxHover: {
+      backgroundColor: '#f0f0f0',
+    },
+    soal1: {
+      backgroundColor: '#e7f3fe', // Warna latar belakang untuk Soal 1
+    },
+    soal2: {
+      backgroundColor: '#fce7f3', // Warna latar belakang untuk Soal 2
+    },
+  };
+
   return (
-    <div className="container">
+    <div style={styles.container}>
       <h2>Contoh Soal Induksi Matematika</h2>
 
       {/* Box Soal 1 */}
-      <div className="box soal1">
+      <div
+        style={{ ...styles.box, ...styles.soal1 }}
+        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.boxHover.backgroundColor)}
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.soal1.backgroundColor)}
+      >
         <h3>Soal 1</h3>
         <p>
           Buktikan dengan menggunakan metode induksi matematika bahwa S<sub>n</sub> = n(n + 1) / 2 untuk setiap n bilangan bulat positif, di mana S<sub>n</sub> adalah jumlah dari n bilangan pertama.
@@ -54,7 +80,11 @@ function ContohSoalInduksiMatematika() {
       </div>
 
       {/* Box Soal 2 */}
-      <div className="box soal2">
+      <div
+        style={{ ...styles.box, ...styles.soal2 }}
+        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.boxHover.backgroundColor)}
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.soal2.backgroundColor)}
+      >
         <h3>Soal 2</h3>
         <p>
           Buktikan dengan induksi matematika bahwa 3<sup>n</sup> - 1 habis dibagi 2 untuk setiap n bilangan bulat positif.

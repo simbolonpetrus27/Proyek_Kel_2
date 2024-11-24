@@ -11,7 +11,6 @@ import MateriMatrix from './components/MateriMatrix';
 import ContohSoalMatrix from './components/ContohSoalMatrix';
 import PembahasanMatrix from './components/PembahasanMatrix';
 import InduksiMatematika from './components/InduksiMatematika';
-import MateriInduksiMatematika from './components/MateriInduksiMatematika';
 import ContohSoalInduksiMatematika from './components/ContohSoalInduksiMatematika';
 import Linear from './components/Linear';
 import MateriLinear from './components/MateriLinear';
@@ -92,7 +91,6 @@ function App() {
 
           {/* Induksi Matematika */}
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Login onLogin={handleLogin} />} />
-          <Route path="/induksi-matematika/materi" element={isAuthenticated ? <MateriInduksiMatematika /> : <Login onLogin={handleLogin} />} />
           <Route path="/induksi-matematika/contoh-soal" element={isAuthenticated ? <ContohSoalInduksiMatematika /> : <Login onLogin={handleLogin} />} />
           <Route path="/induksi-matematika/miniquiz" element={isAuthenticated ? <MiniQuiz topic="InduksiMatematika" /> : <Login onLogin={handleLogin} />} />
 
