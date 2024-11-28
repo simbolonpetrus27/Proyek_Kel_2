@@ -21,6 +21,12 @@ import MateriIntegral from './components/MateriIntegral';
 import ContohSoalIntegral from './components/ContohSoalIntegral';
 import PembahasanIntegral from './components/PembahasanIntegral';
 import MiniQuiz from './components/MiniQuiz';
+
+// Import halaman Turunan
+import MateriTurunan from './components/MateriTurunan';
+import PembahasanTurunan from './components/PembahasanTurunan';
+import ContohSoalTurunan from './components/ContohSoalTurunan';
+
 import './App.css';
 
 function App() {
@@ -77,9 +83,13 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/formdiskusi" element={<FormDiskusi />} />
 
-
           {/* Logout */}
           <Route path="/logout" element={<Logout username={username} />} />
+
+          {/* Turunan */}
+          <Route path="/turunan/materi" element={isAuthenticated ? <MateriTurunan /> : <Login onLogin={handleLogin} />} />
+          <Route path="/turunan/pembahasan" element={isAuthenticated ? <PembahasanTurunan /> : <Login onLogin={handleLogin} />} />
+          <Route path="/turunan/contoh-soal" element={isAuthenticated ? <ContohSoalTurunan /> : <Login onLogin={handleLogin} />} />
 
           {/* Matrix */}
           <Route path="/matrix" element={isAuthenticated ? <Matrix /> : <Login onLogin={handleLogin} />} />
@@ -88,12 +98,10 @@ function App() {
           <Route path="/matrix/pembahasan" element={isAuthenticated ? <PembahasanMatrix /> : <Login onLogin={handleLogin} />} />
           <Route path="/matrix/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Matrix" /> : <Login onLogin={handleLogin} />} />
 
-
           {/* Induksi Matematika */}
           <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Login onLogin={handleLogin} />} />
           <Route path="/induksi-matematika/contoh-soal" element={isAuthenticated ? <ContohSoalInduksiMatematika /> : <Login onLogin={handleLogin} />} />
           <Route path="/induksi-matematika/miniquiz" element={isAuthenticated ? <MiniQuiz topic="InduksiMatematika" /> : <Login onLogin={handleLogin} />} />
-
 
           {/* Linear */}
           <Route path="/linear" element={isAuthenticated ? <Linear /> : <Login onLogin={handleLogin} />} />
@@ -101,7 +109,6 @@ function App() {
           <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoalLinear /> : <Login onLogin={handleLogin} />} />
           <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Login onLogin={handleLogin} />} />
           <Route path="/linear/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Linear" /> : <Login onLogin={handleLogin} />} />
-          
 
           {/* Integral */}
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Login onLogin={handleLogin} />} />
@@ -109,9 +116,7 @@ function App() {
           <Route path="/integral/contoh-soal" element={isAuthenticated ? <ContohSoalIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/pembahasan" element={isAuthenticated ? <PembahasanIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Integral" /> : <Login onLogin={handleLogin} />} />
-
         </Routes>
-
       </div>
     </Router>
   );

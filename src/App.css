@@ -7,28 +7,29 @@ body, h1, h2, h3, h4, p, ul, li, a {
 
 /* General Styling */
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  background-color: #f7f7f7;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f4f1eb, #d9c9a0); /* Background coklat muda */
+  color: #3e2b2b; /* Warna teks coklat tua */
   min-height: 100vh;
-  overflow-x: hidden; /* Menghindari scroll horizontal */
+  overflow-x: hidden;
 }
 
 /* Full Screen Container */
 html, body, #root, .App {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header Styling */
 header {
-  background-color: #633a0e; /* Pink theme */
+  background: linear-gradient(45deg, #8e6e4e, #a57e55); /* Coklat gelap */
   color: white;
-  padding: 20px 30px;
+  padding: 15px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -36,96 +37,81 @@ header {
 }
 
 header h1 {
-  font-size: 26px;
-  margin: 0;
-  letter-spacing: 1px;
+  font-size: 28px;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 /* Navbar Styling */
 nav {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 5px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover {
-  color: #fffacd; /* Lemon chiffon */
-  transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
 nav button {
   background-color: white;
-  color: #925d12;
+  color: #8e6e4e;
   border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav button:hover {
-  background-color: #906223; /* Light pink */
-  transform: translateY(-2px);
+  background-color: #a57e55;
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Logo Styling */
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
 .navbar-logo img {
-  width: 60px; /* Ukuran logo lebih besar */
+  width: 60px;
   height: 60px;
-  border-radius: 50%; /* Membuat logo bulat */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .navbar-logo img:hover {
-  transform: rotate(360deg); /* Rotasi logo saat hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: rotate(360deg) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Logout Button Styling */
 .logout-button {
-  background-color: #fff;
-  color: #925d12;
-  padding: 8px 15px;
+  background-color: white;
+  color: #8e6e4e;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 25px;
   font-size: 16px;
   font-weight: bold;
-  margin-right: 10px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .logout-button:hover {
-  background-color: #906223; /* Light pink */
-  transform: translateY(-2px);
-}
-
-/* Styling for Logout Container */
-.logout-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logout-container button {
-  padding: 8px 15px;
-  border-radius: 50%;
+  background-color: #a57e55;
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Main Content Styling */
@@ -135,9 +121,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 80px); /* Menyesuaikan untuk header yang lebih tinggi */
   padding: 40px;
-  background-color: #fff;
+  background: linear-gradient(to top, #ffffff, #f4f1eb); /* Background coklat muda */
+  min-height: calc(100vh - 100px);
 }
 
 /* Card Styling */
@@ -150,74 +136,78 @@ main {
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 240px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 280px;
   overflow: hidden;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 0.9;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-15px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  opacity: 1;
 }
 
 .card img {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 15px 15px 0 0;
   transition: transform 0.3s ease;
 }
 
 .card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .card h3 {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #ff69b4;
-  font-weight: bold;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #8e6e4e; /* Coklat muda */
+  font-weight: 700;
+  transition: color 0.3s ease;
 }
 
 .card p {
-  font-size: 14px;
-  color: #555;
+  font-size: 16px;
+  color: #5e4b3c; /* Coklat tua */
   margin-top: 10px;
+  padding: 0 10px;
+  transition: color 0.3s ease;
 }
 
 /* Footer Styling */
 footer {
-  background-color: #a6671f;
+  background: linear-gradient(45deg, #8e6e4e, #a57e55); /* Coklat gelap */
   color: white;
   text-align: center;
-  padding: 15px 0;
-  margin-top: auto;
+  padding: 10px 0;
   font-size: 16px;
+  letter-spacing: 1px;
+  margin-top: auto;
+  width: 100%;
 }
 
 /* Notification Styling */
 .notification-card {
   position: fixed;
-  bottom: 60px;
+  bottom: 20px;
   right: 20px;
-  background-color: #5a2d08;
-  color: #fff;
+  background-color: #8e6e4e;
+  color: white;
   padding: 15px 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   font-size: 16px;
   animation: fadeInOut 3s;
 }
 
 @keyframes fadeInOut {
-  0% {
+  0%, 100% {
     opacity: 0;
     transform: translateY(20px);
   }
@@ -225,20 +215,12 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   header {
-    padding: 15px 20px;
-  }
-
-  nav {
-    gap: 15px;
+    padding: 10px 20px;
   }
 
   nav a {
@@ -246,34 +228,24 @@ footer {
   }
 
   .cards {
-    flex-direction: column;
     gap: 20px;
   }
 
   .card {
-    width: 80%;
-    margin: 10px 0;
+    width: 90%;
   }
 }
 
 @media (max-width: 480px) {
-  header {
-    padding: 10px 15px;
-  }
-
   header h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   nav a {
     font-size: 14px;
   }
 
-  .cards {
-    gap: 15px;
-  }
-
   .card {
-    width: 90%;
+    width: 100%;
   }
 }
