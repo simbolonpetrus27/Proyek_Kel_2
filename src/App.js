@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Register from './Register';
 import Login from './Login';
 import FormDiskusi from './components/FormDiskusi';
+import BigQuiz from './components/BigQuiz';
 import Logout from './components/Logout';
 import Matrix from './components/Matrix';
 import MateriMatrix from './components/MateriMatrix';
@@ -12,17 +13,15 @@ import ContohSoalMatrix from './components/ContohSoalMatrix';
 import PembahasanMatrix from './components/PembahasanMatrix';
 import InduksiMatematika from './components/InduksiMatematika';
 import ContohSoalInduksiMatematika from './components/ContohSoalInduksiMatematika';
-import Linear from './components/Linear';
-import MateriLinear from './components/MateriLinear';
-import ContohSoalLinear from './components/ContohSoalLinear';
-import PembahasanLinear from './components/PembahasanLinear';
+import ProgramLinear from './components/ProgramLinear';
+import MateriProgramLinear from './components/MateriProgramLinear';
+import ContohSoalProgramLinear from './components/ContohSoalProgramLinear';
+import PembahasanProgramLinear from './components/PembahasanProgramLinear';
 import Integral from './components/Integral';
 import MateriIntegral from './components/MateriIntegral';
 import ContohSoalIntegral from './components/ContohSoalIntegral';
 import PembahasanIntegral from './components/PembahasanIntegral';
 import MiniQuiz from './components/MiniQuiz';
-
-// Import halaman Turunan
 import MateriTurunan from './components/MateriTurunan';
 import PembahasanTurunan from './components/PembahasanTurunan';
 import ContohSoalTurunan from './components/ContohSoalTurunan';
@@ -60,6 +59,7 @@ function App() {
             {!isAuthenticated && <Link to="/register">Register</Link>}
             {!isAuthenticated && <Link to="/login">Login</Link>}
             {!isAuthenticated && <Link to="/FormDiskusi">Diskusi</Link>}
+            {!isAuthenticated && <Link to="/BigQuiz">Big Quiz</Link>}
             {isAuthenticated && (
               <div className="logout-container">
                 <button onClick={handleLogout} className="logout-button">
@@ -82,6 +82,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/formdiskusi" element={<FormDiskusi />} />
+          <Route path="/bigquiz" element={<BigQuiz />} />
 
           {/* Logout */}
           <Route path="/logout" element={<Logout username={username} />} />
@@ -104,11 +105,11 @@ function App() {
           <Route path="/induksi-matematika/miniquiz" element={isAuthenticated ? <MiniQuiz topic="InduksiMatematika" /> : <Login onLogin={handleLogin} />} />
 
           {/* Linear */}
-          <Route path="/linear" element={isAuthenticated ? <Linear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/linear/materi" element={isAuthenticated ? <MateriLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/linear/contoh-soal" element={isAuthenticated ? <ContohSoalLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/linear/pembahasan" element={isAuthenticated ? <PembahasanLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/linear/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Linear" /> : <Login onLogin={handleLogin} />} />
+          <Route path="/program-linear" element={isAuthenticated ? <ProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/program-linear/materi" element={isAuthenticated ? <MateriProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/program-linear/contoh-soal" element={isAuthenticated ? <ContohSoalProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/program-linear/pembahasan" element={isAuthenticated ? <PembahasanProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/program-linear/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Linear" /> : <Login onLogin={handleLogin} />} />
 
           {/* Integral */}
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Login onLogin={handleLogin} />} />

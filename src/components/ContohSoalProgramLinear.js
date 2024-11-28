@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ContohSoalLinear() {
+function ContohSoalProgramLinear() {
   return (
     <div className="container">
       <h2>Contoh Soal Linear</h2>
@@ -132,4 +132,4 @@ function ContohSoalLinear() {
   );
 }
 
-export default ContohSoalLinear;
+export default ContohSoalProgramLinear;

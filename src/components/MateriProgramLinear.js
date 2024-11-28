@@ -1,12 +1,12 @@
 import React from 'react';
-import './MateriLinear.css';
+import './MateriProgramLinear.css';
 
 
-function MateriLinear() {
+function MateriProgramLinear() {
   return (
     <div className="container">
       <section className="materi">
-        <h2>Materi Linear</h2>
+        <h2>Materi Program Linear</h2>
         <p>
           <strong>Linear</strong> adalah istilah yang digunakan untuk menggambarkan suatu hubungan atau pola yang dapat diwakili oleh garis lurus.
         </p>
@@ -75,4 +75,4 @@ function MateriLinear() {
   );
 }
 
-export default MateriLinear;
+export default MateriProgramLinear;

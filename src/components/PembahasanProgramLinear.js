@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PembahasanLinear() {
+function PembahasanProgramLinear() {
   return (
     <div className="container">
       <h2>Contoh Soal Matrix - Pembahasan Lengkap</h2>
@@ -161,4 +161,4 @@ function PembahasanLinear() {
   );
 }
 
-export default PembahasanLinear;
+export default PembahasanProgramLinear;

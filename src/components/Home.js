@@ -74,7 +74,7 @@ function Home({ userName }) {
       </div>
 
       {/* Bagian Kosong untuk Scroll */}
-      <div style={{ flexGrow: 1, height: '100vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ flexGrow: 1, height: '100vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
         {/* Box BAB 1 hingga BAB 3 */}
         <div style={{ ...boxMILContainerStyle, marginTop: '40px' }}>
           {['BAB 1', 'BAB 2', 'BAB 3'].map((item, index) => (
@@ -105,6 +105,8 @@ function Home({ userName }) {
             </div>
           ))}
         </div>
+
+        <div style={{ height: '40px' }} />
 
         {/* Box BAB 4 hingga BAB 6 */}
         <div style={{ ...boxMILContainerStyle, marginTop: '40px' }}>
@@ -142,7 +144,7 @@ function Home({ userName }) {
 const boxMILContainerStyle = {
   display: 'flex',
   justifyContent: 'center',
-  marginTop: '40px',
+  flexWrap: 'wrap',
 };
 
 const boxMILStyle = {

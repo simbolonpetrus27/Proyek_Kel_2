@@ -1,5 +1,5 @@
 import React from 'react';
-import './MateriLinear.css';
+import './MateriProgramLinear.css';
 
 
 function MateriTurunan() {

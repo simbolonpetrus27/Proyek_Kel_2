@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Linear = () => {
+const ProgramLinear = () => {
   const styles = {
     container: {
       textAlign: 'left', // Mengubah menjadi left untuk memastikan text align kiri
@@ -46,10 +46,10 @@ const Linear = () => {
     <div style={styles.container}>
       <div style={styles.linkContainer}>
         {[
-          { text: 'Materi', path: '/linear/materi' },
-          { text: 'Soal', path: '/linear/contoh-soal' },
-          { text: 'Pembahasan', path: '/linear/pembahasan' },
-          { text: 'Mini Quiz', path: '/linear/miniquiz' },
+          { text: 'Materi', path: '/programlinear/materi' },
+          { text: 'Soal', path: '/programlinear/contoh-soal' },
+          { text: 'Pembahasan', path: '/programlinear/pembahasan' },
+          { text: 'Mini Quiz', path: '/programlinear/miniquiz' },
 
         ].map((item, index) => (
           <React.Fragment key={index}>
@@ -77,4 +77,4 @@ const Linear = () => {
   );
 }
 
-export default Linear;
+export default ProgramLinear;
