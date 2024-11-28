@@ -6,161 +6,153 @@ function Home({ userName }) {
   const navigate = useNavigate();
   const [hoveredBox, setHoveredBox] = useState(null);
 
-  const handleBoxClick = (path) => {
-    navigate(path);
-  };
+  const handleBoxClick = (path) => path && navigate(path);
 
-  const handleMouseEnter = (box) => {
-    setHoveredBox(box);
-  };
+  const handleMouseEnter = (box) => setHoveredBox(box);
 
-  const handleMouseLeave = () => {
-    setHoveredBox(null);
-  };
+  const handleMouseLeave = () => setHoveredBox(null);
 
   const boxDescriptions = {
-    'BAB 1': 'Ini adalah penjelasan untuk BAB 1.',
-    'BAB 2': 'Ini adalah penjelasan untuk BAB 2.',
-    'BAB 3': 'Ini adalah penjelasan untuk BAB 3.',
-    'BAB 4': 'Ini adalah penjelasan untuk BAB 4.',
-    'BAB 5': 'Ini adalah penjelasan untuk BAB 5.',
-    'BAB 6': 'Ini adalah penjelasan untuk BAB 6.',
+    'BAB 1': 'Matrix',
+    'BAB 2': 'Transformasi',
+    'BAB 3': 'Induksi Matematika',
+    'BAB 4': 'Linear',
+    'BAB 5': 'Turunan',
+    'BAB 6': 'Integral',
   };
 
+  const boxData = [
+    { title: 'BAB 1', path: '/matrix' },
+    { title: 'BAB 2', path: '/induksi-matematika' },
+    { title: 'BAB 3', path: '/linear' },
+    { title: 'BAB 4', path: '/integral' },
+    { title: 'BAB 5', path: null },
+    { title: 'BAB 6', path: null },
+  ];
+
   return (
-    <div
-      style={{
-        minHeight: '200vh',
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        textAlign: 'center',
-        padding: '0',
-        margin: '0',
-        flexDirection: 'column',
-      }}
-    >
-      {/* Ucapan Selamat Datang */}
-      <div style={{ marginBottom: '20px', zIndex: 1, marginTop: '100px' }}>
-        <h2
-          style={{
-            fontSize: '3rem',
-            fontWeight: 'bold',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-            fontFamily: 'Quicksand',
-            margin: '0',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          Selamat Datang {userName}!
-        </h2>
-        <p
-          style={{
-            fontSize: '1.5rem',
-            marginTop: '10px',
-            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
-            fontFamily: 'Quicksand',
-          }}
-        >
-          Matematika Kelas 11<br />
-          Matriks - Induksi Matematika - Linear - Integral
+    <div className="home-container">
+      <section className="welcome-section">
+        <h2 className="welcome-title">Selamat Datang, {userName}!</h2>
+        <p className="welcome-description">
+          Selamat datang di MILI (Matematika Kelas 11), platform pembelajaran yang dirancang khusus untuk membantu Anda memahami materi seperti Matriks, Transformasi, Induksi Matematika, Linear, Turunan, dan Integral.
+          Di sini, Anda akan menemukan penjelasan materi, contoh soal, pembahasan lengkap, serta latihan interaktif. Mari belajar dengan cara yang menyenangkan dan efektif bersama MILI!
         </p>
-      </div>
+      </section>
 
-      {/* Bagian Kosong untuk Scroll */}
-      <div style={{ flexGrow: 1, height: '100vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-        {/* Box BAB 1 hingga BAB 3 */}
-        <div style={{ ...boxMILContainerStyle, marginTop: '40px' }}>
-          {['BAB 1', 'BAB 2', 'BAB 3'].map((item, index) => (
-            <div 
+      <section className="card-section">
+        <div className="card-container">
+          {boxData.map(({ title, path }, index) => (
+            <div
               key={index}
-              style={{
-                ...boxMILStyle,
-                transform: hoveredBox === item ? 'scale(1.05)' : 'scale(1)', // Menambahkan efek perbesaran saat hover
-              }} 
-              onClick={() => {
-                // Menentukan path berdasarkan item
-                const path = item === 'BAB 1' ? '/matrix' :
-                             item === 'BAB 2' ? '/induksi-matematika' :
-                             item === 'BAB 3' ? '/linear' : '/';
-                if (path !== '/') {
-                  handleBoxClick(path);
-                }
-              }}
-              onMouseEnter={() => handleMouseEnter(item)}
+              className={`card ${hoveredBox === title ? 'hovered' : ''}`}
+              onClick={() => handleBoxClick(path)}
+              onMouseEnter={() => handleMouseEnter(title)}
               onMouseLeave={handleMouseLeave}
             >
-              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 0 : 1, textAlign: 'center', lineHeight: '1.2' }}>
-                {item}
-              </div>
-              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 1 : 0, textAlign: 'center', lineHeight: '1.2' }}>
-                {boxDescriptions[item]}
+              <div className="card-content">
+                <p className="card-title">{title}</p>
+                <p className="card-description">{boxDescriptions[title]}</p>
               </div>
             </div>
           ))}
         </div>
+      </section>
 
-        <div style={{ height: '40px' }} />
+      <style>
+        {`
+          .home-container {
+            min-height: 100vh;
+            background-image: url(${backgroundImage});
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding-bottom: 100px; /* Meningkatkan space footer */
+            color: white;
+          }
 
-        {/* Box BAB 4 hingga BAB 6 */}
-        <div style={{ ...boxMILContainerStyle, marginTop: '40px' }}>
-          {['BAB 4', 'BAB 5', 'BAB 6'].map((item, index) => (
-            <div 
-              key={index + 3} // Menghindari duplikasi key
-              style={{
-                ...boxMILStyle,
-                transform: hoveredBox === item ? 'scale(1.05)' : 'scale(1)', // Menambahkan efek perbesaran saat hover
-              }} 
-              onClick={() => {
-                // Menentukan path berdasarkan item
-                const path = item === 'BAB 4' ? '/integral' : '/'; // BAB 5 dan BAB 6 tidak terhubung ke halaman mana pun
-                if (path !== '/') {
-                  handleBoxClick(path);
-                }
-              }}
-              onMouseEnter={() => handleMouseEnter(item)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 0 : 1, textAlign: 'center', lineHeight: '1.2' }}>
-                {item}
-              </div>
-              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 1 : 0, textAlign: 'center', lineHeight: '1.2' }}>
-                {boxDescriptions[item]}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+          .welcome-section {
+            margin-top: 50px; /* Kurangi space kosong di bagian atas */
+            text-align: center;
+            max-width: 800px;
+          }
+
+          .welcome-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-family: 'Quicksand', sans-serif;
+          }
+
+          .welcome-description {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.8;
+          }
+
+          .card-section {
+            margin-top: 30px; /* Kurangi space kosong di atas grid */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+          }
+
+          .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+          }
+
+          .card {
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+          }
+
+          .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+          }
+
+          .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+
+          .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+          }
+
+          .card-description {
+            font-size: 1rem;
+            margin-top: 8px;
+            color: #666;
+          }
+        `}
+      </style>
     </div>
   );
 }
-
-const boxMILContainerStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  flexWrap: 'wrap',
-};
-
-const boxMILStyle = {
-  width: '225px', height: '300px', // Memperbesar tinggi box menjadi 300px
-  backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  borderRadius: '10px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: '1.2rem', // Memperkecil ukuran font
-  fontWeight: 'bold',
-  color: '#333',
-  margin: '0 15px', // Menambah jarak antar box
-  boxShadow: '0 6px 15px rgba(0, 0, 0, 0.4)',
-  transition: 'transform 0.3s, box-shadow 0.3s', // Menambahkan transisi untuk shadow
-  cursor: 'pointer',
-};
 
 export default Home;
