@@ -18,77 +18,119 @@ function Home({ userName }) {
     setHoveredBox(null);
   };
 
+  const boxDescriptions = {
+    'BAB 1': 'Ini adalah penjelasan untuk BAB 1.',
+    'BAB 2': 'Ini adalah penjelasan untuk BAB 2.',
+    'BAB 3': 'Ini adalah penjelasan untuk BAB 3.',
+    'BAB 4': 'Ini adalah penjelasan untuk BAB 4.',
+    'BAB 5': 'Ini adalah penjelasan untuk BAB 5.',
+    'BAB 6': 'Ini adalah penjelasan untuk BAB 6.',
+  };
+
   return (
     <div
       style={{
-        height: '100vh',
+        minHeight: '200vh',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         color: 'white',
         textAlign: 'center',
         padding: '0',
         margin: '0',
+        flexDirection: 'column',
       }}
     >
-      <div style={{ display: 'flex', width: '100%', maxWidth: '1200px', height: '100%' }}>
-        <div style={{ flex: 2, padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '100px' }}>
-          <h2
-            style={{
-              fontSize: '3rem',
-              fontWeight: 'bold',
-              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-              fontFamily: 'Quicksand',
-              margin: '0',
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            Selamat Datang {userName}!
-          </h2>
-          <p
-            style={{
-              fontSize: '1.5rem',
-              marginTop: '10px',
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
-              fontFamily: 'Quicksand',
-            }}
-          >
-            Matematika Kelas 11<br />
-            Matriks - Induksi Matematika - Linear - Integral
-          </p>
-        </div>
-
-        <div
+      {/* Ucapan Selamat Datang */}
+      <div style={{ marginBottom: '20px', zIndex: 1, marginTop: '100px' }}>
+        <h2
           style={{
-            display: 'flex',
-            flexDirection: 'row',
-            width: '100%',
-            height: '100%',
-            padding: '0',
+            fontSize: '3rem',
+            fontWeight: 'bold',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+            fontFamily: 'Quicksand',
             margin: '0',
-            justifyContent: 'flex-end',
-            boxSizing: 'border-box',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
-          {['Matriks', 'Induksi Matematika', 'Linear', 'Integral'].map((item, index) => (
-            <div
+          Selamat Datang {userName}!
+        </h2>
+        <p
+          style={{
+            fontSize: '1.5rem',
+            marginTop: '10px',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+            fontFamily: 'Quicksand',
+          }}
+        >
+          Matematika Kelas 11<br />
+          Matriks - Induksi Matematika - Linear - Integral
+        </p>
+      </div>
+
+      {/* Bagian Kosong untuk Scroll */}
+      <div style={{ flexGrow: 1, height: '100vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {/* Box BAB 1 hingga BAB 3 */}
+        <div style={{ ...boxMILContainerStyle, marginTop: '40px' }}>
+          {['BAB 1', 'BAB 2', 'BAB 3'].map((item, index) => (
+            <div 
               key={index}
-              onClick={() => handleBoxClick(item === 'Matriks' ? '/matrix' : `/${item.toLowerCase().replace(' ', '-')}`)}
+              style={{
+                ...boxMILStyle,
+                transform: hoveredBox === item ? 'scale(1.05)' : 'scale(1)', // Menambahkan efek perbesaran saat hover
+              }} 
+              onClick={() => {
+                // Menentukan path berdasarkan item
+                const path = item === 'BAB 1' ? '/matrix' :
+                             item === 'BAB 2' ? '/induksi-matematika' :
+                             item === 'BAB 3' ? '/linear' : '/';
+                if (path !== '/') {
+                  handleBoxClick(path);
+                }
+              }}
               onMouseEnter={() => handleMouseEnter(item)}
               onMouseLeave={handleMouseLeave}
-              style={{ ...fullHeightBoxStyle, ...(hoveredBox === item ? hoverStyle : {}) }}
             >
-              {item.charAt(0)}
-              {hoveredBox === item && (
-                <div style={descriptionStyle}>
-                  {item} - Penjelasan tentang {item.toLowerCase()}.
-                </div>
-              )}
+              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 0 : 1, textAlign: 'center', lineHeight: '1.2' }}>
+                {item}
+              </div>
+              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 1 : 0, textAlign: 'center', lineHeight: '1.2' }}>
+                {boxDescriptions[item]}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Box BAB 4 hingga BAB 6 */}
+        <div style={{ ...boxMILContainerStyle, marginTop: '40px' }}>
+          {['BAB 4', 'BAB 5', 'BAB 6'].map((item, index) => (
+            <div 
+              key={index + 3} // Menghindari duplikasi key
+              style={{
+                ...boxMILStyle,
+                transform: hoveredBox === item ? 'scale(1.05)' : 'scale(1)', // Menambahkan efek perbesaran saat hover
+              }} 
+              onClick={() => {
+                // Menentukan path berdasarkan item
+                const path = item === 'BAB 4' ? '/integral' : '/'; // BAB 5 dan BAB 6 tidak terhubung ke halaman mana pun
+                if (path !== '/') {
+                  handleBoxClick(path);
+                }
+              }}
+              onMouseEnter={() => handleMouseEnter(item)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 0 : 1, textAlign: 'center', lineHeight: '1.2' }}>
+                {item}
+              </div>
+              <div style={{ transition: 'opacity 0.3s', opacity: hoveredBox === item ? 1 : 0, textAlign: 'center', lineHeight: '1.2' }}>
+                {boxDescriptions[item]}
+              </div>
             </div>
           ))}
         </div>
@@ -97,41 +139,26 @@ function Home({ userName }) {
   );
 }
 
-const fullHeightBoxStyle = {
-  width: '100px',
+const boxMILContainerStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '40px',
+};
+
+const boxMILStyle = {
+  width: '225px', height: '300px', // Memperbesar tinggi box menjadi 300px
   backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  borderRadius: '0',
+  borderRadius: '10px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: '1.3rem',
+  fontSize: '1.2rem', // Memperkecil ukuran font
   fontWeight: 'bold',
-  textAlign: 'center',
   color: '#333',
-  cursor: 'pointer',
+  margin: '0 15px', // Menambah jarak antar box
   boxShadow: '0 6px 15px rgba(0, 0, 0, 0.4)',
-  transition: 'transform 0.3s, background-color 0.3s',
-  height: '100%',
-  position: 'relative', // To position the description text
-};
-
-// Define hover style
-const hoverStyle = {
-  transform: 'translateY(-10px)', // Move the box up on hover
-  backgroundColor: 'rgba(255, 255, 255, 1)', // Optional: Change background color on hover
-};
-
-const descriptionStyle = {
-  position: 'absolute',
-  bottom: '-30px', // Position below the box
-  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-  borderRadius: '5px',
-  padding: '5px',
-  fontSize: '0.9rem',
-  color: '#333',
-  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-  transition: 'opacity 0.3s',
-  opacity: 1,
+  transition: 'transform 0.3s, box-shadow 0.3s', // Menambahkan transisi untuk shadow
+  cursor: 'pointer',
 };
 
 export default Home;
