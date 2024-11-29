@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PembahasanIntegral() {
+function PembahasanTurunan() {
   return (
     <div className="container">
       <h2>Soal Integral - Pembahasan Lengkap</h2>
@@ -172,4 +172,4 @@ function PembahasanIntegral() {
   );
 }
 
-export default PembahasanIntegral;
+export default PembahasanTurunan;

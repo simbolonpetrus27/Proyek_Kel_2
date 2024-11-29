@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from './bg2.jpg';
+import Matriks from './Matriks';
+import Transformasi from './Transformasi';
+import InduksiMatematika from './InduksiMatematika';
+import ProgramLinear from './ProgramLinear';
+import Turunan from './Turunan';
+import Integral from './Integral';
+
 
 function Home({ userName }) {
   const navigate = useNavigate();
@@ -22,13 +29,14 @@ function Home({ userName }) {
   };
 
   const boxData = [
-    { title: 'BAB 1', path: '/matrix' },
-    { title: 'BAB 2', path: '/induksi-matematika' },
-    { title: 'BAB 3', path: '/linear' },
-    { title: 'BAB 4', path: '/integral' },
-    { title: 'BAB 5', path: null },
-    { title: 'BAB 6', path: null },
+    { title: 'BAB 1', path: '/matriks' },
+    { title: 'BAB 2', path: '/transformasi' },
+    { title: 'BAB 3', path: '/induksimatematika' },
+    { title: 'BAB 4', path: '/programlinear' },
+    { title: 'BAB 5', path: '/turunan' },
+    { title: 'BAB 6', path: '/integral' }, 
   ];
+  
 
   return (
     <div className="home-container">

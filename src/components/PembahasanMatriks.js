@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PembahasanMatrix() {
+function PembahasanMatriks() {
   return (
     <div className="container">
       <h2>Contoh Soal Matrix - Pembahasan Lengkap</h2>
@@ -161,4 +161,4 @@ function PembahasanMatrix() {
   );
 }
 
-export default PembahasanMatrix;
+export default PembahasanMatriks;

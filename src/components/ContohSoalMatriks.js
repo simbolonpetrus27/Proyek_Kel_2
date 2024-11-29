@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ContohSoalMatrix() {
+function ContohSoalMatriks() {
   return (
     <div className="container">
       <h2>Contoh Soal Matrix</h2>
@@ -132,4 +132,4 @@ function ContohSoalMatrix() {
   );
 }
 
-export default ContohSoalMatrix;
+export default ContohSoalMatriks;

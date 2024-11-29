@@ -5,7 +5,7 @@ const Header = ({ userName, onLogout }) => {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src="/mili.jpg" alt="MILI Logo" className="logo-image" />
+        <img src="/mm.png" alt="" className="logo-image" />
       </div>
       <nav className="header-nav">
         <ul>

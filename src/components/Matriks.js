@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const Matrix = () => {
+const Matriks = () => {
   const materiRef = useRef(null);
   const contohSoalRef = useRef(null);
 
@@ -219,4 +219,4 @@ const Matrix = () => {
   );
 };
 
-export default Matrix;
+export default Matriks;

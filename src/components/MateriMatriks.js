@@ -1,7 +1,7 @@
 import React from 'react';
 import './MateriMatrix.css';
 
-function MateriMatrix() {
+function MateriMatriks() {
   return (
     <div className="container">
       <section className="materi">
@@ -59,4 +59,4 @@ function MateriMatrix() {
   );
 }
 
-export default MateriMatrix;
+export default MateriMatriks;

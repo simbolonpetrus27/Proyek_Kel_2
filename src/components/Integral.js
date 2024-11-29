@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MateriIntegral from './MateriIntegral';
+
 
 const Integral = () => {
   const styles = {

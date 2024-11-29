@@ -7,25 +7,38 @@ import Login from './Login';
 import FormDiskusi from './components/FormDiskusi';
 import BigQuiz from './components/BigQuiz';
 import Logout from './components/Logout';
-import Matrix from './components/Matrix';
-import MateriMatrix from './components/MateriMatrix';
-import ContohSoalMatrix from './components/ContohSoalMatrix';
-import PembahasanMatrix from './components/PembahasanMatrix';
+
+import Matriks from './components/Matriks';
+import MateriMatriks from './components/MateriMatriks';
+import ContohSoalMatriks from './components/ContohSoalMatriks';
+import PembahasanMatriks from './components/PembahasanMatriks';
+
+import Transformasi from './components/Transformasi';
+import MateriTransformasi from './components/MateriTransformasi';
+import ContohSoalTransformasi from './components/ContohSoalTransformasi';
+import PembahasanTransformasi from './components/PembahasanTransformasi'; 
+
 import InduksiMatematika from './components/InduksiMatematika';
+import MateriInduksiMatematika from './components/MateriInduksiMatematika';
 import ContohSoalInduksiMatematika from './components/ContohSoalInduksiMatematika';
+import PembahasanInduksiMatematika from './components/PembahasanInduksiMatematika'; 
+
 import ProgramLinear from './components/ProgramLinear';
 import MateriProgramLinear from './components/MateriProgramLinear';
 import ContohSoalProgramLinear from './components/ContohSoalProgramLinear';
 import PembahasanProgramLinear from './components/PembahasanProgramLinear';
+
 import Integral from './components/Integral';
 import MateriIntegral from './components/MateriIntegral';
 import ContohSoalIntegral from './components/ContohSoalIntegral';
 import PembahasanIntegral from './components/PembahasanIntegral';
-import MiniQuiz from './components/MiniQuiz';
-import MateriTurunan from './components/MateriTurunan';
-import PembahasanTurunan from './components/PembahasanTurunan';
-import ContohSoalTurunan from './components/ContohSoalTurunan';
 
+import Turunan from './components/Turunan';
+import MateriTurunan from './components/MateriTurunan';
+import ContohSoalTurunan from './components/ContohSoalTurunan';
+import PembahasanTurunan from './components/PembahasanTurunan';
+
+import MiniQuiz from './components/MiniQuiz';
 import './App.css'; // CSS utama untuk aplikasi
 
 function App() {
@@ -70,33 +83,42 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/formdiskusi" element={<FormDiskusi />} />
           <Route path="/bigquiz" element={<BigQuiz />} />
+          <Route path="/integral" element={<Integral />} />
+          <Route path="/matriks" element={<Matriks />} />
+          <Route path="/transformasi" element={<Transformasi />} />
+          <Route path="/induksimatematika" element={<InduksiMatematika />} />
+          <Route path="/programlinear" element={<ProgramLinear />} />
+          <Route path="/turunan" element={<Turunan />} />
 
           {/* Logout */}
           <Route path="/logout" element={<Logout username={username} />} />
 
           {/* Turunan */}
+          <Route path="/turunan" element={isAuthenticated ? <Turunan /> : <Login onLogin={handleLogin} />} />
           <Route path="/turunan/materi" element={isAuthenticated ? <MateriTurunan /> : <Login onLogin={handleLogin} />} />
-          <Route path="/turunan/pembahasan" element={isAuthenticated ? <PembahasanTurunan /> : <Login onLogin={handleLogin} />} />
+          <Route path="/turunan/contoh-soal" element={isAuthenticated ? <PembahasanTurunan /> : <Login onLogin={handleLogin} />} />
           <Route path="/turunan/contoh-soal" element={isAuthenticated ? <ContohSoalTurunan /> : <Login onLogin={handleLogin} />} />
 
           {/* Matrix */}
-          <Route path="/matrix" element={isAuthenticated ? <Matrix /> : <Login onLogin={handleLogin} />} />
-          <Route path="/matrix/materi" element={isAuthenticated ? <MateriMatrix /> : <Login onLogin={handleLogin} />} />
-          <Route path="/matrix/contoh-soal" element={isAuthenticated ? <ContohSoalMatrix /> : <Login onLogin={handleLogin} />} />
-          <Route path="/matrix/pembahasan" element={isAuthenticated ? <PembahasanMatrix /> : <Login onLogin={handleLogin} />} />
-          <Route path="/matrix/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Matrix" /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matriks" element={isAuthenticated ? <Matriks /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matriks/materi" element={isAuthenticated ? <MateriMatriks /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matriks/contoh-soal" element={isAuthenticated ? <ContohSoalMatriks /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matriks/pembahasan" element={isAuthenticated ? <PembahasanMatriks /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matriks/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Matriks" /> : <Login onLogin={handleLogin} />} />
 
           {/* Induksi Matematika */}
-          <Route path="/induksi-matematika" element={isAuthenticated ? <InduksiMatematika /> : <Login onLogin={handleLogin} />} />
-          <Route path="/induksi-matematika/contoh-soal" element={isAuthenticated ? <ContohSoalInduksiMatematika /> : <Login onLogin={handleLogin} />} />
-          <Route path="/induksi-matematika/miniquiz" element={isAuthenticated ? <MiniQuiz topic="InduksiMatematika" /> : <Login onLogin={handleLogin} />} />
+          <Route path="/induksimatematika" element={isAuthenticated ? <InduksiMatematika /> : <Login onLogin={handleLogin} />} />
+          <Route path="/induksimatematika/materi" element={isAuthenticated ? <MateriInduksiMatematika /> : <Login onLogin={handleLogin} />} />
+          <Route path="/induksimatematika/contoh-soal" element={isAuthenticated ? <ContohSoalInduksiMatematika /> : <Login onLogin={handleLogin} />} />
+          <Route path="/induksimatematika/pembahasan" element={isAuthenticated ? <PembahasanInduksiMatematika /> : <Login onLogin={handleLogin} />} />
+          <Route path="/induksimatematika/miniquiz" element={isAuthenticated ? <MiniQuiz topic="InduksiMatematika" /> : <Login onLogin={handleLogin} />} />
 
           {/* Linear */}
-          <Route path="/program-linear" element={isAuthenticated ? <ProgramLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/program-linear/materi" element={isAuthenticated ? <MateriProgramLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/program-linear/contoh-soal" element={isAuthenticated ? <ContohSoalProgramLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/program-linear/pembahasan" element={isAuthenticated ? <PembahasanProgramLinear /> : <Login onLogin={handleLogin} />} />
-          <Route path="/program-linear/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Linear" /> : <Login onLogin={handleLogin} />} />
+          <Route path="/Programlinear" element={isAuthenticated ? <ProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/Programlinear/materi" element={isAuthenticated ? <MateriProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/programlinear/contoh-soal" element={isAuthenticated ? <ContohSoalProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/programlinear/pembahasan" element={isAuthenticated ? <PembahasanProgramLinear /> : <Login onLogin={handleLogin} />} />
+          <Route path="/programlinear/miniquiz" element={isAuthenticated ? <MiniQuiz topic="ProgramLinear" /> : <Login onLogin={handleLogin} />} />
 
           {/* Integral */}
           <Route path="/integral" element={isAuthenticated ? <Integral /> : <Login onLogin={handleLogin} />} />
@@ -104,6 +126,13 @@ function App() {
           <Route path="/integral/contoh-soal" element={isAuthenticated ? <ContohSoalIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/pembahasan" element={isAuthenticated ? <PembahasanIntegral /> : <Login onLogin={handleLogin} />} />
           <Route path="/integral/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Integral" /> : <Login onLogin={handleLogin} />} />
+
+          {/* Transformasi */}
+          <Route path="/transformasi" element={isAuthenticated ? <Transformasi /> : <Login onLogin={handleLogin} />} />
+          <Route path="/transformasi/materi" element={isAuthenticated ? <MateriTransformasi /> : <Login onLogin={handleLogin} />} />
+          <Route path="/transformasi/contoh-soal" element={isAuthenticated ? <ContohSoalTransformasi /> : <Login onLogin={handleLogin} />} />
+          <Route path="/transformasi/pembahasan" element={isAuthenticated ? <PembahasanTransformasi /> : <Login onLogin={handleLogin} />} />
+          <Route path="/transformasi/miniquiz" element={isAuthenticated ? <MiniQuiz topic="Transformasi" /> : <Login onLogin={handleLogin} />} />
         </Routes>
       </div>
     </Router>
