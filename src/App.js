@@ -26,7 +26,7 @@ import MateriTurunan from './components/MateriTurunan';
 import PembahasanTurunan from './components/PembahasanTurunan';
 import ContohSoalTurunan from './components/ContohSoalTurunan';
 
-import './App.css';
+import './App.css'; // CSS utama untuk aplikasi
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -75,6 +75,7 @@ function App() {
             )}
           </nav>
         </header>
+
 
         <Routes>
           {/* Rute utama */}

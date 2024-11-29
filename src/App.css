@@ -144,6 +144,33 @@ main {
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
   opacity: 0.9;
+  background-size: cover; /* Membuat gambar menutupi seluruh card */
+  background-position: center; /* Mengatur posisi gambar di tengah */
+}
+
+/* Menambahkan gambar background untuk setiap card */
+.card:nth-child(1) {
+  background-image: url('/public/gambar1.jpeg');
+}
+
+.card:nth-child(2) {
+  background-image: url('/public/gambar2.jpeg');
+}
+
+.card:nth-child(3) {
+  background-image: url('/public/gambar3.jpeg');
+}
+
+.card:nth-child(4) {
+  background-image: url('/public/gambar4.jpeg');
+}
+
+.card:nth-child(5) {
+  background-image: url('/public/gambar5.jpeg');
+}
+
+.card:nth-child(6) {
+  background-image: url('/public/gambar6.jpeg');
 }
 
 .card:hover {
