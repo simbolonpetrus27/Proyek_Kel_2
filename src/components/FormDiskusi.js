@@ -31,9 +31,8 @@ function FormDiskusii() {
     <>
       <style>
         {`
-          /* Background Putih untuk seluruh halaman */
           body {
-            background-color: #ffff;
+            background-color: #c19a6b; /* Warna coklat */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -41,71 +40,90 @@ function FormDiskusii() {
 
           .container {
             padding: 20px;
-            background-color: #fff;
+            background-color: white;
             max-width: 800px;
-            margin: 0 auto;
-            border-radius: 8px;
-            text-align: center; /* Menyusun teks di tengah */
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
           }
 
           h2 {
-            font-style: italic; /* Untuk efek italic pada judul */
+            color: #5a3c2d;
+            font-style: italic;
+            margin-bottom: 20px;
           }
 
           .form {
-            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            max-width: 100%;
-            margin: 0 auto;
-            align-items: center; /* Menyusun form di tengah */
+            align-items: center;
           }
 
           .input {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             width: 100%;
+            max-width: 400px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
 
           .button {
-            padding: 10px;
-            background-color: #c19a6b;
+            padding: 12px 20px;
+            background-color: #5a3c2d; /* Warna coklat gelap */
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+          }
+
+          .button:hover {
+            background-color: #4a3224; /* Warna hover lebih gelap */
           }
 
           .messageList {
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: #f9f9f9;
+            margin-top: 20px;
+            background-color: #fefefe;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 100%;
           }
 
           .messageItem {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #ddd;
           }
 
-          /* Responsiveness untuk perangkat lebih kecil */
+          .messageItem:last-child {
+            border-bottom: none;
+          }
+
+          .messageItem strong {
+            color: #5a3c2d;
+            font-size: 16px;
+          }
+
+          .messageItem span {
+            color: #999;
+            font-size: 12px;
+          }
+
           @media (max-width: 600px) {
             .container {
-              padding: 10px;
-            }
-
-            .form {
-              width: 100%;
+              padding: 15px;
             }
 
             .input, .button {
-              padding: 8px;
+              width: 100%;
+              font-size: 14px;
             }
           }
         `}
@@ -113,7 +131,6 @@ function FormDiskusii() {
 
       <div className="container">
         <h2><em>Form Diskusi</em></h2>
-        <br />
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
@@ -140,7 +157,8 @@ function FormDiskusii() {
           <h3>Pesan Diskusi</h3>
           {messages.map((msg, index) => (
             <div key={index} className="messageItem">
-              <strong>{msg.username}</strong> ({msg.timestamp}):<br />
+              <strong>{msg.username}</strong> 
+              <span> ({msg.timestamp})</span><br />
               {msg.message}
             </div>
           ))}
