@@ -96,7 +96,7 @@ function App() {
           {/* Turunan */}
           <Route path="/turunan" element={isAuthenticated ? <Turunan /> : <Login onLogin={handleLogin} />} />
           <Route path="/turunan/materi" element={isAuthenticated ? <MateriTurunan /> : <Login onLogin={handleLogin} />} />
-          <Route path="/turunan/contoh-soal" element={isAuthenticated ? <PembahasanTurunan /> : <Login onLogin={handleLogin} />} />
+          <Route path="/turunan/pembahasan" element={isAuthenticated ? <PembahasanTurunan /> : <Login onLogin={handleLogin} />} />
           <Route path="/turunan/contoh-soal" element={isAuthenticated ? <ContohSoalTurunan /> : <Login onLogin={handleLogin} />} />
 
           {/* Matrix */}
