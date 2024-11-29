@@ -5,6 +5,7 @@ import backgroundImage from './components/bg2.jpg';
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // State untuk menampilkan pesan error/success
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -18,10 +19,10 @@ function Login({ onLogin }) {
 
     if (user) {
       onLogin(username); // Set pengguna sebagai terautentikasi
-      alert('Login successful!');
-      navigate('/'); // Arahkan ke halaman Home
+      setErrorMessage('Login successful!'); // Set pesan sukses
+      setTimeout(() => navigate('/'), 1000); // Arahkan ke halaman Home setelah 1 detik
     } else {
-      alert('Invalid username or password. Please try again.');
+      setErrorMessage('Invalid username or password. Please try again.'); // Set pesan error
     }
   };
 
@@ -58,6 +59,13 @@ function Login({ onLogin }) {
       borderRadius: '4px',
       cursor: 'pointer',
     },
+    message: {
+      marginTop: '10px',
+      padding: '10px',
+      textAlign: 'center',
+      color: errorMessage.includes('Invalid') ? 'red' : 'green',
+      fontWeight: 'bold',
+    },
   };
 
   return (
@@ -84,6 +92,9 @@ function Login({ onLogin }) {
           Login
         </button>
       </form>
+
+      {/* Menampilkan pesan di bawah tombol login */}
+      {errorMessage && <div style={styles.message}>{errorMessage}</div>}
     </div>
   );
 }

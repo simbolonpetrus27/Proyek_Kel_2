@@ -60,22 +60,8 @@ function App() {
             {!isAuthenticated && <Link to="/login">Login</Link>}
             {!isAuthenticated && <Link to="/FormDiskusi">Diskusi</Link>}
             {!isAuthenticated && <Link to="/BigQuiz">Big Quiz</Link>}
-            {isAuthenticated && (
-              <div className="logout-container">
-                <button onClick={handleLogout} className="logout-button">
-                  Logout
-                </button>
-                {/* Notifikasi Logout */}
-                {showNotification && (
-                  <div className="notification-card">
-                    <p>Goodbye, {username}!</p>
-                  </div>
-                )}
-              </div>
-            )}
           </nav>
         </header>
-
 
         <Routes>
           {/* Rute utama */}

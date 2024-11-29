@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Container, Form, Button, Card } from 'react-bootstrap';
 import backgroundImage from './components/bg2.jpg';
 
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState(''); // State untuk pesan error/success
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ function Register() {
 
     // Cek apakah username sudah ada
     if (users.some((user) => user.username === username)) {
-      alert('Username already exists! Please choose a different username.');
+      setMessage('Username already exists! Please choose a different username.'); // Set pesan error
       return;
     }
 
@@ -24,57 +24,91 @@ function Register() {
     users.push({ username, password });
     localStorage.setItem('users', JSON.stringify(users)); // Simpan ke localStorage
 
-    alert('Registration successful! Please login.');
-    navigate('/login'); // Arahkan ke halaman login
+    setMessage('Registration successful! Please login.'); // Set pesan sukses
+    setTimeout(() => navigate('/login'), 2000); // Arahkan ke halaman login setelah 2 detik
+  };
+
+  const styles = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '300px',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)', // Transparan dengan latar putih
+      padding: '20px',
+      borderRadius: '8px',
+    },
+    input: {
+      padding: '10px',
+      marginBottom: '15px',
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+      backgroundColor: 'white', // Hapus background transparan dan ganti jadi putih
+    },
+    button: {
+      padding: '10px',
+      backgroundColor: '#8B4513',
+      color: 'white',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    },
+    message: {
+      marginTop: '10px',
+      padding: '10px',
+      textAlign: 'center',
+      color: message.includes('already exists') ? 'red' : 'green',
+      fontWeight: 'bold',
+    },
+    link: {
+      color: '#8B4513', // Warna yang sama dengan tombol untuk konsistensi
+    },
   };
 
   return (
-    <Container
-      className="d-flex justify-content-center align-items-center"
-      style={{
-        height: '100vh',
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <Card style={{ width: '25rem', opacity: 0.95 }}>
-        <Card.Body>
-          <Card.Title className="text-center">Register</Card.Title>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Username:</Form.Label>
-              <Form.Control
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              className="w-100"
-              style={{ backgroundColor: '#8B4513', borderColor: '#ff69b4' }}
-            >
-              Register
-            </Button>
-          </Form>
-          <p className="mt-3 text-center">
-            Already have an account? <Link to="/login">Login here</Link>
-          </p>
-        </Card.Body>
-      </Card>
-    </Container>
+    <div style={styles.container}>
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit} style={styles.form}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+          style={styles.input}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          style={styles.input}
+        />
+        <button type="submit" style={styles.button}>
+          Register
+        </button>
+      </form>
+
+      {/* Menampilkan pesan di bawah tombol register */}
+      {message && <div style={styles.message}>{message}</div>}
+
+      <p className="mt-3 text-center">
+        Already have an account?{' '}
+        <Link to="/login" style={styles.link}>
+          Login here
+        </Link>
+      </p>
+    </div>
   );
 }
 
