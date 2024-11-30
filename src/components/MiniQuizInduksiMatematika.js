@@ -1,52 +1,52 @@
 import React, { useState } from 'react';
 
-const MiniQuizProgramLinear = () => {
+const MiniQuizInduksiMatematika = () => {
   const [selectedAnswerMCQ, setSelectedAnswerMCQ] = useState('');
   const [essayAnswer, setEssayAnswer] = useState('');
   const [selectedAnswerTF, setSelectedAnswerTF] = useState('');
 
-  // Data untuk soal-soal hanya Program Linear
+  // Data untuk soal-soal Induksi Matematika
   const questions = {
-    ProgramLinear: {
+    InduksiMatematika: {
       mcq: [
         {
-          question: 'Apa yang dimaksud dengan sistem persamaan linear?',
-          options: ['Sekumpulan persamaan yang memiliki banyak solusi', 'Sekumpulan persamaan yang memiliki satu solusi', 'Sekumpulan persamaan yang memiliki dua solusi', 'Sekumpulan persamaan yang hanya memiliki solusi tidak real'],
-          correctAnswer: 'Sekumpulan persamaan yang memiliki satu solusi',
+          question: 'Apa itu induksi matematika?',
+          options: [
+            'Metode untuk membuktikan pernyataan matematika untuk semua bilangan bulat',
+            'Metode untuk menemukan angka dalam deret',
+            'Metode untuk menyelesaikan persamaan diferensial',
+            'Metode untuk mengoptimalkan fungsi',
+          ],
+          correctAnswer: 'Metode untuk membuktikan pernyataan matematika untuk semua bilangan bulat',
         },
         {
-          question: 'Sistem persamaan linear berikut memiliki berapa solusi? 2x + 3y = 5, 4x + 6y = 10',
-          options: ['Tidak ada solusi', 'Satu solusi', 'Tidak terhingga banyaknya solusi', 'Dua solusi'],
-          correctAnswer: 'Tidak terhingga banyaknya solusi',
+          question: 'Langkah pertama dalam induksi matematika adalah?',
+          options: ['Menunjukkan basis induksi', 'Menentukan rumus rekursif', 'Menghitung hasil eksperimen', 'Membuktikan kebenaran untuk n'],
+          correctAnswer: 'Menunjukkan basis induksi',
         },
         {
-          question: 'Metode yang digunakan untuk menyelesaikan sistem persamaan linear dengan dua variabel adalah?',
-          options: ['Eliminasi', 'Faktorisasi', 'Integral', 'Diferensiasi'],
-          correctAnswer: 'Eliminasi',
-        },
-        {
-          question: 'Berapa banyak solusi yang dimiliki sistem persamaan berikut? 3x + y = 7, 2x - y = 4',
-          options: ['Satu solusi', 'Tidak ada solusi', 'Tidak terhingga banyaknya solusi', 'Dua solusi'],
-          correctAnswer: 'Satu solusi',
+          question: 'Apa yang dimaksud dengan hipotesis induksi?',
+          options: ['Pernyataan yang diterima benar untuk n=k', 'Pernyataan yang benar untuk n=k+1', 'Proses pembuktian induksi', 'Kesimpulan dari pembuktian'],
+          correctAnswer: 'Pernyataan yang diterima benar untuk n=k',
         },
         // (Lanjutkan dengan soal lainnya)
       ],
       essay: [
         {
-          question: 'Jelaskan langkah-langkah yang digunakan untuk menyelesaikan sistem persamaan linear menggunakan metode eliminasi.',
+          question: 'Jelaskan langkah-langkah dalam pembuktian induksi matematika!',
         },
         {
-          question: 'Apa perbedaan antara sistem persamaan linear yang konsisten dan sistem yang tidak konsisten? Berikan contoh untuk masing-masing.',
+          question: 'Apa perbedaan antara induksi matematika dan pembuktian langsung?',
         },
         // (Lanjutkan dengan soal essay lainnya)
       ],
       tf: [
         {
-          question: 'Sistem persamaan linear selalu memiliki satu solusi.',
-          correctAnswer: 'False',
+          question: 'Induksi matematika hanya dapat digunakan untuk bilangan bulat positif.',
+          correctAnswer: 'True',
         },
         {
-          question: 'Metode eliminasi hanya dapat digunakan untuk sistem persamaan linear dengan dua variabel.',
+          question: 'Setiap pernyataan matematika dapat dibuktikan dengan induksi.',
           correctAnswer: 'False',
         },
         // (Lanjutkan dengan soal true/false lainnya)
@@ -71,7 +71,7 @@ const MiniQuizProgramLinear = () => {
 
   // Fungsi untuk mengecek jawaban
   const checkAnswers = () => {
-    const topicQuestions = questions.ProgramLinear;  // Fokus hanya pada Program Linear
+    const topicQuestions = questions.InduksiMatematika;  // Fokus hanya pada Induksi Matematika
     const mcqResult = topicQuestions.mcq.map((q) => (
       selectedAnswerMCQ === q.correctAnswer ? 'Benar' : 'Salah'
     ));
@@ -83,10 +83,10 @@ const MiniQuizProgramLinear = () => {
 
   return (
     <div>
-      <h2>Mini Quiz - Program Linear</h2>
+      <h2>Mini Quiz - Induksi Matematika</h2>
       
       {/* Soal Pilihan Ganda */}
-      {questions.ProgramLinear.mcq.map((q, index) => (
+      {questions.InduksiMatematika.mcq.map((q, index) => (
         <div key={index}>
           <h4>{q.question}</h4>
           {q.options.map((option, i) => (
@@ -106,7 +106,7 @@ const MiniQuizProgramLinear = () => {
       ))}
 
       {/* Soal Essay */}
-      {questions.ProgramLinear.essay.map((q, index) => (
+      {questions.InduksiMatematika.essay.map((q, index) => (
         <div key={index}>
           <h4>{q.question}</h4>
           <textarea
@@ -120,7 +120,7 @@ const MiniQuizProgramLinear = () => {
       ))}
 
       {/* Soal True/False */}
-      {questions.ProgramLinear.tf.map((q, index) => (
+      {questions.InduksiMatematika.tf.map((q, index) => (
         <div key={index}>
           <h4>{q.question}</h4>
           <div>
@@ -155,4 +155,4 @@ const MiniQuizProgramLinear = () => {
   );
 };
 
-export default MiniQuizProgramLinear;
+export default MiniQuizInduksiMatematika;

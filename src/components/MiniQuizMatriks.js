@@ -1,52 +1,57 @@
 import React, { useState } from 'react';
 
-const MiniQuizProgramLinear = () => {
+const MiniQuizMatriks = () => {
   const [selectedAnswerMCQ, setSelectedAnswerMCQ] = useState('');
   const [essayAnswer, setEssayAnswer] = useState('');
   const [selectedAnswerTF, setSelectedAnswerTF] = useState('');
 
-  // Data untuk soal-soal hanya Program Linear
+  // Data untuk soal-soal Integral
   const questions = {
-    ProgramLinear: {
+    Integral: {
       mcq: [
         {
-          question: 'Apa yang dimaksud dengan sistem persamaan linear?',
-          options: ['Sekumpulan persamaan yang memiliki banyak solusi', 'Sekumpulan persamaan yang memiliki satu solusi', 'Sekumpulan persamaan yang memiliki dua solusi', 'Sekumpulan persamaan yang hanya memiliki solusi tidak real'],
-          correctAnswer: 'Sekumpulan persamaan yang memiliki satu solusi',
+          question: 'Apa itu integral dalam kalkulus?',
+          options: [
+            'Proses untuk menghitung area di bawah kurva',
+            'Proses untuk menghitung kecepatan',
+            'Proses untuk menghitung perubahan suhu',
+            'Proses untuk menyelesaikan persamaan diferensial',
+          ],
+          correctAnswer: 'Proses untuk menghitung area di bawah kurva',
         },
         {
-          question: 'Sistem persamaan linear berikut memiliki berapa solusi? 2x + 3y = 5, 4x + 6y = 10',
-          options: ['Tidak ada solusi', 'Satu solusi', 'Tidak terhingga banyaknya solusi', 'Dua solusi'],
-          correctAnswer: 'Tidak terhingga banyaknya solusi',
+          question: 'Apa bentuk integral tak tentu dari fungsi f(x) = 2x?',
+          options: ['x^2 + C', '2x^2 + C', 'x^3 + C', '2x^3 + C'],
+          correctAnswer: 'x^2 + C',
         },
         {
-          question: 'Metode yang digunakan untuk menyelesaikan sistem persamaan linear dengan dua variabel adalah?',
-          options: ['Eliminasi', 'Faktorisasi', 'Integral', 'Diferensiasi'],
-          correctAnswer: 'Eliminasi',
+          question: 'Metode apa yang digunakan untuk menghitung integral dari fungsi tertentu?',
+          options: ['Metode substitusi', 'Metode faktorisasi', 'Metode limit', 'Metode diferensiasi'],
+          correctAnswer: 'Metode substitusi',
         },
         {
-          question: 'Berapa banyak solusi yang dimiliki sistem persamaan berikut? 3x + y = 7, 2x - y = 4',
-          options: ['Satu solusi', 'Tidak ada solusi', 'Tidak terhingga banyaknya solusi', 'Dua solusi'],
-          correctAnswer: 'Satu solusi',
+          question: 'Berapa hasil dari integral ∫ 3x^2 dx?',
+          options: ['x^3 + C', 'x^2 + C', 'x^4 + C', 'x^3 + 3x + C'],
+          correctAnswer: 'x^3 + C',
         },
         // (Lanjutkan dengan soal lainnya)
       ],
       essay: [
         {
-          question: 'Jelaskan langkah-langkah yang digunakan untuk menyelesaikan sistem persamaan linear menggunakan metode eliminasi.',
+          question: 'Jelaskan langkah-langkah dalam menghitung integral tak tentu!',
         },
         {
-          question: 'Apa perbedaan antara sistem persamaan linear yang konsisten dan sistem yang tidak konsisten? Berikan contoh untuk masing-masing.',
+          question: 'Apa perbedaan antara integral tak tentu dan integral tentu?',
         },
         // (Lanjutkan dengan soal essay lainnya)
       ],
       tf: [
         {
-          question: 'Sistem persamaan linear selalu memiliki satu solusi.',
+          question: 'Integral tak tentu selalu memiliki hasil yang unik.',
           correctAnswer: 'False',
         },
         {
-          question: 'Metode eliminasi hanya dapat digunakan untuk sistem persamaan linear dengan dua variabel.',
+          question: 'Metode substitusi hanya digunakan untuk integral tertentu.',
           correctAnswer: 'False',
         },
         // (Lanjutkan dengan soal true/false lainnya)
@@ -71,7 +76,7 @@ const MiniQuizProgramLinear = () => {
 
   // Fungsi untuk mengecek jawaban
   const checkAnswers = () => {
-    const topicQuestions = questions.ProgramLinear;  // Fokus hanya pada Program Linear
+    const topicQuestions = questions.Matriks;  // Fokus hanya pada Integral
     const mcqResult = topicQuestions.mcq.map((q) => (
       selectedAnswerMCQ === q.correctAnswer ? 'Benar' : 'Salah'
     ));
@@ -83,10 +88,10 @@ const MiniQuizProgramLinear = () => {
 
   return (
     <div>
-      <h2>Mini Quiz - Program Linear</h2>
+      <h2>Mini Quiz - Matriks</h2>
       
       {/* Soal Pilihan Ganda */}
-      {questions.ProgramLinear.mcq.map((q, index) => (
+      {questions.Matriks.mcq.map((q, index) => (
         <div key={index}>
           <h4>{q.question}</h4>
           {q.options.map((option, i) => (
@@ -106,7 +111,7 @@ const MiniQuizProgramLinear = () => {
       ))}
 
       {/* Soal Essay */}
-      {questions.ProgramLinear.essay.map((q, index) => (
+      {questions.Matriks.essay.map((q, index) => (
         <div key={index}>
           <h4>{q.question}</h4>
           <textarea
@@ -120,7 +125,7 @@ const MiniQuizProgramLinear = () => {
       ))}
 
       {/* Soal True/False */}
-      {questions.ProgramLinear.tf.map((q, index) => (
+      {questions.Matriks.tf.map((q, index) => (
         <div key={index}>
           <h4>{q.question}</h4>
           <div>
@@ -155,4 +160,4 @@ const MiniQuizProgramLinear = () => {
   );
 };
 
-export default MiniQuizProgramLinear;
+export default MiniQuizMatriks;
