@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import MateriProgramLinear from './MateriProgramLinear'; // Import komponen materi
 import ContohSoalProgramLinear from './ContohSoalProgramLinear'; // Import komponen contoh soal
 import PembahasanProgramLinear from './PembahasanProgramLinear'; // Import komponen pembahasan
-import MiniQuiz from './MiniQuiz'; // Import komponen mini quiz
+import MiniQuizProgramLinear from './MiniQuizProgramLinear.js'; // Import komponen mini quiz
 
 const ProgramLinear = () => {
+  // Menggunakan useState untuk menentukan konten yang aktif
+  const [activeSection, setActiveSection] = useState(''); // bisa berupa 'materi', 'contohSoal', 'pembahasan', 'miniQuiz'
+
   // Menggunakan useRef untuk mereferensikan tiap bagian
   const materiRef = useRef(null);
   const contohSoalRef = useRef(null);
@@ -15,7 +18,7 @@ const ProgramLinear = () => {
   const scrollToSection = (ref) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      window.scrollBy(0, -70); // Adjust scroll untuk memastikan alignment, jika perlu
+      window.scrollBy(0, -70); // Adjust scroll untuk memastikan alignment
     }
   };
 
@@ -57,7 +60,7 @@ const ProgramLinear = () => {
       padding: '30px',
     },
     section: {
-      padding: '20px', // Menambahkan padding agar bagian lebih terlihat jelas
+      padding: '20px',
       marginBottom: '50px',
       backgroundColor: '#fff',
       borderRadius: '8px',
@@ -87,7 +90,10 @@ const ProgramLinear = () => {
             e.target.style.backgroundColor = styles.button.backgroundColor;
             e.target.style.transform = 'scale(1)';
           }}
-          onClick={() => scrollToSection(materiRef)} // Scroll to Materi
+          onClick={() => {
+            setActiveSection('materi');
+            scrollToSection(materiRef);
+          }} // Mengubah state dan menggulir ke Materi
         >
           Materi
         </button>
@@ -101,7 +107,10 @@ const ProgramLinear = () => {
             e.target.style.backgroundColor = styles.button.backgroundColor;
             e.target.style.transform = 'scale(1)';
           }}
-          onClick={() => scrollToSection(contohSoalRef)} // Scroll to Contoh Soal
+          onClick={() => {
+            setActiveSection('contohSoal');
+            scrollToSection(contohSoalRef);
+          }} // Mengubah state dan menggulir ke Contoh Soal
         >
           Contoh Soal
         </button>
@@ -115,7 +124,10 @@ const ProgramLinear = () => {
             e.target.style.backgroundColor = styles.button.backgroundColor;
             e.target.style.transform = 'scale(1)';
           }}
-          onClick={() => scrollToSection(pembahasanRef)} // Scroll to Pembahasan
+          onClick={() => {
+            setActiveSection('pembahasan');
+            scrollToSection(pembahasanRef);
+          }} // Mengubah state dan menggulir ke Pembahasan
         >
           Pembahasan
         </button>
@@ -129,7 +141,10 @@ const ProgramLinear = () => {
             e.target.style.backgroundColor = styles.button.backgroundColor;
             e.target.style.transform = 'scale(1)';
           }}
-          onClick={() => scrollToSection(miniQuizRef)} // Scroll to Mini Quiz
+          onClick={() => {
+            setActiveSection('miniQuiz');
+            scrollToSection(miniQuizRef);
+          }} // Mengubah state dan menggulir ke Mini Quiz
         >
           Mini Quiz
         </button>
@@ -138,24 +153,32 @@ const ProgramLinear = () => {
       {/* Konten */}
       <div style={styles.content}>
         {/* Materi Section */}
-        <div ref={materiRef} style={styles.section}>
-          <MateriProgramLinear /> {/* Menampilkan Komponen Materi */}
-        </div>
+        {activeSection === 'materi' && (
+          <div ref={materiRef} style={styles.section}>
+            <MateriProgramLinear /> {/* Menampilkan Komponen Materi */}
+          </div>
+        )}
 
         {/* Contoh Soal Section */}
-        <div ref={contohSoalRef} style={styles.section}>
-          <ContohSoalProgramLinear /> {/* Menampilkan Komponen Contoh Soal */}
-        </div>
+        {activeSection === 'contohSoal' && (
+          <div ref={contohSoalRef} style={styles.section}>
+            <ContohSoalProgramLinear /> {/* Menampilkan Komponen Contoh Soal */}
+          </div>
+        )}
 
         {/* Pembahasan Section */}
-        <div ref={pembahasanRef} style={styles.section}>
-          <PembahasanProgramLinear /> {/* Menampilkan Komponen Pembahasan */}
-        </div>
+        {activeSection === 'pembahasan' && (
+          <div ref={pembahasanRef} style={styles.section}>
+            <PembahasanProgramLinear /> {/* Menampilkan Komponen Pembahasan */}
+          </div>
+        )}
 
         {/* Mini Quiz Section */}
-        <div ref={miniQuizRef} style={styles.section}>
-          <MiniQuiz /> {/* Menampilkan Komponen Mini Quiz */}
-        </div>
+        {activeSection === 'miniQuiz' && (
+          <div ref={miniQuizRef} style={styles.section}>
+            <MiniQuizProgramLinear /> {/* Menampilkan Komponen Mini Quiz */}
+          </div>
+        )}
       </div>
     </div>
   );
