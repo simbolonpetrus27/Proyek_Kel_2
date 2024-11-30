@@ -1,4 +1,5 @@
 import React from 'react';
+import './MateriMatrix.css';
 
 function ContohSoalMatriks() {
   return (
