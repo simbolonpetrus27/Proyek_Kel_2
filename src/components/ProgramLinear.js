@@ -47,7 +47,7 @@ const ProgramLinear = () => {
       <div style={styles.linkContainer}>
         {[
           { text: 'Materi', path: '/programlinear/materi' },
-          { text: 'Soal', path: '/programlinear/contoh-soal' },
+          { text: 'Contoh Soal', path: '/programlinear/contoh-soal' },
           { text: 'Pembahasan', path: '/programlinear/pembahasan' },
           { text: 'Mini Quiz', path: '/programlinear/miniquiz' },
 

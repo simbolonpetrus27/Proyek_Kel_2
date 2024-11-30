@@ -40,7 +40,6 @@ import PembahasanTurunan from './components/PembahasanTurunan';
 
 import MiniQuiz from './components/MiniQuiz';
 import './App.css'; // CSS utama untuk aplikasi
-import soal from './components/soal';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -107,7 +106,7 @@ function App() {
           <Route path="/matriks/materi" element={isAuthenticated ? <MateriMatriks /> : <Login onLogin={handleLogin} />} />
           <Route path="/matriks/contoh-soal" element={isAuthenticated ? <ContohSoalMatriks /> : <Login onLogin={handleLogin} />} />
           <Route path="/matriks/pembahasan" element={isAuthenticated ? <PembahasanMatriks /> : <Login onLogin={handleLogin} />} />
-          <Route path="/matriks/mini-quiz" element={isAuthenticated ? <MiniQuiz topic="Matriks" /> : <Login onLogin={handleLogin} />} />
+          <Route path="/matriks/mini-quiz" element={isAuthenticated ? <MiniQuiz topic="Matriks" /> : <Login onLogin={handleLogin} />} />       
 
           {/* Induksi Matematika */}
           <Route path="/induksimatematika" element={isAuthenticated ? <InduksiMatematika /> : <Login onLogin={handleLogin} />} />
