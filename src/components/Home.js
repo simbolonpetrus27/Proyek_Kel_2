@@ -23,7 +23,7 @@ function Home({ userName }) {
     'BAB 1': 'Matrix',
     'BAB 2': 'Transformasi',
     'BAB 3': 'Induksi Matematika',
-    'BAB 4': 'Linear',
+    'BAB 4': 'Program Linear',
     'BAB 5': 'Turunan',
     'BAB 6': 'Integral',
   };

@@ -8,12 +8,12 @@ function MateriProgramLinear() {
       <section className="materi">
         <h2>Materi Program Linear</h2>
         <p>
-          <strong>Linear</strong> adalah istilah yang digunakan untuk menggambarkan suatu hubungan atau pola yang dapat diwakili oleh garis lurus.
+          <strong>Program Linear</strong> adalah istilah yang digunakan untuk menggambarkan suatu hubungan atau pola yang dapat diwakili oleh garis lurus.
         </p>
       </section>
 
       <section className="jenis-matriks">
-        <h3>Unsur-Unsur Linear</h3>
+        <h3>Unsur-Unsur Program Linear</h3>
         <ol>
           <li><strong>Variabel:</strong> Huruf pengganti suatu bilangan atau pernyataan yang belum diketahui nilainya.</li>
           <li><strong>Koefisien:</strong> Bilangan yang menjelaskan jumlah dari suatu variabel. </li>
@@ -23,7 +23,7 @@ function MateriProgramLinear() {
       </section>
 
       <section className="operasi-matriks">
-        <h3>Jenis-Jenis Linear</h3>
+        <h3>Jenis-Jenis Program Linear</h3>
         <h4>A. Persamaan Linear Satu Variabel</h4>
         <p>
                Persamaaan linear satu variabel adalah persamaan yang memiliki satu variabel dengan pangkat 1 dan dapat dihubungkan dengan tanda “=”.

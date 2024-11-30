@@ -3,7 +3,7 @@ import React from 'react';
 function ContohSoalProgramLinear() {
   return (
     <div className="container">
-      <h2>Contoh Soal Linear</h2>
+      <h2>Contoh Soal Program Linear</h2>
 
       <section className="soal">
         <h3>Soal 1: Penjumlahan dan Pengurangan Matriks</h3>
