@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MiniQuiz = () => {
+const MiniQuizProgramLinear = () => {
   const [selectedAnswerMCQ, setSelectedAnswerMCQ] = useState('');
   const [essayAnswer, setEssayAnswer] = useState('');
   const [selectedAnswerTF, setSelectedAnswerTF] = useState('');
