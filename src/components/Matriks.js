@@ -1,24 +1,20 @@
 import React, { useState, useRef } from 'react';
-import MateriMatriks from './MateriMatriks.js'; // Import komponen materi
-import ContohSoalMatriks from './ContohSoalMatriks.js'; // Import komponen contoh soal
-import PembahasanMatriks from './PembahasanMatriks'; // Import komponen pembahasan
-import MiniQuizMatriks from './MiniQuizMatriks.js'; // Import komponen mini quiz
+import MateriMatriks from './MateriMatriks.js';
+import ContohSoalMatriks from './ContohSoalMatriks.js';
+import PembahasanMatriks from './PembahasanMatriks';
+import MiniQuizMatriks from './MiniQuizMatriks.js';
 
 const Matriks = () => {
-  // Menggunakan useState untuk menentukan konten yang aktif
-  const [activeSection, setActiveSection] = useState(''); // bisa berupa 'materi', 'contohSoal', 'pembahasan', 'miniQuiz'
-
-  // Menggunakan useRef untuk mereferensikan tiap bagian
+  const [activeSection, setActiveSection] = useState(''); // Menentukan konten aktif
   const materiRef = useRef(null);
   const contohSoalRef = useRef(null);
   const pembahasanRef = useRef(null);
   const miniQuizRef = useRef(null);
 
-  // Fungsi untuk menggulir ke bagian tertentu
   const scrollToSection = (ref) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      window.scrollBy(0, -70); // Adjust scroll untuk memastikan alignment
+      window.scrollBy(0, -70);
     }
   };
 
@@ -26,7 +22,7 @@ const Matriks = () => {
     container: {
       display: 'flex',
       minHeight: '100vh',
-      fontFamily: '"Roboto", sans-serif',
+      fontFamily: '"Playfair Display", serif', // Font lebih mewah
       backgroundColor: '#f9f5f1',
     },
     sidebar: {
@@ -46,7 +42,8 @@ const Matriks = () => {
       borderRadius: '8px',
       cursor: 'pointer',
       fontSize: '14px',
-      fontWeight: 'bold',
+      fontFamily: '"Cinzel", serif', // Dekorasi font pada tombol
+      fontWeight: '700',
       textAlign: 'left',
       transition: 'background-color 0.3s, transform 0.2s',
       boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
@@ -58,6 +55,10 @@ const Matriks = () => {
     content: {
       flexGrow: 1,
       padding: '30px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
     },
     section: {
       padding: '20px',
@@ -70,8 +71,25 @@ const Matriks = () => {
       color: '#6f4e37',
       marginBottom: '20px',
       textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '24px',
+      fontFamily: '"Playfair Display", serif',
+      fontWeight: '700',
+      fontSize: '28px',
+      letterSpacing: '1px',
+    },
+    introduction: {
+      textAlign: 'center',
+      color: '#6f4e37',
+      fontSize: '22px',
+      fontFamily: '"Playfair Display", serif',
+      fontWeight: '500',
+      lineHeight: '1.8',
+      letterSpacing: '0.5px',
+      maxWidth: '600px',
+      backgroundColor: '#fff',
+      padding: '30px',
+      borderRadius: '10px',
+      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+      border: '2px solid #d8c3a5', // Dekorasi tambahan
     },
   };
 
@@ -79,7 +97,6 @@ const Matriks = () => {
     <div style={styles.container}>
       {/* Sidebar */}
       <div style={styles.sidebar}>
-        {/* Tombol untuk menggulir ke section */}
         <button
           style={styles.button}
           onMouseEnter={(e) => {
@@ -93,7 +110,7 @@ const Matriks = () => {
           onClick={() => {
             setActiveSection('materi');
             scrollToSection(materiRef);
-          }} // Mengubah state dan menggulir ke Materi
+          }}
         >
           Materi
         </button>
@@ -110,7 +127,7 @@ const Matriks = () => {
           onClick={() => {
             setActiveSection('contohSoal');
             scrollToSection(contohSoalRef);
-          }} // Mengubah state dan menggulir ke Contoh Soal
+          }}
         >
           Contoh Soal
         </button>
@@ -127,7 +144,7 @@ const Matriks = () => {
           onClick={() => {
             setActiveSection('pembahasan');
             scrollToSection(pembahasanRef);
-          }} // Mengubah state dan menggulir ke Pembahasan
+          }}
         >
           Pembahasan
         </button>
@@ -144,7 +161,7 @@ const Matriks = () => {
           onClick={() => {
             setActiveSection('miniQuiz');
             scrollToSection(miniQuizRef);
-          }} // Mengubah state dan menggulir ke Mini Quiz
+          }}
         >
           Mini Quiz
         </button>
@@ -152,31 +169,43 @@ const Matriks = () => {
 
       {/* Konten */}
       <div style={styles.content}>
+        {/* Kata-kata pembuka */}
+        {activeSection === '' && (
+          <div style={styles.introduction}>
+            <h1>Selamat datang di Pembelajaran Matriks!</h1>
+            <p>
+              Sebelum memulai, mari kita pelajari dasar-dasar Matriks dan aplikasinya dalam berbagai 
+              konteks. Klik salah satu menu di sebelah kiri untuk melanjutkan ke materi, contoh soal, 
+              pembahasan, atau kuis interaktif!
+            </p>
+          </div>
+        )}
+
         {/* Materi Section */}
         {activeSection === 'materi' && (
           <div ref={materiRef} style={styles.section}>
-            <MateriMatriks /> {/* Menampilkan Komponen Materi */}
+            <MateriMatriks />
           </div>
         )}
 
         {/* Contoh Soal Section */}
         {activeSection === 'contohSoal' && (
           <div ref={contohSoalRef} style={styles.section}>
-            <ContohSoalMatriks /> {/* Menampilkan Komponen Contoh Soal */}
+            <ContohSoalMatriks />
           </div>
         )}
 
         {/* Pembahasan Section */}
         {activeSection === 'pembahasan' && (
           <div ref={pembahasanRef} style={styles.section}>
-            <PembahasanMatriks /> {/* Menampilkan Komponen Pembahasan */}
+            <PembahasanMatriks />
           </div>
         )}
 
         {/* Mini Quiz Section */}
         {activeSection === 'miniQuiz' && (
           <div ref={miniQuizRef} style={styles.section}>
-            <MiniQuizMatriks /> {/* Menampilkan Komponen Mini Quiz */}
+            <MiniQuizMatriks />
           </div>
         )}
       </div>

@@ -73,6 +73,22 @@ const Turunan = () => {
       fontWeight: 'bold',
       fontSize: '24px',
     },
+    introduction: {
+      textAlign: 'center',
+      color: '#6f4e37',
+      fontSize: '22px',
+      fontFamily: '"Roboto", sans-serif',
+      fontWeight: '500',
+      lineHeight: '1.8',
+      letterSpacing: '0.5px',
+      maxWidth: '600px',
+      backgroundColor: '#fff',
+      padding: '30px',
+      borderRadius: '10px',
+      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+      border: '2px solid #d8c3a5',
+      margin: '20px auto',
+    },
   };
 
   return (
@@ -152,6 +168,14 @@ const Turunan = () => {
 
       {/* Konten */}
       <div style={styles.content}>
+        {/* Kata Pengantar (Introduction) */}
+        {activeSection === '' && (
+          <div style={styles.introduction}>
+            Selamat datang di pembelajaran Turunan! <br />
+            Pelajari konsep dasar turunan, pahami contoh soal, dan uji kemampuan Anda melalui pembahasan dan mini quiz. Selamat belajar!
+          </div>
+        )}
+
         {/* Materi Section */}
         {activeSection === 'materi' && (
           <div ref={materiRef} style={styles.section}>

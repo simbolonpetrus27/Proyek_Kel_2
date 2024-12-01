@@ -41,10 +41,10 @@ function Home({ userName }) {
   return (
     <div className="home-container">
       <section className="welcome-section">
-        <h2 className="welcome-title">Selamat Datang, {userName}!</h2>
+        <h2 className="welcome-title">Selamat Datang {userName}!</h2>
         <p className="welcome-description">
-          Selamat datang di MILI (Matematika Kelas 11), platform pembelajaran yang dirancang khusus untuk membantu Anda memahami materi seperti Matriks, Transformasi, Induksi Matematika, Linear, Turunan, dan Integral.
-          Di sini, Anda akan menemukan penjelasan materi, contoh soal, pembahasan lengkap, serta latihan interaktif. Mari belajar dengan cara yang menyenangkan dan efektif bersama MILI!
+          Selamat datang di MASI (Matematika Asik), platform pembelajaran yang dirancang khusus untuk membantu Anda memahami materi seperti Matriks, Transformasi, Induksi Matematika, Linear, Turunan, dan Integral.
+          Di sini, Anda akan menemukan penjelasan materi, contoh soal, pembahasan lengkap, serta latihan interaktif. Mari belajar dengan cara yang menyenangkan dan efektif bersama MASI!
         </p>
       </section>
 

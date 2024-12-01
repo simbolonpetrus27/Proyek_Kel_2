@@ -5,22 +5,11 @@ import PembahasanIntegral from './PembahasanIntegral'; // Import komponen pembah
 import MiniQuizIntegral from './MiniQuizIntegral.js'; // Import komponen mini quiz
 
 const Integral = () => {
-  // Menggunakan useState untuk menentukan konten yang aktif
-  const [activeSection, setActiveSection] = useState(''); // bisa berupa 'materi', 'contohSoal', 'pembahasan', 'miniQuiz'
-
-  // Menggunakan useRef untuk mereferensikan tiap bagian
+  const [activeSection, setActiveSection] = useState(''); // untuk navigasi
   const materiRef = useRef(null);
   const contohSoalRef = useRef(null);
   const pembahasanRef = useRef(null);
   const miniQuizRef = useRef(null);
-
-  // Fungsi untuk menggulir ke bagian tertentu
-  const scrollToSection = (ref) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      window.scrollBy(0, -70); // Adjust scroll untuk memastikan alignment
-    }
-  };
 
   const styles = {
     container: {
@@ -49,15 +38,24 @@ const Integral = () => {
       fontWeight: 'bold',
       textAlign: 'left',
       transition: 'background-color 0.3s, transform 0.2s',
-      boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-    },
-    buttonHover: {
-      backgroundColor: '#9c6644',
-      transform: 'scale(1.05)',
     },
     content: {
       flexGrow: 1,
       padding: '30px',
+    },
+    introduction: {
+      textAlign: 'center',
+      color: '#6f4e37',
+      fontSize: '22px',
+      fontFamily: '"Playfair Display", serif',
+      fontWeight: '500',
+      lineHeight: '1.8',
+      maxWidth: '600px',
+      margin: '20px auto',
+      backgroundColor: '#fff',
+      padding: '30px',
+      borderRadius: '10px',
+      border: '2px solid #d8c3a5',
     },
     section: {
       padding: '20px',
@@ -66,85 +64,33 @@ const Integral = () => {
       borderRadius: '8px',
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
     },
-    heading: {
-      color: '#6f4e37',
-      marginBottom: '20px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '24px',
-    },
   };
 
   return (
     <div style={styles.container}>
       {/* Sidebar */}
       <div style={styles.sidebar}>
-        {/* Tombol untuk menggulir ke section */}
         <button
           style={styles.button}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = styles.buttonHover.backgroundColor;
-            e.target.style.transform = styles.buttonHover.transform;
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = styles.button.backgroundColor;
-            e.target.style.transform = 'scale(1)';
-          }}
-          onClick={() => {
-            setActiveSection('materi');
-            scrollToSection(materiRef);
-          }} // Mengubah state dan menggulir ke Materi
+          onClick={() => setActiveSection('materi')} // Set active section for Materi
         >
           Materi
         </button>
         <button
           style={styles.button}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = styles.buttonHover.backgroundColor;
-            e.target.style.transform = styles.buttonHover.transform;
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = styles.button.backgroundColor;
-            e.target.style.transform = 'scale(1)';
-          }}
-          onClick={() => {
-            setActiveSection('contohSoal');
-            scrollToSection(contohSoalRef);
-          }} // Mengubah state dan menggulir ke Contoh Soal
+          onClick={() => setActiveSection('contohSoal')} // Set active section for Contoh Soal
         >
           Contoh Soal
         </button>
         <button
           style={styles.button}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = styles.buttonHover.backgroundColor;
-            e.target.style.transform = styles.buttonHover.transform;
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = styles.button.backgroundColor;
-            e.target.style.transform = 'scale(1)';
-          }}
-          onClick={() => {
-            setActiveSection('pembahasan');
-            scrollToSection(pembahasanRef);
-          }} // Mengubah state dan menggulir ke Pembahasan
+          onClick={() => setActiveSection('pembahasan')} // Set active section for Pembahasan
         >
           Pembahasan
         </button>
         <button
           style={styles.button}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = styles.buttonHover.backgroundColor;
-            e.target.style.transform = styles.buttonHover.transform;
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = styles.button.backgroundColor;
-            e.target.style.transform = 'scale(1)';
-          }}
-          onClick={() => {
-            setActiveSection('miniQuiz');
-            scrollToSection(miniQuizRef);
-          }} // Mengubah state dan menggulir ke Mini Quiz
+          onClick={() => setActiveSection('miniQuiz')} // Set active section for Mini Quiz
         >
           Mini Quiz
         </button>
@@ -152,6 +98,22 @@ const Integral = () => {
 
       {/* Konten */}
       <div style={styles.content}>
+        {/* Introduction Section */}
+        {!activeSection && (
+          <div style={styles.introduction}>
+            <h1>Selamat Datang di Pembelajaran Integral</h1>
+            <p>
+              Dalam pembelajaran ini, Anda akan mempelajari dasar-dasar *integral*,
+              memahami konsep melalui contoh soal, dan menguji kemampuan Anda dengan pembahasan 
+              serta kuis interaktif. Mari mulai perjalanan Anda!
+            </p>
+            <p>
+              Gunakan menu di sebelah kiri untuk mengakses berbagai materi yang telah kami 
+              sediakan. Selamat belajar dan semoga sukses!
+            </p>
+          </div>
+        )}
+
         {/* Materi Section */}
         {activeSection === 'materi' && (
           <div ref={materiRef} style={styles.section}>

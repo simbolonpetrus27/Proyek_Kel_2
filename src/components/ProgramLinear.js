@@ -59,19 +59,26 @@ const ProgramLinear = () => {
       flexGrow: 1,
       padding: '30px',
     },
+    introduction: {
+      textAlign: 'center',
+      color: '#6f4e37',
+      fontSize: '22px',
+      fontFamily: '"Playfair Display", serif',
+      fontWeight: '500',
+      lineHeight: '1.8',
+      maxWidth: '600px',
+      margin: '20px auto',
+      backgroundColor: '#fff',
+      padding: '30px',
+      borderRadius: '10px',
+      border: '2px solid #d8c3a5',
+    },
     section: {
       padding: '20px',
       marginBottom: '50px',
       backgroundColor: '#fff',
       borderRadius: '8px',
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-    },
-    heading: {
-      color: '#6f4e37',
-      marginBottom: '20px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '24px',
     },
   };
 
@@ -152,6 +159,22 @@ const ProgramLinear = () => {
 
       {/* Konten */}
       <div style={styles.content}>
+        {/* Introduction Section */}
+        {!activeSection && (
+          <div style={styles.introduction}>
+            <h1>Selamat Datang di Pembelajaran Program Linear</h1>
+            <p>
+              Dalam pembelajaran ini, Anda akan mempelajari konsep dasar dan penerapan dari 
+              *Program Linear*, mulai dari materi dasar, contoh soal, pembahasan, hingga menguji 
+              pemahaman Anda dengan mini quiz. Mari kita mulai!
+            </p>
+            <p>
+              Gunakan menu di sebelah kiri untuk menjelajahi berbagai bagian materi yang telah kami 
+              sediakan. Semoga perjalanan pembelajaran Anda berjalan dengan lancar dan sukses!
+            </p>
+          </div>
+        )}
+
         {/* Materi Section */}
         {activeSection === 'materi' && (
           <div ref={materiRef} style={styles.section}>

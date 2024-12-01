@@ -44,8 +44,10 @@ import ContohSoalTurunan from './components/ContohSoalTurunan';
 import PembahasanTurunan from './components/PembahasanTurunan';
 import MiniQuizTurunan from './components/MiniQuizTurunan.js';
 
-
 import './App.css'; // CSS utama untuk aplikasi
+
+// Import Footer
+import Footer from './components/Footer'; // Pastikan path sesuai dengan lokasi Footer.js
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -141,6 +143,9 @@ function App() {
           <Route path="/transformasi/pembahasan" element={isAuthenticated ? <PembahasanTransformasi /> : <Login onLogin={handleLogin} />} />
           <Route path="/transformasi/mini-quiz" element={isAuthenticated ? <MiniQuizTransformasi topic="Transformasi" /> : <Login onLogin={handleLogin} />} />
         </Routes>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </Router>
   );
