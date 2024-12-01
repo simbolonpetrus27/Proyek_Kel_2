@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import MateriProgramIntegral from './MateriIntegral'; // Import komponen materi
+import MateriIntegral from './MateriIntegral'; // Import komponen materi
 import ContohSoalIntegral from './ContohSoalIntegral'; // Import komponen contoh soal
 import PembahasanIntegral from './PembahasanIntegral'; // Import komponen pembahasan
 import MiniQuizIntegral from './MiniQuizIntegral.js'; // Import komponen mini quiz
@@ -155,7 +155,7 @@ const Integral = () => {
         {/* Materi Section */}
         {activeSection === 'materi' && (
           <div ref={materiRef} style={styles.section}>
-            <Materi Integral /> {/* Menampilkan Komponen Materi */}
+            <MateriIntegral /> {/* Menampilkan Komponen Materi */}
           </div>
         )}
 

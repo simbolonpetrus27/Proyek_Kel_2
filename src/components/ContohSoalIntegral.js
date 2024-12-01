@@ -21,6 +21,7 @@ function ContohSoalIntegral() {
         (E) 4x<sup>3</sup> + 2x<sup>2</sup> + x + C
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 02</h3>
@@ -38,6 +39,7 @@ function ContohSoalIntegral() {
         (E) 6x<sup>3</sup> - 5/2x<sup>2</sup> + 4x + C
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 03</h3>
@@ -55,6 +57,7 @@ function ContohSoalIntegral() {
         (E) 3
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 04</h3>
@@ -62,6 +65,7 @@ function ContohSoalIntegral() {
         <em>Diketahui gradien garis singgung kurva di titik (x, y) adalah 6x + 5. Misalkan kurva tersebut melewati titik (1, 5), carilah persamaan kurvanya.</em>
         </p>
       </section>
+      
 
       <section className="soal">
         <h3>Soal 05</h3>

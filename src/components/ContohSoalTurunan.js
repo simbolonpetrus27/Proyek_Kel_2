@@ -21,6 +21,7 @@ function ContohSoalTurunan() {
         (E) m(x) = (3x<sup>2</sup> + 3)<sup>4</sup>
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 02</h3>
@@ -28,6 +29,7 @@ function ContohSoalTurunan() {
         <em>Tentukan turunan dari fungsi dari f(x) = (3x + 2) . (2x<sup>2</sup> - 1)</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 03</h3>
@@ -35,6 +37,7 @@ function ContohSoalTurunan() {
         <em>Tentukan hasil turunan f(x) = (x<sup>2</sup> + 2x + 3)(3x + 2)</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 04</h3>
@@ -42,6 +45,7 @@ function ContohSoalTurunan() {
         <em>Jika terdapat f(x) = (2x-1)<sup>2</sup>(x+2). Berapakah nilai f'x(2)</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 05</h3>

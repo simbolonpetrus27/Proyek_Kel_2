@@ -3,7 +3,7 @@ import React from 'react';
 function PembahasanTurunan() {
   return (
     <div className="container">
-      <h2>Soal Integral - Pembahasan Lengkap</h2>
+      <h2>Soal Turunan - Pembahasan Lengkap</h2>
       <section className="soal">
       <h3>Soal 01</h3>
         <p>
@@ -19,6 +19,7 @@ function PembahasanTurunan() {
         <br />
         (E) m(x) = (3x<sup>2</sup> + 3)<sup>4</sup>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -36,12 +37,14 @@ function PembahasanTurunan() {
           Maka pilihan yang sesuai adalah <strong>(D) 4x<sup>3</sup>- 2x<sup>2</sup> + x + C </strong> 
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 02</h3>
         <p>
         <em>Tentukan turunan dari fungsi dari f(x) = (3x + 2) . (2x<sup>2</sup> - 1)</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -54,16 +57,17 @@ function PembahasanTurunan() {
           <em>f'(x) = 6x2 - 3 + 12x2 + 8x = 18x2 + 8x - 3</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 03</h3>
         <p>
         <em>Tentukan hasil turunan f(x) = (x<sup>2</sup> + 2x + 3)(3x + 2)</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           Sama seperti soal sebelumnya, Untuk mengerjakan soal turunan dalam bentuk perkalian, kita dapat menggunakan rumus sifat turunan serta menggunakan pemisalan dalam fungsi tersebut seperti di bawah ini.
           <br />
           <em>F'(x) = u'v + uv'</em>
@@ -82,16 +86,17 @@ function PembahasanTurunan() {
           <br />
           Sehingga bentuk akhir <strong>F'(x) adalah 9x<sup>2</sup> + 19x + 15</strong>
         </p>
+        <br />
 
         <section className="soal">
         <h3>Soal 04</h3>
         <p>
         <em>Jika terdapat f(x) = (2x-1)<sup>2</sup>(x+2). Berapakah nilai f'x(2)</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           Untuk mengerjakan soal ini, kita bisa menggunakan sifat turunan fungsi f'(x) = u'v + v'u untuk mendapatkan hasil akhir. Sehingga kita dapat melakukan pemisalan kembali.
           <br />
           <em>F'(x) = u'v + uv'</em>
@@ -113,12 +118,14 @@ function PembahasanTurunan() {
           <em>Sehingga nilai akhir F'(2) adalah 105</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 05</h3>
         <p>
         <em>Tentukan sebuah garis singgung pada kurva y= -2x<sup>2</sup> + 6x + 7 yang tegak lurus dengan garis x - 2y + 13 = 0</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>

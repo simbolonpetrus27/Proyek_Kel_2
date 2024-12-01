@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import MateriTransformasi from './MateriTransformasi'; // Import komponen materi
 import ContohSoalTransformasi from './ContohSoalTransformasi'; // Import komponen contoh soal
-import PembahasanTransformasi from './PembahasanProgramLinear'; // Import komponen pembahasan
+import PembahasanTransformasi from './PembahasanTransformasi.js'; // Import komponen pembahasan
 import MiniQuizTransformasi from './MiniQuizTransformasi.js'; // Import komponen mini quiz
 
 const Transformasi = () => {

@@ -19,6 +19,7 @@ function PembahasanIntegral() {
         <br />
         (E) 4x<sup>3</sup> + 2x<sup>2</sup> + x + C
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -33,6 +34,7 @@ function PembahasanIntegral() {
           Maka pilihan yang sesuai adalah <strong>(D) 4x<sup>3</sup>- 2x<sup>2</sup> + x + C </strong> 
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 02</h3>
@@ -49,10 +51,10 @@ function PembahasanIntegral() {
         <br />
         (E) 6x<sup>3</sup> - 5/2x<sup>2</sup> + 4x + C
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           Dengan menerapkan aturan dasar integral ∫ x<sup>n</sup> dx = 1/n+1 x<sup>n</sup> + c, n≠ -1 dan manipulasi aljabar, maka kita akan peroleh:
           <br />
           <em>∫ (3x<sup>2</sup> - 5x + 4) dx </em>
@@ -64,6 +66,7 @@ function PembahasanIntegral() {
           Maka pilihan yang tepat adalah <strong>(A) x<sup>3</sup> - 5/2x<sup>2</sup> + 4x + C</strong>
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 03</h3>
@@ -80,10 +83,10 @@ function PembahasanIntegral() {
         <br />
         (E) 3
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           Untuk f (x) = a+ bx dan F(x) adalah anti turunan f(x) maka berlaku:
           <br />
           <em>F(x) = ∫ f (x) dx</em>
@@ -108,16 +111,17 @@ function PembahasanIntegral() {
           <br />
           Maka pilihan yang sesuai adalah <strong>(B) 6</strong>
         </p>
+        <br />
 
         <section className="soal">
       <h3>Soal 04</h3>
         <p>
         <em>Diketahui gradien garis singgung kurva di titik (x, y) adalah 6x + 5. Misalkan kurva tersebut melewati titik (1, 5), carilah persamaan kurvanya.</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           f'(x) = 6x + 5
           <br />
           <em>f(x) = ʃ (6x +5) dx</em>
@@ -137,12 +141,15 @@ function PembahasanIntegral() {
           <br />
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 05</h3>
         <p>
         <em>Diketahui fungsi y = f(x) memiliki f'(x) = 4x + 6. Misal kurva y = f(x) melalui titik (2, 8). Tentukan persamaan kurva tersebut.</em>
         </p>
+        <br />
+
         <h4>Pembahasan:</h4>
         <p>
         <em>f(x) = ʃ f'(x), dan f'(x) = 4x + 6, maka</em>

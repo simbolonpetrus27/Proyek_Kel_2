@@ -1,9 +1,9 @@
 import React from 'react';
 
-function PembahasanTransformasi() {
+const PembahasanTransformasi = () => {
   return (
     <div className="container">
-      <h2>Soal Integral - Pembahasan Lengkap</h2>
+      <h2>Soal Transformasi - Pembahasan Lengkap</h2>
       <section className="soal">
       <h3>Soal 01</h3>
         <p>
@@ -14,10 +14,10 @@ function PembahasanTransformasi() {
         <br />
         Jika titik H dirotasikan sejauh 180o terhadap titik pusat (0, 0), gambarkan posisi akhir titik H'!
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-        <br />
         Berdasarkan gambar pada soal, titik H berada di koordinat (1, 3). Dengan demikian:
         <br />
         <img
@@ -33,16 +33,17 @@ function PembahasanTransformasi() {
         src="https://www.quipper.com/id/blog/wp-content/uploads/2023/02/Diperoleh-letak-koordinat-titik-H-1-3.-Jika-digambarkan-menjadi-seperti-berikut..webp" alt="" className="image" />   
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 02</h3>
         <p>
         <em>Titik B (2, -1) didilatasi terhadap pusat (4, 2). Jika faktor pengalinya 2, tentukan koordinat akhir titik B!</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           Secara matematis, titik B dinyatakan sebagai berikut.
           <br />
           <img
@@ -54,16 +55,17 @@ function PembahasanTransformasi() {
           <em>Jadi, koordinat B' = (0, -4)</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
       <h3>Soal 03</h3>
         <p>
         <em>Bayangan titik A dengan (-1,4) jika direfleksikan terhadap garis y = -x adalah . . .</em>
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
-          <br />
           Jika titik <em>A(x,y)</em> direfleksikan terhadap garis <em>y = -x,</em> maka bayangan titik A adalah <em>A' = (-y, -x).</em>
           <br />
           <em>Jadi, bayangan titik A(-1,4) adalah <strong>A'(-4,1)</strong></em>

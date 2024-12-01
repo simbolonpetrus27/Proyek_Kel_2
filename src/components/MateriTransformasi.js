@@ -1,7 +1,7 @@
 import React from 'react';
 import './MateriMatrix.css';
 
-function MateriTransformasi() {
+const MateriTransformasi = () => {
   return (
     <div className="container">
       <section className="materi">

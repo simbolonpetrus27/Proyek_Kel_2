@@ -27,18 +27,130 @@ function MateriInduksiMatematika() {
 
       <section className="operasi-matriks">
         <h3>Jenis Induksi Matematika</h3>
+        <br />
+        <strong>1. Deret Bilangan</strong>
+        <br />
+        Sebagai ilustrasi dibuktikan secara induksi matematika bahwa
+        <br />
         <img
-        src="https://www.quipper.com/id/blog/wp-content/uploads/2019/07/integral-5-2-300x106.png" alt="" className="image" />
-      </section>
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+n+%3D+%5Cfrac%7B1%7D%7B2%7Dn%28n+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+        <br />
+        <strong>Langkah 1</strong>
+          <br />
+          untuk n = 1, maka :
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%3D+%5Cfrac%7B1%7D%7B2%7Dn%28n+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%3D+%5Cfrac%7B1%7D%7B2%7D%281%29%281+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          1 = 1
+          <br />
+          <strong>Langkah 2 (n = k)</strong>
+          <br />
+          Misal rumus benar untuk n = k, maka:
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+k+%3D+%5Cfrac%7B1%7D%7B2%7Dk%28k+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          <strong>Langkah 3 (n = k + 1)</strong>
+          <br />
+          Akan dibuktikan bahwa rumus benar untuk n = k + 1. Sehingga:
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+k+%2B+%28k+%2B+1%29+%3D+%5Cfrac%7B1%7D%7B2%7D+%28k+%2B+1%29%28%28k+%2B+1%29+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />    
+          Pembuktiannya:
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+k+%2B+%28k+%2B+1%29+%3D+%5Cfrac%7B1%7D%7B2%7D+k%28k+%2B+1%29+%2B+%28k+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+        <br />
+        (dalam langkah 2, kedua ruas ditambah k + 1)
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+%5Cfrac%7B1%7D%7B2%7Dk+%28k+%2B+1%29+%2B%5Cfrac%7B1%7D%7B2%7D+%5B2%28k+%2B+1%29%5D+&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+        <br />
+        (k + 1) dimodifikasi menyerupai
+        <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%5Cfrac%7B1%7D%7B2%7D+k+%28k+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br /> 
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+%5Cfrac%7B1%7D%7B2%7D%5Bk%28k+%2B+1%29+%2B+2%28k+%2B+1%29%5D&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+         <br />
+         (penyederhanaan)
+         <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+%5Cfrac%7B1%7D%7B2%7D%28k%5E2+%2B+k+%2B+2k+%2B+2%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+%5Cfrac%7B1%7D%7B2%7D%28k%5E2+%2B+3k+%2B+2%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+k+%2B+%28k+%2B+1%29+%3D+%5Cfrac%7B1%7D%7B2%7D+%28k+%2B+1%29%28k+%2B+2%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+        <strong>(terbukti).</strong>
+        <br />
+        <br />
 
-      <section className="manfaat-matriks">
-        <h3>Rumus Integral tentu</h3>
+        <strong>2. Bilangan bulat hasil pembagian</strong>
+        <br />
+        Suatu bilangan dikatakan habis dibagi jika hasil pembagian tersebut adalah bilangan bulat. Sebagai ilustrasi, dibuktikan secara induksi matematika bahwa <em>5<sup>2n</sup> + 3n - 1 </em>habis dibagi 9.
+        <br />
         <img
-        src="https://www.quipper.com/id/blog/wp-content/uploads/2019/07/integral-7-1-300x190.png" alt="" className="image" />
-        <p>Oleh karena itu, rumus umum integral dinyatakan sebagai berikut :</p>
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+n+%3D+%5Cfrac%7B1%7D%7B2%7Dn%28n+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+        <br />
+        <strong>Langkah 1</strong>
+          <br />
+          untuk n = 1, maka :
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=5%5E%7B2n%7D+%2B+3n+-+1+%3D+5%5E%7B2%281%29%7D+%2B+3%281%29+-+1&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D5%5E2+%2B+3+-+1&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          = 27
+          <br />
+          27 habis dibagi 9, maka n = 1 benar.
+          <br />
+          <strong>Langkah 2 (n = k)</strong>
+          <br />
+          Misal rumus benar untuk n = k, maka:
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=1+%2B+2+%2B+3+%2B+%5Ccdots+%2B+k+%3D+%5Cfrac%7B1%7D%7B2%7Dk%28k+%2B+1%29&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=5%5E%7B2n%7D+%2B+3n+-1+%5Coverset+%7Bmenjadi%7D%7B%5Crightarrow%7D+5%5E%7B2k%7D+%2B+3k+-+1+&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" /> (habis dibagi 9)
+          <br />    
+          <img
+        src="https://s0.wp.com/latex.php?latex=5%5E%7B2k%7D+%2B+3k+-+1+%3D9b&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />  (b merupakah hasil bagi <em>5<sup>2k</sup> + 3k - 1</em> oleh 9)
+        <br />
+          <strong>Langkah 3 (n = k + 1)</strong>
+          <br />
+          Akan dibuktikan bahwa rumus benar untuk n = k + 1. Pembuktian:
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=5%5E%7B2%28k+%2B+1%29%7D+%2B+3%28k+%2B+1%29+-+1&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" /> (habis dibagi 9)
+          <br />    
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+5%5E%7B2k+%2B+2%7D+%2B+3k+%2B+3+-+1+&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />  (b merupakah hasil bagi <em>5<sup>2k</sup> + 3k - 1</em> oleh 9)
+        <br />
         <img
-        src="https://www.quipper.com/id/blog/wp-content/uploads/2019/07/integral-6-1-300x61.png" alt="" className="image" />
-        <p>, dengan c adalah konstanta integrasi.</p>
+        src="https://s0.wp.com/latex.php?latex=%3D+5%5E2+%285%5E2k%29+%2B+3k+%2B+3+-1&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" /> (habis dibagi 9)
+          <br /> 
+          kemudian (5<sup>2k</sup>) dimodifikasi dengan memasukan 5<sup>2k</sup> + 3k - 1.
+          <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+25+%285%5E%7B2k%7D+%2B+3k+-+1%29+-+75k+%2B+25+%2B+3k+%2B+3+-1&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+        <br />
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+25%285%5E%7B2k%7D+%2B+3k+-1%29+-+72k+%2B+27&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
+          <br /> 
+          <img
+        src="https://s0.wp.com/latex.php?latex=%3D+25+%289b%29+-+72k+%2B+27&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />
       </section>
     </div>
   );

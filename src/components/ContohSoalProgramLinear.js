@@ -4,7 +4,7 @@ import React from 'react';
 const ContohSoalProgramLinear = () => {
   return (
     <div>
-      <h3>Contoh Soal Program Linear</h3>
+      <h3>Soal Program Linear</h3>
       <p>Berikut adalah beberapa contoh soal program linear yang mudah dimengerti:</p>
 
       <ol>

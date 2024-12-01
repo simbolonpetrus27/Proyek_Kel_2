@@ -1,142 +1,41 @@
 import React from 'react';
 
 function ContohSoalInduksiMatematika() {
-  const styles = {
-    container: {
-      padding: '20px',
-    },
-    box: {
-      border: '1px solid #ccc',
-      borderRadius: '5px',
-      padding: '15px',
-      marginBottom: '20px',
-      transition: 'background-color 0.3s',
-      textAlign: 'left', // Mengatur teks agar rata kiri
-    },
-    boxHover: {
-      backgroundColor: '#f0f0f0',
-    },
-    soal1: {
-      backgroundColor: '#e7f3fe', // Warna latar belakang untuk Soal 1
-    },
-    soal2: {
-      backgroundColor: '#fce7f3', // Warna latar belakang untuk Soal 2
-    },
-  };
-
   return (
-    <div style={styles.container}>
-      <h2>Contoh Soal Induksi Matematika</h2>
+    <div className="container">
+      <h2>Soal Induksi Matematika</h2>
 
-      {/* Box Soal 1 */}
-      <div
-        style={{ ...styles.box, ...styles.soal1 }}
-        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.boxHover.backgroundColor)}
-        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.soal1.backgroundColor)}
-      >
-        <h3>Soal 1</h3>
+      <section className="soal">
+        <h3>Soal 01</h3>
         <p>
-          Buktikan dengan menggunakan metode induksi matematika bahwa S<sub>n</sub> = n(n + 1) / 2 untuk setiap n bilangan bulat positif, di mana S<sub>n</sub> adalah jumlah dari n bilangan pertama.
+        <em>Buktikan bahwa</em>
+        <br />
+        <img
+        src="https://s0.wp.com/latex.php?latex=1%5E3+%2B+2%5E3+%2B+3%5E3+%2B+%5Ccdots+%2B+n%5E3+%3D+%5Cfrac%7B1%7D%7B4%7D+n%5E2+%28n+%2B+1%29%5E2&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />   
         </p>
+      </section>
+      <br />
 
-        <h4>Langkah 1 (Basis Induksi)</h4>
+      <section className="soal">
+        <h3>Soal 02</h3>
         <p>
-          Buktikan rumus tersebut benar untuk n = 1.
+        <em>Buktikan bahwa</em>
+        <br />
+        <img
+        src="https://s0.wp.com/latex.php?latex=%5Cfrac%7B1%7D%7B2%7D+%2B+%5Cfrac%7B2%7D%7B2%5E2%7D+%2B+%5Cfrac%7B3%7D%7B2%5E3%7D+%2B+%5Ccdots+%2B+%5Cfrac%7Bn%7D%7B2%5En%7D+%3D+2+-+%5Cfrac%7Bn+%2B+2%7D%7B2%5En%7D&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />   
         </p>
-        <p>
-          Untuk n = 1, kita memiliki S<sub>1</sub> = 1 dan rumus memberikan 1(1 + 1) / 2 = 1, yang sesuai dengan S<sub>1</sub>.
-        </p>
+      </section>
+      <br />
 
-        <h4>Langkah 2 (Langkah Induksi)</h4>
+      <section className="soal">
+        <h3>Soal 03</h3>
         <p>
-          Asumsikan bahwa rumus tersebut benar untuk n = k, yaitu S<sub>k</sub> = k(k + 1) / 2. Kemudian buktikan bahwa rumus tersebut juga benar untuk n = k + 1.
+        <em>Buktikan bahwa </em>
+        <img
+        src="https://s0.wp.com/latex.php?latex=3%5E%7B2n%7D+%2B+2%7B2n+%2B+2%7D&bg=f9f9f9&fg=000000&s=0&c=20201002" alt="" className="image" />  
+        habis dibagi 5. 
         </p>
-        <p>
-          S<sub>k + 1</sub> = S<sub>k</sub> + (k + 1)
-        </p>
-        <p>
-          S<sub>k + 1</sub> = k(k + 1) / 2 + (k + 1)
-        </p>
-        <p>
-          S<sub>k + 1</sub> = k(k + 1) / 2 + 2(k + 1) / 2
-        </p>
-        <p>
-          S<sub>k + 1</sub> = (k + 1)(k + 2) / 2
-        </p>
-        <p>
-          Dengan langkah induksi ini, kita membuktikan bahwa jika rumus berlaku untuk n = k, maka rumus tersebut juga berlaku untuk n = k + 1.
-        </p>
-
-        <h4>Penerapan untuk n = 20</h4>
-        <p>
-          Untuk n = 20, kita dapat menggunakan rumus S<sub>n</sub> = n(n + 1) / 2.
-        </p>
-        <p>
-          S<sub>20</sub> = 20(20 + 1) / 2 = 20 x 21 / 2 = 210.
-        </p>
-        <p>
-          Sehingga dengan basis induksi dan langkah induksi, kita membuktikan bahwa S<sub>n</sub> = n(n + 1) / 2 untuk setiap n bilangan bulat positif, termasuk untuk n = 20.
-        </p>
-      </div>
-
-      {/* Box Soal 2 */}
-      <div
-        style={{ ...styles.box, ...styles.soal2 }}
-        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.boxHover.backgroundColor)}
-        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.soal2.backgroundColor)}
-      >
-        <h3>Soal 2</h3>
-        <p>
-          Buktikan dengan induksi matematika bahwa 3<sup>n</sup> - 1 habis dibagi 2 untuk setiap n bilangan bulat positif.
-        </p>
-
-        <h4>Langkah 1 (Basis Induksi)</h4>
-        <p>
-          Buktikan untuk n = 1.
-        </p>
-        <p>
-          Ketika n = 1: 3<sup>1</sup> - 1 = 3 - 1 = 2.
-        </p>
-        <p>
-          Karena 2 habis dibagi 2, maka basis induksi terbukti.
-        </p>
-
-        <h4>Langkah 2 (Langkah Induksi)</h4>
-        <p>
-          Asumsikan bahwa 3<sup>k</sup> - 1 habis dibagi 2 untuk n = k, yaitu: 3<sup>k</sup> - 1 = 2m, untuk suatu bilangan bulat m.
-        </p>
-        <p>
-          Kita perlu membuktikan bahwa 3<sup>k + 1</sup> - 1 juga habis dibagi 2.
-        </p>
-        <p>
-          Bukti:
-        </p>
-        <p>
-          3<sup>k + 1</sup> - 1 = 3 * 3<sup>k</sup> - 1 = 3(3<sup>k</sup> - 1) + 2.
-        </p>
-        <p>
-          Berdasarkan asumsi induksi, 3<sup>k</sup> - 1 = 2m, sehingga:
-        </p>
-        <p>
-          3<sup>k + 1</sup> - 1 = 3(2m) + 2 = 6m + 2.
-        </p>
-        <p>
-          Karena 6m + 2 jelas habis dibagi 2, maka 3<sup>k + 1</sup> - 1 juga habis dibagi 2.
-        </p>
-
-        <h4>Kesimpulan</h4>
-        <p>
-          Dengan basis induksi dan langkah induksi, terbukti bahwa 3<sup>n</sup> - 1 habis dibagi 2 untuk setiap n bilangan bulat positif.
-        </p>
-
-        <h4>Penerapan untuk n = 5</h4>
-        <p>
-          Ketika n = 5: 3<sup>5</sup> - 1 = 243 - 1 = 242.
-        </p>
-        <p>
-          Karena 242 habis dibagi 2, maka pernyataan tersebut benar untuk n = 5.
-        </p>
-      </div>
+      </section>
     </div>
   );
 }

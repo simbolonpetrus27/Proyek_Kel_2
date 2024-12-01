@@ -19,6 +19,7 @@ function PembahasanMatriks() {
           <br />
           Hitunglah A + B dan A - B!
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -45,8 +46,8 @@ function PembahasanMatriks() {
           Maka hasil pengurangan matriks A dan B adalah matriks [ 1  -1;  -2  -2 ].
         </p>
       </section>
+      <br />
 
-      {/* Soal 2: Perkalian Matriks */}
       <section className="soal">
         <h3>Soal 2: Perkalian Matriks</h3>
         <p>
@@ -58,8 +59,9 @@ function PembahasanMatriks() {
           <strong>B = </strong>
           <em>[ 5  6;  7  8 ]</em>
           <br />
-          Hitunglah A × B!
+          Hitunglah A x B!
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -67,15 +69,15 @@ function PembahasanMatriks() {
           <br />
           Perkalian matriks A dan B dilakukan dengan cara mengalikan baris pertama matriks A dengan kolom pertama matriks B, kemudian baris pertama matriks A dengan kolom kedua matriks B, dan seterusnya:
           <br />
-          <em>A × B = [(1×5 + 2×7)  (1×6 + 2×8); (3×5 + 4×7)  (3×6 + 4×8)]</em>
+          <em>A x B = [(1x5 + 2x7)  (1x6 + 2x8); (3x5 + 4x7)  (3x6 + 4x8)]</em>
           <br />
-          <em>A × B = [ (5 + 14)  (6 + 16); (15 + 28)  (18 + 32)]</em>
+          <em>A x B = [ (5 + 14)  (6 + 16); (15 + 28)  (18 + 32)]</em>
           <br />
-          <em>A × B = [ 19  22;  43  50 ]</em>
+          <em>A x B = [ 19  22;  43  50 ]</em>
         </p>
       </section>
+      <br />
 
-      {/* Soal 3: Transpos Matriks */}
       <section className="soal">
         <h3>Soal 3: Transpos Matriks</h3>
         <p>
@@ -86,6 +88,7 @@ function PembahasanMatriks() {
           <br />
           Hitunglah transpos dari matriks A!
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -96,8 +99,8 @@ function PembahasanMatriks() {
           <em>Transpos(A) = [ 1  4;  2  5;  3  6 ]</em>
         </p>
       </section>
+      <br />
 
-      {/* Soal 4: Determinan Matriks */}
       <section className="soal">
         <h3>Soal 4: Determinan Matriks</h3>
         <p>
@@ -108,21 +111,22 @@ function PembahasanMatriks() {
           <br />
           Hitunglah determinan matriks A!
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
           <strong>Langkah 1: Menggunakan Rumus Determinan Matriks 2x2</strong>
           <br />
           Determinan matriks 2x2 dihitung dengan rumus: 
-          <em>det(A) = (a × d) - (b × c)</em>, di mana matriks A = [a b; c d].
+          <em>det(A) = (a x d) - (b x c)</em>, di mana matriks A = [a b; c d].
           <br />
           Diketahui matriks A = [3 4; 5 6], maka:
           <br />
-          <em>det(A) = (3 × 6) - (4 × 5) = 18 - 20 = -2</em>
+          <em>det(A) = (3 x 6) - (4 x 5) = 18 - 20 = -2</em>
         </p>
       </section>
-
-      {/* Soal 5: Invers Matriks */}
+      <br />
+      
       <section className="soal">
         <h3>Soal 5: Invers Matriks</h3>
         <p>
@@ -133,6 +137,7 @@ function PembahasanMatriks() {
           <br />
           Hitunglah invers dari matriks A!
         </p>
+        <br />
 
         <h4>Pembahasan:</h4>
         <p>
@@ -140,11 +145,11 @@ function PembahasanMatriks() {
           <br />
           Matriks A adalah matriks 2x2, sehingga inversnya dapat dihitung dengan rumus:
           <br />
-          <em>A⁻¹ = (1/det(A)) × [d  -b; -c  a]</em>
+          <em>A⁻¹ = (1/det(A)) x [d  -b; -c  a]</em>
           <br />
           Diketahui matriks A = [4 7; 2 6], maka:
           <br />
-          <em>det(A) = (4 × 6) - (7 × 2) = 24 - 14 = 10</em>
+          <em>det(A) = (4 x 6) - (7 x 2) = 24 - 14 = 10</em>
         </p>
 
         <p>
@@ -152,7 +157,7 @@ function PembahasanMatriks() {
           <br />
           Setelah menghitung determinan A, kita dapat menghitung inversnya:
           <br />
-          <em>A⁻¹ = (1/10) × [6  -7; -2  4]</em>
+          <em>A⁻¹ = (1/10) x [6  -7; -2  4]</em>
           <br />
           <em>A⁻¹ = [0.6  -0.7; -0.2  0.4]</em>
         </p>

@@ -3,7 +3,7 @@ import React from 'react';
 function ContohSoalTransformasi() {
   return (
     <div className="container">
-      <h2>Soal Turunan</h2>
+      <h2>Soal Transformasi</h2>
 
       <section className="soal">
         <h3>Soal 01</h3>
@@ -16,6 +16,7 @@ function ContohSoalTransformasi() {
         Jika titik H dirotasikan sejauh 180o terhadap titik pusat (0, 0), gambarkan posisi akhir titik H'!
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 02</h3>
@@ -23,6 +24,7 @@ function ContohSoalTransformasi() {
         <em>Titik B (2, -1) didilatasi terhadap pusat (4, 2). Jika faktor pengalinya 2, tentukan koordinat akhir titik B!</em>
         </p>
       </section>
+      <br />
 
       <section className="soal">
         <h3>Soal 03</h3>
