@@ -1,160 +1,142 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const MiniQuizIntegral = () => {
-  const [selectedAnswerMCQ, setSelectedAnswerMCQ] = useState('');
-  const [essayAnswer, setEssayAnswer] = useState('');
-  const [selectedAnswerTF, setSelectedAnswerTF] = useState('');
+  const [answers, setAnswers] = useState({});
+  const [essayAnswers, setEssayAnswers] = useState(["", ""]);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(null);
+  const [score, setScore] = useState(0);
 
-  // Data untuk soal-soal Integral
-  const questions = {
-    Integral: {
-      mcq: [
-        {
-          question: 'Apa itu integral dalam kalkulus?',
-          options: [
-            'Proses untuk menghitung area di bawah kurva',
-            'Proses untuk menghitung kecepatan',
-            'Proses untuk menghitung perubahan suhu',
-            'Proses untuk menyelesaikan persamaan diferensial',
-          ],
-          correctAnswer: 'Proses untuk menghitung area di bawah kurva',
-        },
-        {
-          question: 'Apa bentuk integral tak tentu dari fungsi f(x) = 2x?',
-          options: ['x^2 + C', '2x^2 + C', 'x^3 + C', '2x^3 + C'],
-          correctAnswer: 'x^2 + C',
-        },
-        {
-          question: 'Metode apa yang digunakan untuk menghitung integral dari fungsi tertentu?',
-          options: ['Metode substitusi', 'Metode faktorisasi', 'Metode limit', 'Metode diferensiasi'],
-          correctAnswer: 'Metode substitusi',
-        },
-        {
-          question: 'Berapa hasil dari integral ∫ 3x^2 dx?',
-          options: ['x^3 + C', 'x^2 + C', 'x^4 + C', 'x^3 + 3x + C'],
-          correctAnswer: 'x^3 + C',
-        },
-        // (Lanjutkan dengan soal lainnya)
-      ],
-      essay: [
-        {
-          question: 'Jelaskan langkah-langkah dalam menghitung integral tak tentu!',
-        },
-        {
-          question: 'Apa perbedaan antara integral tak tentu dan integral tentu?',
-        },
-        // (Lanjutkan dengan soal essay lainnya)
-      ],
-      tf: [
-        {
-          question: 'Integral tak tentu selalu memiliki hasil yang unik.',
-          correctAnswer: 'False',
-        },
-        {
-          question: 'Metode substitusi hanya digunakan untuk integral tertentu.',
-          correctAnswer: 'False',
-        },
-        // (Lanjutkan dengan soal true/false lainnya)
-      ],
+  const multipleChoiceQuestions = [
+    {
+      id: 1,
+      question: "Hitung integral dari ∫ x² dx?",
+      options: {
+        A: "x³ + C",
+        B: "(1/3)x³ + C",
+        C: "(1/2)x² + C",
+      },
+      correct: "B",
     },
+    {
+      id: 2,
+      question: "Hasil integral dari ∫ e^x dx adalah?",
+      options: {
+        A: "e^x + C",
+        B: "ln(x) + C",
+        C: "(1/x) + C",
+      },
+      correct: "A",
+    },
+    {
+      id: 3,
+      question: "Hasil integral dari ∫ 1/(x²) dx adalah?",
+      options: {
+        A: "-1/x + C",
+        B: "ln(x) + C",
+        C: "1/x + C",
+      },
+      correct: "A",
+    },
+  ];
+
+  const essayQuestions = [
+    "Jelaskan kegunaan integral dalam ilmu fisika!",
+    "Berikan contoh penerapan integral pada bidang ekonomi!",
+  ];
+
+  const handleMultipleChoiceChange = (questionId, selectedOption) => {
+    setAnswers({ ...answers, [questionId]: selectedOption });
   };
 
-  // Menangani perubahan jawaban pilihan ganda
-  const handleMCQChange = (event) => {
-    setSelectedAnswerMCQ(event.target.value);
+  const handleMultipleChoiceSubmit = (e, questionId) => {
+    e.preventDefault();
+    const correctAnswer = multipleChoiceQuestions.find(
+      (q) => q.id === questionId
+    ).correct;
+
+    if (answers[questionId] === correctAnswer) {
+      alert("Jawaban Anda Benar!");
+      setScore(score + 1);
+    } else {
+      setShowCorrectAnswer({ questionId, correctAnswer });
+      setTimeout(() => setShowCorrectAnswer(null), 1000);
+    }
   };
 
-  // Menangani perubahan jawaban essay
-  const handleEssayChange = (event) => {
-    setEssayAnswer(event.target.value);
+  const handleEssayChange = (index, value) => {
+    const newEssayAnswers = [...essayAnswers];
+    newEssayAnswers[index] = value;
+    setEssayAnswers(newEssayAnswers);
   };
 
-  // Menangani perubahan jawaban true/false
-  const handleTFChange = (event) => {
-    setSelectedAnswerTF(event.target.value);
+  const handleEssaySubmit = (e) => {
+    e.preventDefault();
+    alert("Jawaban esai Anda telah disimpan!");
   };
 
-  // Fungsi untuk mengecek jawaban
-  const checkAnswers = () => {
-    const topicQuestions = questions.Integral;  // Fokus hanya pada Integral
-    const mcqResult = topicQuestions.mcq.map((q) => (
-      selectedAnswerMCQ === q.correctAnswer ? 'Benar' : 'Salah'
-    ));
-    const tfResult = topicQuestions.tf.map((q) => (
-      selectedAnswerTF === q.correctAnswer ? 'Benar' : 'Salah'
-    ));
-    alert(`Hasil:\nSoal Pilihan Ganda: ${mcqResult.join(', ')}\nSoal True/False: ${tfResult.join(', ')}\nSoal Essay: ${essayAnswer ? 'Sudah Dijawab' : 'Belum Dijawab'}`);
+  const resetQuiz = () => {
+    setAnswers({});
+    setEssayAnswers(["", ""]);
+    setScore(0);
+    setShowCorrectAnswer(null);
   };
 
   return (
-    <div>
-      <h2>Mini Quiz - Integral</h2>
-      
-      {/* Soal Pilihan Ganda */}
-      {questions.Integral.mcq.map((q, index) => (
-        <div key={index}>
-          <h4>{q.question}</h4>
-          {q.options.map((option, i) => (
-            <div key={i}>
+    <div style={{ padding: "20px" }}>
+      <h2>Mini Quiz Integral</h2>
+      <h3>Pilihan Ganda</h3>
+      {multipleChoiceQuestions.map((q) => (
+        <form
+          key={q.id}
+          onSubmit={(e) => handleMultipleChoiceSubmit(e, q.id)}
+          style={{ marginBottom: "20px" }}
+        >
+          <p>{q.question}</p>
+          {Object.entries(q.options).map(([key, value]) => (
+            <label key={key} style={{ display: "block" }}>
               <input
                 type="radio"
-                id={`mcq-option-${i}`}
-                name="mcq"
-                value={option}
-                checked={selectedAnswerMCQ === option}
-                onChange={handleMCQChange}
+                name={`question-${q.id}`}
+                value={key}
+                checked={answers[q.id] === key}
+                onChange={(e) =>
+                  handleMultipleChoiceChange(q.id, e.target.value)
+                }
               />
-              <label htmlFor={`mcq-option-${i}`}>{option}</label>
-            </div>
+              {key}) {value}
+            </label>
           ))}
-        </div>
+          <button type="submit">Submit Jawaban</button>
+          {showCorrectAnswer?.questionId === q.id && (
+            <p style={{ color: "red" }}>
+              Jawaban benar adalah: {q.options[showCorrectAnswer.correctAnswer]}
+            </p>
+          )}
+        </form>
       ))}
 
-      {/* Soal Essay */}
-      {questions.Integral.essay.map((q, index) => (
-        <div key={index}>
-          <h4>{q.question}</h4>
-          <textarea
-            rows="4"
-            cols="50"
-            value={essayAnswer}
-            onChange={handleEssayChange}
-            placeholder="Tulis jawaban essay Anda di sini..."
-          />
-        </div>
-      ))}
-
-      {/* Soal True/False */}
-      {questions.Integral.tf.map((q, index) => (
-        <div key={index}>
-          <h4>{q.question}</h4>
-          <div>
-            <input
-              type="radio"
-              id={`tf-${index}-true`}
-              name="tf"
-              value="True"
-              checked={selectedAnswerTF === 'True'}
-              onChange={handleTFChange}
+      <h3>Esai</h3>
+      <form onSubmit={handleEssaySubmit}>
+        {essayQuestions.map((question, index) => (
+          <div key={index} style={{ marginBottom: "20px" }}>
+            <p>{question}</p>
+            <textarea
+              value={essayAnswers[index]}
+              onChange={(e) => handleEssayChange(index, e.target.value)}
+              rows="5"
+              cols="40"
+              placeholder="Tuliskan jawaban Anda di sini..."
             />
-            <label htmlFor={`tf-${index}-true`}>True</label>
           </div>
-          <div>
-            <input
-              type="radio"
-              id={`tf-${index}-false`}
-              name="tf"
-              value="False"
-              checked={selectedAnswerTF === 'False'}
-              onChange={handleTFChange}
-            />
-            <label htmlFor={`tf-${index}-false`}>False</label>
-          </div>
-        </div>
-      ))}
+        ))}
+        <button type="submit">Submit Jawaban Esai</button>
+      </form>
 
-      <button onClick={checkAnswers} style={{ marginTop: '20px' }}>
-        Attempt Quiz
+      <h3>Skor Anda</h3>
+      <p>Skor pilihan ganda: {score} / {multipleChoiceQuestions.length}</p>
+
+      <button onClick={resetQuiz} style={{ marginTop: "20px" }}>
+        Ulangi Quiz
       </button>
     </div>
   );

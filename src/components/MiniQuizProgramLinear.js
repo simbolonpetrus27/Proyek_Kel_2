@@ -1,155 +1,142 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const MiniQuizProgramLinear = () => {
-  const [selectedAnswerMCQ, setSelectedAnswerMCQ] = useState('');
-  const [essayAnswer, setEssayAnswer] = useState('');
-  const [selectedAnswerTF, setSelectedAnswerTF] = useState('');
+  const [answers, setAnswers] = useState({});
+  const [essayAnswers, setEssayAnswers] = useState(["", ""]);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(null);
+  const [score, setScore] = useState(0);
 
-  // Data untuk soal-soal hanya Program Linear
-  const questions = {
-    ProgramLinear: {
-      mcq: [
-        {
-          question: 'Apa yang dimaksud dengan sistem persamaan linear?',
-          options: ['Sekumpulan persamaan yang memiliki banyak solusi', 'Sekumpulan persamaan yang memiliki satu solusi', 'Sekumpulan persamaan yang memiliki dua solusi', 'Sekumpulan persamaan yang hanya memiliki solusi tidak real'],
-          correctAnswer: 'Sekumpulan persamaan yang memiliki satu solusi',
-        },
-        {
-          question: 'Sistem persamaan linear berikut memiliki berapa solusi? 2x + 3y = 5, 4x + 6y = 10',
-          options: ['Tidak ada solusi', 'Satu solusi', 'Tidak terhingga banyaknya solusi', 'Dua solusi'],
-          correctAnswer: 'Tidak terhingga banyaknya solusi',
-        },
-        {
-          question: 'Metode yang digunakan untuk menyelesaikan sistem persamaan linear dengan dua variabel adalah?',
-          options: ['Eliminasi', 'Faktorisasi', 'Integral', 'Diferensiasi'],
-          correctAnswer: 'Eliminasi',
-        },
-        {
-          question: 'Berapa banyak solusi yang dimiliki sistem persamaan berikut? 3x + y = 7, 2x - y = 4',
-          options: ['Satu solusi', 'Tidak ada solusi', 'Tidak terhingga banyaknya solusi', 'Dua solusi'],
-          correctAnswer: 'Satu solusi',
-        },
-        // (Lanjutkan dengan soal lainnya)
-      ],
-      essay: [
-        {
-          question: 'Jelaskan langkah-langkah yang digunakan untuk menyelesaikan sistem persamaan linear menggunakan metode eliminasi.',
-        },
-        {
-          question: 'Apa perbedaan antara sistem persamaan linear yang konsisten dan sistem yang tidak konsisten? Berikan contoh untuk masing-masing.',
-        },
-        // (Lanjutkan dengan soal essay lainnya)
-      ],
-      tf: [
-        {
-          question: 'Sistem persamaan linear selalu memiliki satu solusi.',
-          correctAnswer: 'False',
-        },
-        {
-          question: 'Metode eliminasi hanya dapat digunakan untuk sistem persamaan linear dengan dua variabel.',
-          correctAnswer: 'False',
-        },
-        // (Lanjutkan dengan soal true/false lainnya)
-      ],
+  const multipleChoiceQuestions = [
+    {
+      id: 1,
+      question: "Apa yang dimaksud dengan Program Linear?",
+      options: {
+        A: "Model matematika untuk optimasi",
+        B: "Program komputer untuk hitung integral",
+        C: "Algoritma sorting",
+      },
+      correct: "A",
     },
+    {
+      id: 2,
+      question: "Tujuan utama dari program linear adalah?",
+      options: {
+        A: "Mencari penyelesaian grafik",
+        B: "Maksimalkan atau minimalkan nilai fungsi",
+        C: "Menghitung determinan matriks",
+      },
+      correct: "B",
+    },
+    {
+      id: 3,
+      question: "Metode penyelesaian program linear melibatkan?",
+      options: {
+        A: "Sistem persamaan linier",
+        B: "Turunan fungsi",
+        C: "Sistem persamaan kuadrat",
+      },
+      correct: "A",
+    },
+  ];
+
+  const essayQuestions = [
+    "Jelaskan langkah-langkah penyelesaian masalah Program Linear!",
+    "Berikan contoh kasus nyata yang menggunakan Program Linear dalam kehidupan sehari-hari!",
+  ];
+
+  const handleMultipleChoiceChange = (questionId, selectedOption) => {
+    setAnswers({ ...answers, [questionId]: selectedOption });
   };
 
-  // Menangani perubahan jawaban pilihan ganda
-  const handleMCQChange = (event) => {
-    setSelectedAnswerMCQ(event.target.value);
+  const handleMultipleChoiceSubmit = (e, questionId) => {
+    e.preventDefault();
+    const correctAnswer = multipleChoiceQuestions.find(
+      (q) => q.id === questionId
+    ).correct;
+
+    if (answers[questionId] === correctAnswer) {
+      alert("Jawaban Anda Benar!");
+      setScore(score + 1);
+    } else {
+      setShowCorrectAnswer({ questionId, correctAnswer });
+      setTimeout(() => setShowCorrectAnswer(null), 1000);
+    }
   };
 
-  // Menangani perubahan jawaban essay
-  const handleEssayChange = (event) => {
-    setEssayAnswer(event.target.value);
+  const handleEssayChange = (index, value) => {
+    const newEssayAnswers = [...essayAnswers];
+    newEssayAnswers[index] = value;
+    setEssayAnswers(newEssayAnswers);
   };
 
-  // Menangani perubahan jawaban true/false
-  const handleTFChange = (event) => {
-    setSelectedAnswerTF(event.target.value);
+  const handleEssaySubmit = (e) => {
+    e.preventDefault();
+    alert("Jawaban esai Anda telah disimpan!");
   };
 
-  // Fungsi untuk mengecek jawaban
-  const checkAnswers = () => {
-    const topicQuestions = questions.ProgramLinear;  // Fokus hanya pada Program Linear
-    const mcqResult = topicQuestions.mcq.map((q) => (
-      selectedAnswerMCQ === q.correctAnswer ? 'Benar' : 'Salah'
-    ));
-    const tfResult = topicQuestions.tf.map((q) => (
-      selectedAnswerTF === q.correctAnswer ? 'Benar' : 'Salah'
-    ));
-    alert(`Hasil:\nSoal Pilihan Ganda: ${mcqResult.join(', ')}\nSoal True/False: ${tfResult.join(', ')}\nSoal Essay: ${essayAnswer ? 'Sudah Dijawab' : 'Belum Dijawab'}`);
+  const resetQuiz = () => {
+    setAnswers({});
+    setEssayAnswers(["", ""]);
+    setScore(0);
+    setShowCorrectAnswer(null);
   };
 
   return (
-    <div>
-      <h2>Mini Quiz - Program Linear</h2>
-      
-      {/* Soal Pilihan Ganda */}
-      {questions.ProgramLinear.mcq.map((q, index) => (
-        <div key={index}>
-          <h4>{q.question}</h4>
-          {q.options.map((option, i) => (
-            <div key={i}>
+    <div style={{ padding: "20px" }}>
+      <h2>Mini Quiz Program Linear</h2>
+      <h3>Pilihan Ganda</h3>
+      {multipleChoiceQuestions.map((q) => (
+        <form
+          key={q.id}
+          onSubmit={(e) => handleMultipleChoiceSubmit(e, q.id)}
+          style={{ marginBottom: "20px" }}
+        >
+          <p>{q.question}</p>
+          {Object.entries(q.options).map(([key, value]) => (
+            <label key={key} style={{ display: "block" }}>
               <input
                 type="radio"
-                id={`mcq-option-${i}`}
-                name="mcq"
-                value={option}
-                checked={selectedAnswerMCQ === option}
-                onChange={handleMCQChange}
+                name={`question-${q.id}`}
+                value={key}
+                checked={answers[q.id] === key}
+                onChange={(e) =>
+                  handleMultipleChoiceChange(q.id, e.target.value)
+                }
               />
-              <label htmlFor={`mcq-option-${i}`}>{option}</label>
-            </div>
+              {key} {value}
+            </label>
           ))}
-        </div>
+          <button type="submit">Submit Jawaban</button>
+          {showCorrectAnswer?.questionId === q.id && (
+            <p style={{ color: "red" }}>
+              Jawaban benar adalah: {q.options[showCorrectAnswer.correctAnswer]}
+            </p>
+          )}
+        </form>
       ))}
 
-      {/* Soal Essay */}
-      {questions.ProgramLinear.essay.map((q, index) => (
-        <div key={index}>
-          <h4>{q.question}</h4>
-          <textarea
-            rows="4"
-            cols="50"
-            value={essayAnswer}
-            onChange={handleEssayChange}
-            placeholder="Tulis jawaban essay Anda di sini..."
-          />
-        </div>
-      ))}
-
-      {/* Soal True/False */}
-      {questions.ProgramLinear.tf.map((q, index) => (
-        <div key={index}>
-          <h4>{q.question}</h4>
-          <div>
-            <input
-              type="radio"
-              id={`tf-${index}-true`}
-              name="tf"
-              value="True"
-              checked={selectedAnswerTF === 'True'}
-              onChange={handleTFChange}
+      <h3>Esai</h3>
+      <form onSubmit={handleEssaySubmit}>
+        {essayQuestions.map((question, index) => (
+          <div key={index} style={{ marginBottom: "20px" }}>
+            <p>{question}</p>
+            <textarea
+              value={essayAnswers[index]}
+              onChange={(e) => handleEssayChange(index, e.target.value)}
+              rows="5"
+              cols="40"
+              placeholder="Tuliskan jawaban Anda di sini..."
             />
-            <label htmlFor={`tf-${index}-true`}>True</label>
           </div>
-          <div>
-            <input
-              type="radio"
-              id={`tf-${index}-false`}
-              name="tf"
-              value="False"
-              checked={selectedAnswerTF === 'False'}
-              onChange={handleTFChange}
-            />
-            <label htmlFor={`tf-${index}-false`}>False</label>
-          </div>
-        </div>
-      ))}
+        ))}
+        <button type="submit">Submit Jawaban Esai</button>
+      </form>
 
-      <button onClick={checkAnswers} style={{ marginTop: '20px' }}>
-        Attempt Quiz
+      <h3>Skor Anda</h3>
+      <p>Skor pilihan ganda: {score} / {multipleChoiceQuestions.length}</p>
+
+      <button onClick={resetQuiz} style={{ marginTop: "20px" }}>
+        Ulangi Quiz
       </button>
     </div>
   );
