@@ -4,25 +4,21 @@
     justify-content: center; /* Menyusun secara horizontal di tengah */
     align-items: center; /* Menyusun secara vertikal di tengah */
     min-height: 100vh; /* Mengatur tinggi minimum halaman untuk memastikan card tetap di tengah */
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradien yang dinamis */
     padding: 0;
     margin: 0;
+    height: 100%;
 }
 
 /* Kontainer card kuis */
 .big-quiz {
-    padding: 40px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 600px; /* Maksimal lebar card */
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    overflow: hidden;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: auto;
+    margin: 0;
+    background: inherit;
+    padding: 20px;
+    border-radius: 10px
 }
 
 /* Efek animasi untuk kontainer card */
