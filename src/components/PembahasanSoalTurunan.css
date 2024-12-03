@@ -1,0 +1,35 @@
+.pembahasan-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .pembahasan-soal {
+    margin-bottom: 30px;
+  }
+  
+  .pembahasan-soal h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .pembahasan-soal p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .pembahasan-soal ul {
+    margin-top: 10px;
+  }
+  
+  .pembahasan-soal li {
+    font-size: 16px;
+  }
+  

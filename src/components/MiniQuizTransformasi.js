@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './MiniQuizTransformasi.css'
+import './MiniQuizTransformasi.css';
 
 const MiniQuizTransformasi = () => {
   const questions = [

@@ -1,143 +1,134 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import './MiniQuizTurunan.css';
 
 const MiniQuizTurunan = () => {
   const [answers, setAnswers] = useState({});
-  const [essayAnswers, setEssayAnswers] = useState(["", ""]);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(null);
+  const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
 
-  const multipleChoiceQuestions = [
+  const questions = [
     {
-      id: 1,
-      question: "Apa turunan pertama dari fungsi f(x) = x²?",
+      question: 'Tentukan turunan dari fungsi f(x) = 3 * x^2 + 5 * x + 7.',
       options: {
-        A: "2x",
-        B: "x",
-        C: "x²",
+        A: "6 * x + 5",
+        B: "6 * x - 5",
+        C: "3 * x + 7",
+        D: "5 * x + 7",
       },
-      correct: "A",
+      correctAnswer: "A",
     },
     {
-      id: 2,
-      question: "Turunan dari konstanta adalah?",
+      question: 'Tentukan turunan dari fungsi f(x) = 4 * x^3 - 2 * x^2 + x - 1.',
       options: {
-        A: "Konstanta itu sendiri",
-        B: "0",
-        C: "1",
+        A: "12 * x^2 - 4 * x + 1",
+        B: "12 * x^2 + 4 * x - 1",
+        C: "3 * x^2 - 4 * x + 1",
+        D: "4 * x^3 - 2 * x + 1",
       },
-      correct: "B",
+      correctAnswer: "A",
     },
     {
-      id: 3,
-      question: "Apa turunan dari fungsi f(x) = sin(x)?",
+      question: 'Tentukan turunan dari fungsi f(x) = 2 * x^2 - 4 * x + 3.',
       options: {
-        A: "-cos(x)",
-        B: "cos(x)",
-        C: "-sin(x)",
+        A: "4 * x - 4",
+        B: "4 * x + 4",
+        C: "2 * x - 4",
+        D: "2 * x + 4",
       },
-      correct: "B",
+      correctAnswer: "A",
+    },
+    {
+      question: 'Tentukan turunan dari fungsi f(x) = 5 * x^3 + 7 * x^2 - 3 * x + 2.',
+      options: {
+        A: "15 * x^2 + 14 * x - 3",
+        B: "15 * x^2 - 14 * x - 3",
+        C: "7 * x^2 + 3 * x - 2",
+        D: "5 * x^3 - 3 * x + 7",
+      },
+      correctAnswer: "A",
+    },
+    {
+      question: 'Tentukan turunan dari fungsi f(x) = x^4 - 3 * x^3 + 2 * x^2 - x + 5.',
+      options: {
+        A: "4 * x^3 - 9 * x^2 + 4 * x - 1",
+        B: "3 * x^3 - 9 * x^2 + 3 * x - 1",
+        C: "5 * x^3 - 9 * x^2 + 4 * x - 1",
+        D: "4 * x^3 - 3 * x^2 + 5 * x - 2",
+      },
+      correctAnswer: "A",
     },
   ];
 
-  const essayQuestions = [
-    "Jelaskan konsep dasar turunan dalam kalkulus dan sebutkan kegunaannya!",
-    "Berikan contoh penerapan turunan dalam menghitung kecepatan pada fisika!",
-  ];
-
-  const handleMultipleChoiceChange = (questionId, selectedOption) => {
-    setAnswers({ ...answers, [questionId]: selectedOption });
+  const handleAnswerChange = (questionIndex, selectedOption) => {
+    setAnswers({
+      ...answers,
+      [questionIndex]: selectedOption,
+    });
   };
 
-  const handleMultipleChoiceSubmit = (e, questionId) => {
-    e.preventDefault();
-    const correctAnswer = multipleChoiceQuestions.find(
-      (q) => q.id === questionId
-    ).correct;
-
-    if (answers[questionId] === correctAnswer) {
-      alert("Jawaban Anda Benar!");
-      setScore(score + 1);
-    } else {
-      setShowCorrectAnswer({ questionId, correctAnswer });
-      setTimeout(() => setShowCorrectAnswer(null), 1000);
-    }
+  const calculateScore = () => {
+    let correctAnswers = 0;
+    questions.forEach((question, index) => {
+      if (answers[index] === question.correctAnswer) {
+        correctAnswers++;
+      }
+    });
+    setScore(correctAnswers);
   };
 
-  const handleEssayChange = (index, value) => {
-    const newEssayAnswers = [...essayAnswers];
-    newEssayAnswers[index] = value;
-    setEssayAnswers(newEssayAnswers);
+  const handleSubmit = () => {
+    calculateScore();
+    setShowResults(true);
   };
 
-  const handleEssaySubmit = (e) => {
-    e.preventDefault();
-    alert("Jawaban esai Anda telah disimpan!");
-  };
-
-  const resetQuiz = () => {
+  const handleRetry = () => {
     setAnswers({});
-    setEssayAnswers(["", ""]);
+    setShowResults(false);
     setScore(0);
-    setShowCorrectAnswer(null);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Mini Quiz Turunan</h2>
-      <h3>Pilihan Ganda</h3>
-      {multipleChoiceQuestions.map((q) => (
-        <form
-          key={q.id}
-          onSubmit={(e) => handleMultipleChoiceSubmit(e, q.id)}
-          style={{ marginBottom: "20px" }}
-        >
-          <p>{q.question}</p>
-          {Object.entries(q.options).map(([key, value]) => (
-            <label key={key} style={{ display: "block" }}>
-              <input
-                type="radio"
-                name={`question-${q.id}`}
-                value={key}
-                checked={answers[q.id] === key}
-                onChange={(e) =>
-                  handleMultipleChoiceChange(q.id, e.target.value)
-                }
-              />
-              {key}) {value}
-            </label>
+    <div className="quiz-container">
+      <h1>Mini Quiz Turunan</h1>
+
+      {!showResults ? (
+        <div>
+          {questions.map((question, index) => (
+            <div key={index} className="question-container">
+              <h3>{question.question}</h3>
+              <div className="options-container">
+                {Object.keys(question.options).map((optionKey) => (
+                  <div key={optionKey} className="option">
+                    <input
+                      type="radio"
+                      id={`${index}-${optionKey}`}
+                      name={`question-${index}`}
+                      value={optionKey}
+                      checked={answers[index] === optionKey}
+                      onChange={() => handleAnswerChange(index, optionKey)}
+                    />
+                    <label htmlFor={`${index}-${optionKey}`}>{question.options[optionKey]}</label>
+                  </div>
+                ))}
+              </div>
+              {answers[index] && (
+                <div className={`feedback ${answers[index] === question.correctAnswer ? 'correct' : 'incorrect'}`}>
+                  {answers[index] === question.correctAnswer ? 'Jawaban Anda Benar!' : 'Jawaban Anda Salah!'}
+                  {answers[index] !== question.correctAnswer && (
+                    <div>Jawaban yang benar adalah: {question.options[question.correctAnswer]}</div>
+                  )}
+                </div>
+              )}
+            </div>
           ))}
-          <button type="submit">Submit Jawaban</button>
-          {showCorrectAnswer?.questionId === q.id && (
-            <p style={{ color: "red" }}>
-              Jawaban benar adalah: {q.options[showCorrectAnswer.correctAnswer]}
-            </p>
-          )}
-        </form>
-      ))}
-
-      <h3>Esai</h3>
-      <form onSubmit={handleEssaySubmit}>
-        {essayQuestions.map((question, index) => (
-          <div key={index} style={{ marginBottom: "20px" }}>
-            <p>{question}</p>
-            <textarea
-              value={essayAnswers[index]}
-              onChange={(e) => handleEssayChange(index, e.target.value)}
-              rows="5"
-              cols="40"
-              placeholder="Tuliskan jawaban Anda di sini..."
-            />
-          </div>
-        ))}
-        <button type="submit">Submit Jawaban Esai</button>
-      </form>
-
-      <h3>Skor Anda</h3>
-      <p>Skor pilihan ganda: {score} / {multipleChoiceQuestions.length}</p>
-
-      <button onClick={resetQuiz} style={{ marginTop: "20px" }}>
-        Ulangi Quiz
-      </button>
+          <button onClick={handleSubmit}>Kirim Jawaban</button>
+        </div>
+      ) : (
+        <div className="result-container">
+          <h2>Skor Anda: {score} dari {questions.length}</h2>
+          <button onClick={handleRetry}>Coba Lagi</button>
+        </div>
+      )}
     </div>
   );
 };

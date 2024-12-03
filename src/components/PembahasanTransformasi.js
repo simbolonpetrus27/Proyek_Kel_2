@@ -1,7 +1,7 @@
 import React from 'react';
-import './PembahasanTransformasi.css';
+import './PembahasanSoalTransformasi.css';
 
-const PembahasanTransformasi = () => {
+const PembahasanSoalTransformasi = () => {
   const pembahasan = [
     {
       question: 'Apa itu transformasi geometri?',
@@ -42,4 +42,4 @@ const PembahasanTransformasi = () => {
   );
 };
 
-export default PembahasanTransformasi;
+export default PembahasanSoalTransformasi;

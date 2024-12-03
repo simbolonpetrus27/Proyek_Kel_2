@@ -54,7 +54,7 @@ const questions = [
   }
 ];
 
-const MiniQuizMatriks = () => {
+const MiniQuiz = () => {
   const [answers, setAnswers] = useState({});
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
@@ -130,4 +130,4 @@ const MiniQuizMatriks = () => {
   );
 };
 
-export default MiniQuizMatriks;
+export default MiniQuiz;

@@ -1,0 +1,46 @@
+/* ContohSoalTurunan.css */
+.quiz-container {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .options button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .options button:hover {
+    background-color: #2980b9;
+  }
+  
+  .notification {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #e74c3c;
+  }
+  
+  .notification.correct {
+    color: #2ecc71;
+  }
+  

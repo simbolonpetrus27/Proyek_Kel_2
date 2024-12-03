@@ -1,65 +1,102 @@
 import React from 'react';
+import './MateriTurunan.css';
 
-
-function MateriTurunan() {
+const MateriTurunan = () => {
   return (
-    <div className="container">
-      <section className="materi">
-        <h2>Materi Turunan</h2>
+    <div className="materi-container">
+      <h1 className="title">Materi Turunan Kelas 11 SMA</h1>
+
+      <section className="section">
+        <h2>Pengertian Turunan</h2>
         <p>
-          <strong>Turunan</strong> merupakan suatu perhitungan terhadap perubahan nilai fungsi karena perubahan nilai input (variabel).
-          <br />
-          Turunan dapat disebut juga sebagai diferensial dan proses dalam menentukan turunan suatu fungsi disebut sebagai diferensiasi.
+          Turunan adalah konsep dalam kalkulus yang digunakan untuk mengukur laju perubahan suatu fungsi terhadap variabelnya.
+          Dalam bentuk grafik, turunan menggambarkan kemiringan garis singgung pada titik tertentu dari fungsi tersebut.
+          Secara matematis, turunan dari fungsi f(x) pada titik x = a didefinisikan sebagai:
+        </p>
+        <p>
+          f'(a) = limit(h menuju 0) [f(a+h) - f(a)] / h
+        </p>
+        <p>
+          Turunan ini mengukur bagaimana suatu fungsi berubah ketika nilai inputnya berubah.
         </p>
       </section>
 
-      <section className="jenis-matriks">
-        <h3>Penerapan Turunan</h3>
-        <ol>
-          <li>Berikut merupakan beberapa penerapan turunan.</li>
-          <br />
-          <li><strong>1. </strong> Turunan dapat diterapkan untuk menghitung gradien dari garis singgung suatu kurva.</li>
-          <li><strong>2. </strong> Turunan dapat digunakan untuk menentukan interval dimana suatu fungsi naik atau turun. </li>
-          <li><strong>3. </strong> Turunan dapat diterapkan untuk menentukan nilai stasioner suatu fungsi.</li>
-          <li><strong>4. </strong> Turunan dapat diterapkan dalam menyelesaikan permasalahan yang berkaitan dengan persamaaan gerak.</li>
-          <li><strong>5. </strong> Turunan dapat digunakan untuk menyelesaikan permasalahan maksimum-minimum.</li>
-        </ol>
+      <section className="section">
+        <h2>Rumus Turunan Dasar</h2>
+        <p>Berikut adalah rumus dasar turunan yang perlu diketahui:</p>
+        <ul>
+          <li><strong>Turunan Konstanta:</strong> <br />
+            Jika f(x) = c (dimana c adalah konstanta), maka f'(x) = 0.
+          </li>
+          <li><strong>Turunan dari x pangkat n:</strong> <br />
+            Jika f(x) = x pangkat n, maka f'(x) = n * x pangkat (n-1), dimana n adalah bilangan real.
+          </li>
+          <li><strong>Turunan Penjumlahan:</strong> <br />
+            Jika f(x) = g(x) + h(x), maka f'(x) = g'(x) + h'(x).
+          </li>
+          <li><strong>Turunan Perkalian:</strong> <br />
+            Jika f(x) = g(x) * h(x), maka f'(x) = g'(x) * h(x) + g(x) * h'(x).
+          </li>
+          <li><strong>Turunan Pembagian:</strong> <br />
+            Jika f(x) = g(x) / h(x), maka f'(x) = [g'(x) * h(x) - g(x) * h'(x)] / (h(x) pangkat 2).
+          </li>
+        </ul>
       </section>
 
-      <section className="operasi-matriks">
-        <h3>Rumus Turunan</h3>
-        <h4>A. f(x) = c, dengan c merupakan konstanta</h4>
+      <section className="section">
+        <h2>Contoh Soal Turunan</h2>
+        <h3>Contoh 1:</h3>
         <p>
-        Turunan dari fungsi tersebut adalah f'(x) = 0.
+          Tentukan turunan dari fungsi f(x) = 3 * x pangkat 2 + 5 * x + 7.
+        </p>
+        <p>
+          Penyelesaian: <br />
+          f'(x) = 6 * x + 5
         </p>
 
-        <h4>B. f(x) = x</h4>
+        <h3>Contoh 2:</h3>
         <p>
-        Turunan dari fungsi tersebut adalah f'(x) = 1.
+          Tentukan turunan dari fungsi f(x) = 4 * x pangkat 3 - 2 * x pangkat 2 + x - 1.
         </p>
-
-        <h4>C. f(x) = ax<sup>n</sup></h4>
         <p>
-        Turunan dari fungsi tersebut adalah f'(x) = anx<sup>n-1</sup>
+          Penyelesaian: <br />
+          f'(x) = 12 * x pangkat 2 - 4 * x + 1
         </p>
+      </section>
 
-        <h4>D. Penjumlahan fungsi:  h(x) = f(x) + g(x)</h4>
+      <section className="section">
+        <h2>Kasus Khusus Turunan</h2>
         <p>
-        Turunan fungsi tersebut yaitu h'(x) = f'(x) + g'(x).
+          Beberapa fungsi memiliki rumus turunan khusus yang perlu dipahami:
         </p>
+        <ul>
+          <li>
+            <strong>Turunan Fungsi Trigonometri:</strong>
+            <ul>
+              <li>d/dx(sin(x)) = cos(x)</li>
+              <li>d/dx(cos(x)) = -sin(x)</li>
+              <li>d/dx(tan(x)) = sec^2(x)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Turunan Fungsi Eksponensial:</strong>
+            <ul>
+              <li>d/dx(e^x) = e^x</li>
+              <li>d/dx(a^x) = a^x * ln(a) (untuk a lebih besar dari 0)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
 
-        <h4>E. Pengurangan fungsi: h(x) = f(x) - g(x)</h4>
+      <section className="section">
+        <h2>Kesimpulan</h2>
         <p>
-        Turunan fungsi tersebut adalah h'(x) = f'(x) - g'(x)
+          Turunan adalah konsep fundamental dalam kalkulus yang digunakan untuk menganalisis perubahan suatu fungsi.
+          Dengan menggunakan rumus dasar turunan dan kasus khusus, kita bisa memecahkan berbagai masalah matematika yang berhubungan dengan laju perubahan dan optimasi.
         </p>
-
-        <h4>F. Perkalian konstanta dengan suatu fungsi (kf)(x).</h4>
-        <p>
-        Turunan fungsi tersebut adalah k . f'(x).
-        </p>     
-        </section>
+      </section>
     </div>
   );
-}
+};
 
 export default MateriTurunan;
