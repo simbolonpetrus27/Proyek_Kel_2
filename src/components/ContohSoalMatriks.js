@@ -1,5 +1,5 @@
 import React from 'react';
-import './MateriMatrix.css';
+import './SoalMatriks.css';
 
 function ContohSoalMatriks() {
   return (
