@@ -1,6 +1,5 @@
 // MateriProgramLinear.js
 import React from 'react';
-import './MateriMatrix.css';
 
 const MateriProgramLinear = () => {
   return (
