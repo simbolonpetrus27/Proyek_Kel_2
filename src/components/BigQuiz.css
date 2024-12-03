@@ -1,78 +1,89 @@
-/* Menjaga background dan memastikan card berada di tengah halaman */
+/* Menjaga background dan memastikan card memenuhi halaman */
 .big-quiz-container {
     display: flex;
     justify-content: center; /* Menyusun secara horizontal di tengah */
     align-items: center; /* Menyusun secara vertikal di tengah */
-    min-height: 100vh; /* Mengatur tinggi minimum halaman untuk memastikan card tetap di tengah */
+    height: 100vh; /* Tinggi 100% layar */
+    width: 100vw; /* Lebar 100% layar */
+    background: linear-gradient(to bottom, #f7f7f7, #eaeaea); /* Gradient background */
     padding: 0;
     margin: 0;
-    height: 100%;
+    overflow: hidden; /* Mencegah scroll jika elemen lebih besar dari halaman */
 }
 
 /* Kontainer card kuis */
 .big-quiz {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%; /* Lebar card 80% dari layar */
+    max-width: 600px; /* Batas maksimal card */
     height: auto;
-    margin: 0;
-    background: 100;
-    padding: 20px;
-    border-radius: 10px
+    margin: 0 auto;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Gradient untuk card */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* Bayangan yang halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efek animasi untuk kontainer card */
 .big-quiz:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* Sedikit membesar saat hover */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Judul Kuis */
 h2 {
-    font-size: 30px;
+    font-size: 35px;
     color: #2c3e50;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 /* Deskripsi soal */
 p {
     font-size: 18px;
-    color: #34495e;
-    margin-bottom: 30px;
-    line-height: 1.6;
+    color: #576574;
+    margin-bottom: 25px;
+    line-height: 1.8;
     font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
 /* Tombol pilihan jawaban */
 .quiz-button {
     display: inline-block;
-    background-color: #6c5ce7;
+    background: linear-gradient(to right, #6c5ce7, #5a3dc4); /* Gradient tombol */
     color: white;
     padding: 15px 30px;
     font-size: 18px;
     font-weight: bold;
     border: none;
-    border-radius: 8px;
-    margin: 15px 0;
-    width: 100%;
+    border-radius: 12px;
+    margin: 10px 0;
+    width: 100%; /* Lebar tombol 100% */
+    max-width: 400px; /* Batas maksimal tombol */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .quiz-button:hover {
-    background-color: #5a3dc4;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #5a3dc4, #6c5ce7);
+    transform: translateY(-5px); /* Menggeser tombol sedikit ke atas */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Efek jika tombol dipilih */
 .quiz-button:active {
     transform: translateY(2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Menampilkan notifikasi jawaban benar */
@@ -81,38 +92,41 @@ p {
     color: #27ae60;
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
 }
 
 /* Tombol reset kuis */
 .reset-button {
-    background-color: #2ecc71;
+    background: linear-gradient(to right, #2ecc71, #27ae60);
     color: white;
     padding: 15px 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 20px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 100%; /* Lebar tombol 100% */
+    max-width: 400px; /* Batas maksimal tombol */
+    text-align: center;
 }
 
 .reset-button:hover {
-    background-color: #27ae60;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #27ae60, #2ecc71);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Menambahkan padding dan margin di bawah */
 p, .reset-button {
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 /* Responsif untuk perangkat lebih kecil */
 @media (max-width: 600px) {
     .big-quiz {
         width: 90%;
-        padding: 25px;
+        padding: 20px;
     }
 
     h2 {
