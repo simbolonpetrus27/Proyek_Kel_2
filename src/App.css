@@ -209,8 +209,8 @@ main {
 
 /* Footer Styling */
 footer {
-  background: linear-gradient(45deg, #8e6e4e, #a57e55); /* Coklat gelap */
-  color: white;
+  background: linear-gradient(45deg, #c6b39f, #dbbd9f); /* Coklat gelap */
+  color: rgb(5, 4, 4);
   text-align: center;
   padding: 10px 0;
   font-size: 16px;

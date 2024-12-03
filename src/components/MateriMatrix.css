@@ -28,12 +28,13 @@ h2, h3, h4 {
   gap: 25px; /* Jarak antar elemen */
   overflow: hidden; /* Untuk efek animasi */
   transition: transform 0.3s, box-shadow 0.3s;
-  margin-top: 700px; /* Menambahkan jarak atas untuk menghindari tumpang tindih dengan header */
+  margin-top: 600px; /* Menambahkan jarak atas untuk menghindari tumpang tindih dengan header */
 }
 
 .container:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin-top: 680px;
 }
 
 /* Materi */
@@ -131,7 +132,190 @@ a::after {
   width: 100%;
   height: 2px;
   background: #2196f3;
-  transform: scaleX(0);
+  transf/* General Styles */
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f3f4f6, #e3f2fd);
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Section Styles */
+  section {
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .materi {
+    background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  }
+  
+  .materi:hover {
+    background: linear-gradient(135deg, #ffffff, #e8f5e9);
+  }
+  
+  .jenis-matriks {
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  }
+  
+  .jenis-matriks:hover {
+    background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  }
+  
+  .operasi-matriks {
+    background: linear-gradient(135deg, #fffde7, #ffffff);
+  }
+  
+  .operasi-matriks:hover {
+    background: linear-gradient(135deg, #ffffff, #fffde7);
+  }
+  
+  .manfaat-matriks {
+    background: linear-gradient(135deg, #fbe9e7, #ffffff);
+  }
+  
+  .manfaat-matriks:hover {
+    background: linear-gradient(135deg, #ffffff, #fbe9e7);
+  }
+  
+  /* Decorative Effects */
+  section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    z-index: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  section:hover::before {
+    opacity: 0;
+  }
+  
+  section h2, section h3 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    text-align: center;
+    font-weight: bold;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+  }
+  
+  .materi h2 {
+    color: #43a047;
+  }
+  
+  .jenis-matriks h3 {
+    color: #1e88e5;
+  }
+  
+  .operasi-matriks h3 {
+    color: #ffb300;
+  }
+  
+  .manfaat-matriks h3 {
+    color: #d84315;
+  }
+  
+  /* Text and Lists */
+  p, li {
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  ol, ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  strong {
+    color: #ff5722;
+  }
+  
+  a {
+    color: #2196f3;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #2196f3;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      max-width: 100%;
+    }
+  
+    h2, h3 {
+      font-size: 1.4rem;
+    }
+  
+    p, li {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h2, h3 {
+      font-size: 1.2rem;
+    }
+  
+    p, li {
+      font-size: 0.8rem;
+    }
+  
+    .container {
+      padding: 15px;
+    }
+  }
+  orm: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
 }

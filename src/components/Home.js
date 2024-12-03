@@ -60,7 +60,7 @@ function Home({ userName }) {
         </div>
       </section>
 
-      <Footer /> {/* Tambahkan Footer di sini */}
+      <Footer />
 
       <style>
         {`

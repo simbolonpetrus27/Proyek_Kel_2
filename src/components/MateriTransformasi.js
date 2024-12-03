@@ -1,5 +1,5 @@
 import React from 'react';
-import './MateriMatrix.css';
+import './MateriTransformasi.css';
 
 const MateriTransformasi = () => {
   return (
@@ -18,20 +18,27 @@ const MateriTransformasi = () => {
       <section className="jenis-matriks">
         <h3>Jenis-Jenis Transformasi Geometri</h3>
         <ol>
-          <li><strong>Translasi</strong> Translasi adalah perpindahan posisi suatu objek. Jika dinyatakan dalam koordinat Cartesius, translasi merupakan perpindahan titik-titik koordinat suatu objek ke arah dan jarak tertentu. Pada peristiwa translasi ini, ukuran objek tidak mengalami perubahan ya.</li>
-          <li><strong>Refleksi</strong>Refleksi atau pencerminan adalah perpindahan titik suatu objek pada bidang sesuai dengan sifat pembentukan bayangan pada cermin datar. 
-          <br />
-          Pada prinsipnya, refleksi hampir sama dengan translasi, yaitu pergeseran. Hanya saja, pada refleksi memiliki sifat-sifat tertentu sedemikian sehingga posisi akhir objeknya merupakan hasil pencerminan objek awalnya.</li>
+          <li>
+            <strong>Translasi</strong> Translasi adalah perpindahan posisi suatu objek. Jika dinyatakan dalam koordinat Cartesius, translasi merupakan perpindahan titik-titik koordinat suatu objek ke arah dan jarak tertentu. Pada peristiwa translasi ini, ukuran objek tidak mengalami perubahan ya.
+          </li>
+          <li>
+            <strong>Refleksi</strong> Refleksi atau pencerminan adalah perpindahan titik suatu objek pada bidang sesuai dengan sifat pembentukan bayangan pada cermin datar.
+            <br />
+            Pada prinsipnya, refleksi hampir sama dengan translasi, yaitu pergeseran. Hanya saja, pada refleksi memiliki sifat-sifat tertentu sedemikian sehingga posisi akhir objeknya merupakan hasil pencerminan objek awalnya.
+          </li>
         </ol>
       </section>
 
       <section className="operasi-matriks">
-        <h3>Agar lebih paham, berikut disajikan sejumlah soal terkait transformasi geometri beserta pembahasan yang disusun secara lengkap dan sistematis. Tabel di bawah merupakan rangkuman materi tersebut secara umum. </h3>
+        <h3>Contoh Transformasi Geometri</h3>
         <img
-        src="https://mathcyber1997.com/wp-content/uploads/2019/04/Tabel-Transformasi-Geometri.png" alt="" className="image" />
+          src="https://mathcyber1997.com/wp-content/uploads/2019/04/Tabel-Transformasi-Geometri.png"
+          alt="Tabel Transformasi Geometri"
+          className="image"
+        />
       </section>
     </div>
   );
-}
+};
 
 export default MateriTransformasi;
