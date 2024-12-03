@@ -45,6 +45,9 @@ import PembahasanTurunan from './components/PembahasanTurunan';
 import MiniQuizTurunan from './components/MiniQuizTurunan.js';
 
 import './App.css'; // CSS utama untuk aplikasi
+import './components/MatrixQuestions.css';
+import './components/MatrixDiscussion.css';
+import './components/MiniQuizMatriks.css';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

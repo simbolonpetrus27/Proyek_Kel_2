@@ -1,144 +1,131 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import './MiniQuizMatriks.css';
+
+const questions = [
+  {
+    question: 'Apa hasil dari perkalian matriks A dan B?',
+    options: {
+      A: 'A',
+      B: 'B',
+      C: 'C',
+      D: 'D'
+    },
+    answer: 'B'
+  },
+  {
+    question: 'Apa sifat matriks yang berlaku pada perkalian?',
+    options: {
+      A: 'Asosiatif',
+      B: 'Komutatif',
+      C: 'Distribusi',
+      D: 'Tidak ada'
+    },
+    answer: 'A'
+  },
+  {
+    question: 'Matriks apa yang memiliki elemen-elemen yang sama pada diagonal utama?',
+    options: {
+      A: 'Matriks Identitas',
+      B: 'Matriks Diagonal',
+      C: 'Matriks Skalar',
+      D: 'Matriks Nol'
+    },
+    answer: 'B'
+  },
+  {
+    question: 'Matriks yang dapat dibalik disebut?',
+    options: {
+      A: 'Matriks Singular',
+      B: 'Matriks Invers',
+      C: 'Matriks Kosong',
+      D: 'Matriks Identitas'
+    },
+    answer: 'B'
+  },
+  {
+    question: 'Apa yang dimaksud dengan matriks transpos?',
+    options: {
+      A: 'Matriks yang dibalik',
+      B: 'Matriks yang ditukar baris dan kolom',
+      C: 'Matriks yang ditambahkan',
+      D: 'Matriks yang dibagi'
+    },
+    answer: 'B'
+  }
+];
 
 const MiniQuizMatriks = () => {
   const [answers, setAnswers] = useState({});
-  const [essayAnswers, setEssayAnswers] = useState(["", ""]);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
 
-  const multipleChoiceQuestions = [
-    {
-      id: 1,
-      question: "Jika A adalah matriks 2x2, berapa jumlah elemen di dalamnya?",
-      options: {
-        A: "2",
-        B: "4",
-        C: "6",
-      },
-      correct: "B",
-    },
-    {
-      id: 2,
-      question: "Apa hasil determinan dari matriks identitas 2x2?",
-      options: {
-        A: "0",
-        B: "1",
-        C: "-1",
-      },
-      correct: "B",
-    },
-    {
-      id: 3,
-      question:
-        "Dua matriks dapat dikalikan jika jumlah kolom matriks pertama sama dengan...",
-      options: {
-        A: "Jumlah baris matriks kedua",
-        B: "Jumlah kolom matriks kedua",
-        C: "Jumlah elemen matriks kedua",
-      },
-      correct: "A",
-    },
-  ];
-
-  const essayQuestions = [
-    "Jelaskan perbedaan antara matriks persegi dan matriks identitas!",
-    "Berikan satu contoh penerapan matriks dalam bidang teknologi!",
-  ];
-
-  const handleMultipleChoiceChange = (questionId, selectedOption) => {
-    setAnswers({ ...answers, [questionId]: selectedOption });
+  const handleChange = (questionIndex, value) => {
+    setAnswers({
+      ...answers,
+      [questionIndex]: value
+    });
   };
 
-  const handleMultipleChoiceSubmit = (e, questionId) => {
-    e.preventDefault();
-    const correctAnswer = multipleChoiceQuestions.find(
-      (q) => q.id === questionId
-    ).correct;
-
-    if (answers[questionId] === correctAnswer) {
-      alert("Jawaban Anda Benar!");
-      setScore(score + 1);
-    } else {
-      setShowCorrectAnswer({ questionId, correctAnswer });
-      setTimeout(() => setShowCorrectAnswer(null), 1000);
-    }
+  const handleSubmit = () => {
+    let calculatedScore = 0;
+    questions.forEach((question, index) => {
+      if (answers[index] === question.answer) {
+        calculatedScore += 1;
+      }
+    });
+    setScore(calculatedScore);
+    setShowResult(true);
   };
 
-  const handleEssayChange = (index, value) => {
-    const newEssayAnswers = [...essayAnswers];
-    newEssayAnswers[index] = value;
-    setEssayAnswers(newEssayAnswers);
-  };
-
-  const handleEssaySubmit = (e) => {
-    e.preventDefault();
-    alert("Jawaban esai Anda telah disimpan!");
-  };
-
-  const resetQuiz = () => {
+  const handleReset = () => {
     setAnswers({});
-    setEssayAnswers(["", ""]);
+    setShowResult(false);
     setScore(0);
-    setShowCorrectAnswer(null);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Mini Quiz Matriks</h2>
-      <h3>Pilihan Ganda</h3>
-      {multipleChoiceQuestions.map((q) => (
-        <form
-          key={q.id}
-          onSubmit={(e) => handleMultipleChoiceSubmit(e, q.id)}
-          style={{ marginBottom: "20px" }}
-        >
-          <p>{q.question}</p>
-          {Object.entries(q.options).map(([key, value]) => (
-            <label key={key} style={{ display: "block" }}>
-              <input
-                type="radio"
-                name={`question-${q.id}`}
-                value={key}
-                checked={answers[q.id] === key}
-                onChange={(e) =>
-                  handleMultipleChoiceChange(q.id, e.target.value)
-                }
-              />
-              {key}) {value}
-            </label>
-          ))}
-          <button type="submit">Submit Jawaban</button>
-          {showCorrectAnswer?.questionId === q.id && (
-            <p style={{ color: "red" }}>
-              Jawaban benar adalah: {q.options[showCorrectAnswer.correctAnswer]}
+    <div className="quiz-container">
+      <h2>Mini Quiz - Matriks</h2>
+      {questions.map((question, index) => (
+        <div key={index} className="question">
+          <p className="question-text">{question.question}</p>
+          <div className="options">
+            {Object.entries(question.options).map(([key, value]) => (
+              <label key={key} className="option-label">
+                <input
+                  type="radio"
+                  name={`question${index}`}
+                  value={key}
+                  checked={answers[index] === key}
+                  onChange={() => handleChange(index, key)}
+                />
+                {key}. {value}
+              </label>
+            ))}
+          </div>
+          {showResult && (
+            <p
+              className={
+                answers[index] === question.answer ? 'correct' : 'incorrect'
+              }
+            >
+              {answers[index] === question.answer
+                ? 'Jawaban benar!'
+                : `Jawaban salah. Jawaban yang benar: ${question.answer}`}
             </p>
           )}
-        </form>
+        </div>
       ))}
-
-      <h3>Esai</h3>
-      <form onSubmit={handleEssaySubmit}>
-        {essayQuestions.map((question, index) => (
-          <div key={index} style={{ marginBottom: "20px" }}>
-            <p>{question}</p>
-            <textarea
-              value={essayAnswers[index]}
-              onChange={(e) => handleEssayChange(index, e.target.value)}
-              rows="5"
-              cols="40"
-              placeholder="Tuliskan jawaban Anda di sini..."
-            />
+      <div className="result">
+        {showResult ? (
+          <div>
+            <p>Skor Kamu: {score}/{questions.length}</p>
+            <button onClick={handleReset}>Ulangi Quiz</button>
           </div>
-        ))}
-        <button type="submit">Submit Jawaban Esai</button>
-      </form>
-
-      <h3>Skor Anda</h3>
-      <p>Skor pilihan ganda: {score} / {multipleChoiceQuestions.length}</p>
-
-      <button onClick={resetQuiz} style={{ marginTop: "20px" }}>
-        Ulangi Quiz
-      </button>
+        ) : (
+          <button onClick={handleSubmit}>Kirim Jawaban</button>
+        )}
+      </div>
     </div>
   );
 };

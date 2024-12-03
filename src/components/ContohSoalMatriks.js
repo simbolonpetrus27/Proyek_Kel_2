@@ -1,150 +1,96 @@
-import React from 'react';
-import './SoalMatriks.css';
+import React, { useState } from 'react';
+import './MatrixQuestions.css';
 
-function ContohSoalMatriks() {
+const MatrixQuestions = () => {
+  const questions = [
+    {
+      id: 1,
+      question: 'Jika A = [[1, 2], [3, 4]], hitung determinan A.',
+      options: ['A. -2', 'B. 2', 'C. 10', 'D. 4'],
+      answer: 'B. 2'
+    },
+    {
+      id: 2,
+      question: 'Tentukan hasil perkalian matriks A dan B jika A = [[1, 2], [3, 4]] dan B = [[5, 6], [7, 8]].',
+      options: ['A. [19, 22], [43, 50]', 'B. [23, 26], [43, 50]', 'C. [19, 22], [35, 40]', 'D. [23, 26], [35, 40]'],
+      answer: 'A. [19, 22], [43, 50]'
+    },
+    {
+      id: 3,
+      question: 'Jika matriks A adalah matriks identitas 2x2, apa hasil dari A + A?',
+      options: ['A. [[2, 2], [2, 2]]', 'B. [[1, 1], [1, 1]]', 'C. [[1, 0], [0, 1]]', 'D. [[0, 0], [0, 0]]'],
+      answer: 'A. [[2, 2], [2, 2]]'
+    },
+    {
+      id: 4,
+      question: 'Hitung hasil invers dari matriks A = [[1, 2], [3, 4]].',
+      options: ['A. [[1, 2], [3, 4]]', 'B. [[-2, 1], [1.5, -0.5]]', 'C. [[-1, 0], [0, -1]]', 'D. [[1, -2], [-1.5, 0.5]]'],
+      answer: 'B. [[-2, 1], [1.5, -0.5]]'
+    },
+    {
+      id: 5,
+      question: 'Berapa banyak elemen di dalam matriks A = [[1, 2, 3], [4, 5, 6]]?',
+      options: ['A. 3', 'B. 6', 'C. 9', 'D. 2'],
+      answer: 'B. 6'
+    },
+  ];
+
+  const [userAnswers, setUserAnswers] = useState({});
+  const [notification, setNotification] = useState({});
+
+  const handleAnswer = (questionId, selectedAnswer) => {
+    const question = questions.find(q => q.id === questionId);
+    const correctAnswer = question.answer;
+    setUserAnswers({
+      ...userAnswers,
+      [questionId]: selectedAnswer
+    });
+
+    const newNotification = {
+      ...notification,
+      [questionId]: selectedAnswer === correctAnswer
+        ? { type: 'success', message: 'Jawaban Anda benar!' }
+        : { type: 'error', message: `Jawaban Anda salah. Jawaban yang benar adalah: ${correctAnswer}` }
+    };
+    setNotification(newNotification);
+
+    // Menghapus notifikasi setelah 2 detik
+    setTimeout(() => {
+      setNotification((prevNotification) => {
+        const updatedNotification = { ...prevNotification };
+        delete updatedNotification[questionId];
+        return updatedNotification;
+      });
+    }, 2000);
+  };
+
   return (
-    <div className="container">
-      <h2>Soal Matrix</h2>
-
-      <section className="soal">
-        <h3>Soal 1: Penjumlahan dan Pengurangan Matriks</h3>
-        <p>
-          Diketahui dua matriks berikut:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 2  3;  4  5 ]</em>
-          <br />
-          <strong>B = </strong>
-          <em>[ 1  4;  6  7 ]</em>
-          <br />
-          Hitunglah A + B dan A - B!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 2: Perkalian Matriks</h3>
-        <p>
-          Diketahui dua matriks berikut:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 1  2;  3  4 ]</em>
-          <br />
-          <strong>B = </strong>
-          <em>[ 5  6;  7  8 ]</em>
-          <br />
-          Hitunglah A x B!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 3: Transpos Matriks</h3>
-        <p>
-          Diketahui matriks A:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 1  2  3;  4  5  6 ]</em>
-          <br />
-          Hitunglah transpos dari matriks A!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 4: Determinan Matriks</h3>
-        <p>
-          Diketahui matriks A:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 3  4;  5  6 ]</em>
-          <br />
-          Hitunglah determinan matriks A!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 5: Invers Matriks</h3>
-        <p>
-          Diketahui matriks A:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 4  7;  2  6 ]</em>
-          <br />
-          Hitunglah invers dari matriks A!
-        </p>  
-      </section>
-      <br />
-
-      {/* Soal Baru */}
-      <section className="soal">
-        <h3>Soal 6: Matriks Pangkat</h3>
-        <p>
-          Diketahui matriks A:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 1  0;  0  1 ]</em>
-          <br />
-          Hitunglah A^5 (A dipangkatkan 5)!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 7: Matriks Baris dan Kolom</h3>
-        <p>
-          Diketahui matriks A:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 2  5  1;  3  4  6 ]</em>
-          <br />
-          Tentukan jumlah baris dan kolom dari matriks A!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 8: Matriks Identitas</h3>
-        <p>
-          Diketahui matriks A:
-          <br />
-          <strong>A = </strong> 
-          <em>[ 1  0  0;  0  1  0;  0  0  1 ]</em>
-          <br />
-          Tentukan apakah matriks A adalah matriks identitas!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 9: Matriks dan Sistem Persamaan Linear</h3>
-        <p>
-          Diketahui sistem persamaan linear berikut:
-          <br />
-          <strong>2x + 3y = 5</strong>
-          <br />
-          <strong>4x - y = 3</strong>
-          <br />
-          Tulis sistem persamaan ini dalam bentuk matriks dan tentukan solusi untuk x dan y!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 10: Matriks Augmentasi</h3>
-        <p>
-          Diketahui sistem persamaan linear berikut:
-          <br />
-          <strong>x + 2y = 4</strong>
-          <br />
-          <strong>3x - y = 5</strong>
-          <br />
-          Tentukan matriks augmentasi dari sistem persamaan ini!
-        </p>
-      </section>
+    <div className="matrix-questions">
+      <h2>Soal Matriks</h2>
+      {questions.map((q) => (
+        <div key={q.id} className="question-card">
+          <p className="question-number">Soal {q.id}:</p>
+          <p className="question-text">{q.question}</p>
+          <div className="options">
+            {q.options.map((option, index) => (
+              <button
+                key={index}
+                className="option"
+                onClick={() => handleAnswer(q.id, option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          {notification[q.id] && (
+            <div className={`notification ${notification[q.id].type}`}>
+              {notification[q.id].message}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
-}
+};
 
-export default ContohSoalMatriks;
+export default MatrixQuestions;
