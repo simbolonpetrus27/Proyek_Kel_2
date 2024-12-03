@@ -58,6 +58,11 @@ import './components/MiniQuizIntegral.css';
 import './components/MateriTransformasi.css';
 import './components/ContohSoalTransformasi.css';
 
+import './components/MateriInduksiMatematika.css';
+import './components/ContohSoalInduksiMatematika.css';
+import './components/PembahasanInduksiMatematika.css';
+import './components/MiniQuizInduksiMatematika.css';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');

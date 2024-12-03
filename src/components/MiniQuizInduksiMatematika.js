@@ -1,143 +1,108 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import './MiniQuizInduksiMatematika.css';
 
 const MiniQuizInduksiMatematika = () => {
-  const [answers, setAnswers] = useState({});
-  const [essayAnswers, setEssayAnswers] = useState(["", ""]);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(null);
-  const [score, setScore] = useState(0);
+  const [answers, setAnswers] = useState(Array(5).fill(null)); // State for storing answers
+  const [notifications, setNotifications] = useState(Array(5).fill(null)); // State for notifications
+  const [score, setScore] = useState(0); // Score state
+  const [quizCompleted, setQuizCompleted] = useState(false); // State to check if the quiz is completed
 
-  const multipleChoiceQuestions = [
+  const questions = [
     {
-      id: 1,
-      question: "Langkah pertama dalam pembuktian induksi matematika adalah?",
-      options: {
-        A: "Membuktikan P(n+1) benar",
-        B: "Membuktikan P(1) benar",
-        C: "Membuktikan P(n) benar",
-      },
-      correct: "B",
+      question: 'Buktikan bahwa untuk setiap bilangan bulat positif n, berlaku: 1 + 2 + 3 + ... + n = n(n + 1) / 2',
+      options: ['n(n+1)', 'n(n-1)', 'n(n+1)/2', '2n(n+1)'],
+      correctAnswer: 2, // Index of the correct answer (0-based)
     },
     {
-      id: 2,
-      question: "Pada induksi matematika, P(n) adalah?",
-      options: {
-        A: "Himpunan bilangan asli",
-        B: "Pernyataan yang akan dibuktikan",
-        C: "Langkah basis",
-      },
-      correct: "B",
+      question: 'Buktikan bahwa 2^n - 1 = (2 - 1)(2 + 2)(2 + 2^2)...(2 + 2^(n-1))',
+      options: ['2^n', '2^(n-1)', '2^n - 1', '2^n + 1'],
+      correctAnswer: 2,
     },
     {
-      id: 3,
-      question: "Langkah terakhir dalam induksi matematika adalah?",
-      options: {
-        A: "Menyimpulkan bahwa P(n) benar untuk semua n",
-        B: "Membuktikan basis induksi",
-        C: "Membuktikan P(n+1)",
-      },
-      correct: "A",
+      question: 'Buktikan bahwa n^2 + n adalah hasil perkalian dua bilangan berturut-turut.',
+      options: ['n(n+1)', 'n(n-1)', 'n^2 + n', '2n(n+1)'],
+      correctAnswer: 0,
+    },
+    {
+      question: 'Buktikan bahwa jumlah deret 1 + 3 + 5 + ... + (2n-1) = n^2',
+      options: ['n(n+1)', 'n^2', '2n^2', 'n(n-1)'],
+      correctAnswer: 1,
+    },
+    {
+      question: 'Buktikan bahwa untuk setiap bilangan bulat positif n, berlaku: 3^n - 1 = (3 - 1)(3 + 3)(3 + 3^2)...(3 + 3^(n-1))',
+      options: ['3^n', '3^(n-1)', '3^n - 1', '3^n + 1'],
+      correctAnswer: 2,
     },
   ];
 
-  const essayQuestions = [
-    "Jelaskan apa yang dimaksud dengan basis induksi dalam induksi matematika!",
-    "Berikan satu contoh penerapan induksi matematika dalam pembuktian deret aritmatika!",
-  ];
+  const handleAnswer = (questionIndex, selectedOption) => {
+    const newAnswers = [...answers];
+    newAnswers[questionIndex] = selectedOption;
 
-  const handleMultipleChoiceChange = (questionId, selectedOption) => {
-    setAnswers({ ...answers, [questionId]: selectedOption });
-  };
+    // Check if answer is correct
+    const isCorrect = selectedOption === questions[questionIndex].correctAnswer;
+    const newNotifications = [...notifications];
+    newNotifications[questionIndex] = isCorrect
+      ? { message: 'Jawaban Benar!', type: 'success' }
+      : {
+          message: `Jawaban Salah! Jawaban yang benar adalah: ${questions[questionIndex].options[questions[questionIndex].correctAnswer]}`,
+          type: 'error',
+        };
 
-  const handleMultipleChoiceSubmit = (e, questionId) => {
-    e.preventDefault();
-    const correctAnswer = multipleChoiceQuestions.find(
-      (q) => q.id === questionId
-    ).correct;
+    setAnswers(newAnswers);
+    setNotifications(newNotifications);
 
-    if (answers[questionId] === correctAnswer) {
-      alert("Jawaban Anda Benar!");
-      setScore(score + 1);
-    } else {
-      setShowCorrectAnswer({ questionId, correctAnswer });
-      setTimeout(() => setShowCorrectAnswer(null), 1000);
-    }
-  };
-
-  const handleEssayChange = (index, value) => {
-    const newEssayAnswers = [...essayAnswers];
-    newEssayAnswers[index] = value;
-    setEssayAnswers(newEssayAnswers);
-  };
-
-  const handleEssaySubmit = (e) => {
-    e.preventDefault();
-    alert("Jawaban esai Anda telah disimpan!");
+    // Update score if correct
+    setScore(isCorrect ? score + 1 : score);
   };
 
   const resetQuiz = () => {
-    setAnswers({});
-    setEssayAnswers(["", ""]);
+    setAnswers(Array(5).fill(null));
+    setNotifications(Array(5).fill(null));
     setScore(0);
-    setShowCorrectAnswer(null);
+    setQuizCompleted(false);
+  };
+
+  const completeQuiz = () => {
+    setQuizCompleted(true);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="quiz-container">
       <h2>Mini Quiz Induksi Matematika</h2>
-      <h3>Pilihan Ganda</h3>
-      {multipleChoiceQuestions.map((q) => (
-        <form
-          key={q.id}
-          onSubmit={(e) => handleMultipleChoiceSubmit(e, q.id)}
-          style={{ marginBottom: "20px" }}
-        >
-          <p>{q.question}</p>
-          {Object.entries(q.options).map(([key, value]) => (
-            <label key={key} style={{ display: "block" }}>
-              <input
-                type="radio"
-                name={`question-${q.id}`}
-                value={key}
-                checked={answers[q.id] === key}
-                onChange={(e) =>
-                  handleMultipleChoiceChange(q.id, e.target.value)
-                }
-              />
-              {key}) {value}
-            </label>
+      {!quizCompleted ? (
+        <>
+          {questions.map((question, index) => (
+            <div className="question-card" key={index}>
+              <p className="question-text">{index + 1}. {question.question}</p>
+              <div className="options">
+                {question.options.map((option, optionIndex) => (
+                  <button
+                    key={optionIndex}
+                    className={`option ${answers[index] === optionIndex ? 'selected' : ''}`}
+                    onClick={() => handleAnswer(index, optionIndex)}
+                    disabled={answers[index] !== null} // Disable options after answering
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              {notifications[index] && (
+                <div className={`notification ${notifications[index].type}`}>
+                  {notifications[index].message}
+                </div>
+              )}
+            </div>
           ))}
-          <button type="submit">Submit Jawaban</button>
-          {showCorrectAnswer?.questionId === q.id && (
-            <p style={{ color: "red" }}>
-              Jawaban benar adalah: {q.options[showCorrectAnswer.correctAnswer]}
-            </p>
-          )}
-        </form>
-      ))}
-
-      <h3>Esai</h3>
-      <form onSubmit={handleEssaySubmit}>
-        {essayQuestions.map((question, index) => (
-          <div key={index} style={{ marginBottom: "20px" }}>
-            <p>{question}</p>
-            <textarea
-              value={essayAnswers[index]}
-              onChange={(e) => handleEssayChange(index, e.target.value)}
-              rows="5"
-              cols="40"
-              placeholder="Tuliskan jawaban Anda di sini..."
-            />
-          </div>
-        ))}
-        <button type="submit">Submit Jawaban Esai</button>
-      </form>
-
-      <h3>Skor Anda</h3>
-      <p>Skor pilihan ganda: {score} / {multipleChoiceQuestions.length}</p>
-
-      <button onClick={resetQuiz} style={{ marginTop: "20px" }}>
-        Ulangi Quiz
-      </button>
+          <button className="submit-button" onClick={completeQuiz}>Selesai</button>
+        </>
+      ) : (
+        <div className="result">
+          <h3>Quiz Selesai!</h3>
+          <p>Score Anda: {score} / {questions.length}</p>
+          <button className="retry-button" onClick={resetQuiz}>Ulangi Quiz</button>
+        </div>
+      )}
     </div>
   );
 };
