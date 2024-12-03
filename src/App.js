@@ -57,11 +57,18 @@ import './components/MiniQuizIntegral.css';
 
 import './components/MateriTransformasi.css';
 import './components/ContohSoalTransformasi.css';
+import './components/PembahasanTransformasi.css';
+import './components/MiniQuizTransformasi.css';
 
 import './components/MateriInduksiMatematika.css';
 import './components/ContohSoalInduksiMatematika.css';
 import './components/PembahasanInduksiMatematika.css';
 import './components/MiniQuizInduksiMatematika.css';
+
+import './components/MateriProgramLinear.css';
+import './components/ContohSoalProgramLinear.css';
+import './components/PembahasanSoalProgramLinear.css';
+import './components/MiniQuizProgramLinear.css';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

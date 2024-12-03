@@ -1,46 +1,81 @@
-// ContohSoalProgramLinear.js
-import React from 'react';
+import React, { useState } from 'react';
+import './ContohSoalProgramLinear.css';
 
-const ContohSoalProgramLinear = () => {
+const ContohSoalProgamLinear = () => {
+  const [answers, setAnswers] = useState([]);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
+  
+  const questions = [
+    {
+      question: 'Apa hasil dari 3x + 2y = 12 dan 4x - y = 7?',
+      options: ['x = 1, y = 3', 'x = 2, y = 4', 'x = 3, y = 2', 'x = 0, y = 6'],
+      correct: 2,
+    },
+    {
+      question: 'Selesaikan sistem persamaan berikut: 2x + 3y = 5, 4x - 2y = 8.',
+      options: ['x = 2, y = 1', 'x = 1, y = 2', 'x = 3, y = 1', 'x = 4, y = 0'],
+      correct: 0,
+    },
+    {
+      question: 'Apa solusi sistem persamaan: x + y = 5 dan x - y = 1?',
+      options: ['x = 3, y = 2', 'x = 4, y = 1', 'x = 2, y = 3', 'x = 1, y = 4'],
+      correct: 0,
+    },
+    {
+      question: 'Dari sistem persamaan 3x + y = 5 dan 2x + 2y = 8, berapa x dan y?',
+      options: ['x = 2, y = 3', 'x = 3, y = 1', 'x = 4, y = 2', 'x = 1, y = 4'],
+      correct: 1,
+    },
+    {
+      question: 'Penyelesaian dari sistem 5x + 3y = 15 dan 4x - y = 3 adalah?',
+      options: ['x = 2, y = 3', 'x = 1, y = 4', 'x = 3, y = 2', 'x = 4, y = 1'],
+      correct: 2,
+    }
+  ];
+
+  const handleAnswer = (questionIndex, selectedOption) => {
+    const isCorrect = questions[questionIndex].correct === selectedOption;
+    setAnswers((prevAnswers) => {
+      const newAnswers = [...prevAnswers];
+      newAnswers[questionIndex] = isCorrect ? 'correct' : 'incorrect';
+      return newAnswers;
+    });
+    setCorrectAnswer(isCorrect ? 'correct' : 'incorrect');
+
+    setTimeout(() => {
+      setCorrectAnswer(null);
+    }, 2000);
+  };
+
   return (
-    <div>
-      <h3>Soal Program Linear</h3>
-      <p>Berikut adalah beberapa contoh soal program linear yang mudah dimengerti:</p>
-
-      <ol>
-        <li>
-          <h4>Menentukan Banyaknya Barang yang Diproduksi</h4>
-          <p>Situasi: Sebuah toko menjual dua jenis barang, yaitu barang A dan barang B. Setiap unit barang A memberikan keuntungan Rp 10.000, sementara setiap unit barang B memberikan keuntungan Rp 8.000. Toko tersebut hanya dapat menjual maksimal 50 barang per hari dan memiliki 100 unit bahan baku yang terbatas.</p>
-          <p>Tentukan berapa banyak barang A dan barang B yang harus dijual agar keuntungan toko maksimal, dengan ketentuan:</p>
-          <ul>
-            <li>Setiap unit barang A memerlukan 2 unit bahan baku.</li>
-            <li>Setiap unit barang B memerlukan 3 unit bahan baku.</li>
-          </ul>
-        </li>
-
-        <li>
-          <h4>Sistem Persamaan Linear Dua Variabel</h4>
-          <p>Situasi: Diketahui sistem persamaan linear sebagai berikut:</p>
-          <p>2x + 3y = 12</p>
-          <p>4x - y = 5</p>
-          <p>Tentukan nilai dari x dan y yang memenuhi kedua persamaan tersebut.</p>
-        </li>
-
-        <li>
-          <h4>Pemrograman Linear untuk Maksimal Keuntungan</h4>
-          <p>Situasi: Sebuah perusahaan memproduksi dua jenis produk, yaitu produk X dan produk Y. Setiap unit produk X membutuhkan waktu 2 jam untuk diproduksi, sementara setiap unit produk Y membutuhkan waktu 3 jam. Perusahaan memiliki total 12 jam untuk memproduksi produk.</p>
-          <p>Keuntungan dari setiap unit produk X adalah Rp 5.000, dan keuntungan dari setiap unit produk Y adalah Rp 6.000.</p>
-          <p>Berapa banyak produk X dan Y yang harus diproduksi agar perusahaan memperoleh keuntungan maksimal, jika waktu produksi terbatas 12 jam?</p>
-        </li>
-
-        <li>
-          <h4>Program Linear dengan Pembatasan Sumber Daya</h4>
-          <p>Situasi: Sebuah peternakan memiliki dua jenis hewan, yaitu sapi dan kambing. Peternakan tersebut memiliki total 60 ekor hewan, dan ingin memaksimalkan keuntungan dari penjualan daging sapi dan kambing. Keuntungan dari setiap sapi adalah Rp 2.000.000, dan keuntungan dari setiap kambing adalah Rp 1.000.000.</p>
-          <p>Tentukan berapa banyak sapi dan kambing yang harus dipelihara agar keuntungan total maksimal, jika jumlah total hewan dibatasi 60 ekor.</p>
-        </li>
-      </ol>
+    <div className="soal-container">
+      <h2>Contoh Soal Linear</h2>
+      
+      {questions.map((question, index) => (
+        <div key={index} className="question-card">
+          <p className="question-text">{index + 1}. {question.question}</p>
+          
+          <div className="options">
+            {question.options.map((option, optionIndex) => (
+              <button
+                key={optionIndex}
+                className="option"
+                onClick={() => handleAnswer(index, optionIndex)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          
+          {answers[index] && (
+            <div className={`notification ${answers[index]}`}>
+              {answers[index] === 'correct' ? 'Jawaban Anda Benar!' : `Jawaban Salah, Jawaban yang Benar adalah: ${question.options[question.correct]}`}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 };
 
-export default ContohSoalProgramLinear;
+export default ContohSoalProgamLinear;

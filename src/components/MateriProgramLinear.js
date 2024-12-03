@@ -1,33 +1,79 @@
-// MateriProgramLinear.js
 import React from 'react';
+import './MateriProgramLinear.css';
 
 const MateriProgramLinear = () => {
   return (
-    <div>
-      <h3>Materi Program Linear</h3>
-      <p>Program Linear adalah suatu metode dalam matematika untuk memecahkan masalah optimasi di mana fungsi tujuan yang ingin dicapai adalah fungsi linear, yang terikat oleh beberapa pembatas linear (kendala).</p>
+    <div className="materi-container">
+      <h2>Materi Sistem Persamaan Linear dan Matriks</h2>
       
-      <h4>Pengertian Program Linear</h4>
-      <p>Program Linear digunakan untuk mencari solusi terbaik yang memenuhi berbagai kendala yang diberikan. Masalah Program Linear dapat ditemukan dalam berbagai bidang seperti ekonomi, manajemen, dan rekayasa industri.</p>
+      <section className="materi-section">
+        <h3>1. Pengertian Sistem Persamaan Linear (SPL)</h3>
+        <p>
+          Sistem Persamaan Linear (SPL) adalah sekumpulan persamaan linear yang memiliki dua variabel atau lebih yang diselesaikan secara bersamaan. 
+          Suatu sistem persamaan linear dapat memiliki satu solusi, tidak ada solusi, atau banyak solusi, tergantung pada sifat matriks yang terkait dengan sistem tersebut.
+        </p>
+        <p>
+          Sistem persamaan linear umumnya ditulis dalam bentuk:
+          <br />
+          <code>
+            a₁x₁ + a₂x₂ + ... + aₙxₙ = b
+          </code>
+        </p>
+      </section>
 
-      <h4>Komponen Program Linear</h4>
-      <ul>
-        <li><strong>Fungsi Tujuan (Objective Function):</strong> Fungsi yang ingin dimaksimalkan atau diminimalkan.</li>
-        <li><strong>Kendala (Constraints):</strong> Pembatas atau batasan yang harus dipenuhi dalam mencari solusi optimal.</li>
-        <li><strong>Variabel Keputusan:</strong> Variabel yang nilainya ingin ditentukan dalam masalah.</li>
-      </ul>
+      <section className="materi-section">
+        <h3>2. Jenis-jenis Sistem Persamaan Linear</h3>
+        <ul>
+          <li><strong>Sistem yang konsisten:</strong> Sistem persamaan yang memiliki solusi atau lebih.</li>
+          <li><strong>Sistem yang tidak konsisten:</strong> Sistem persamaan yang tidak memiliki solusi.</li>
+          <li><strong>Sistem yang tergantung:</strong> Sistem yang memiliki solusi tak terhingga.</li>
+        </ul>
+      </section>
 
-      <h4>Fungsi Tujuan dan Kendala</h4>
-      <p>Fungsi tujuan dalam Program Linear adalah sebuah persamaan linear yang ingin dimaksimalkan atau diminimalkan. Kendala juga berbentuk linear, yang menyatakan batasan atau pembatasan terhadap variabel keputusan.</p>
+      <section className="materi-section">
+        <h3>3. Metode Penyelesaian Sistem Persamaan Linear</h3>
+        <p>Beberapa metode yang sering digunakan untuk menyelesaikan SPL antara lain:</p>
+        <ol>
+          <li><strong>Metode Substitusi:</strong> Digunakan jika salah satu persamaan dapat diselesaikan untuk salah satu variabel, kemudian substitusi nilai tersebut ke persamaan lain.</li>
+          <li><strong>Metode Eliminasi:</strong> Dengan menambahkan atau mengurangi persamaan untuk mengeliminasi salah satu variabel, sehingga menghasilkan persamaan yang lebih sederhana.</li>
+          <li><strong>Metode Matriks:</strong> Menggunakan matriks untuk menyelesaikan sistem persamaan linear. Metode ini sering dipakai untuk sistem persamaan yang lebih besar.</li>
+        </ol>
+      </section>
 
-      <h4>Metode Penyelesaian</h4>
-      <p>Beberapa metode untuk menyelesaikan masalah Program Linear antara lain:</p>
-      <ul>
-        <li><strong>Metode Grafik:</strong> Digunakan untuk masalah dengan dua variabel.</li>
-        <li><strong>Metode Simpleks:</strong> Digunakan untuk masalah dengan lebih dari dua variabel.</li>
-      </ul>
+      <section className="materi-section">
+        <h3>4. Sistem Persamaan Linear dalam Bentuk Matriks</h3>
+        <p>
+          Sistem persamaan linear dapat ditulis dalam bentuk matriks, sehingga lebih mudah diselesaikan menggunakan operasi matriks. Sebagai contoh:
+          <br />
+          Misalkan sistem persamaan linear berikut:
+          <code>
+            2x + 3y = 5
+            <br />
+            4x - y = 6
+          </code>
+          dapat ditulis dalam bentuk matriks sebagai:
+          <br />
+          <code>
+            | 2  3 |   | x | = | 5 | <br />
+            | 4 -1 |   | y | = | 6 |
+          </code>
+        </p>
+        <p>
+          Matriks ini dapat diselesaikan menggunakan invers matriks, jika matriks koefisiennya memiliki determinan yang tidak sama dengan nol.
+        </p>
+      </section>
 
-      <p>Program Linear adalah alat yang sangat penting dalam perencanaan dan pengambilan keputusan, yang digunakan untuk memaksimalkan hasil dalam berbagai bidang industri dan ekonomi.</p>
+      <section className="materi-section">
+        <h3>5. Contoh Soal</h3>
+        <p><strong>Soal:</strong> Tentukan solusi dari sistem persamaan berikut:</p>
+        <code>
+          3x + 2y = 12 <br />
+          4x - y = 7
+        </code>
+        <p><strong>Solusi:</strong></p>
+        <p>Gunakan metode eliminasi atau substitusi untuk menyelesaikan soal di atas. Salah satu cara adalah dengan menyelesaikan y dari persamaan kedua dan menggantinya ke dalam persamaan pertama untuk mencari x.</p>
+        <p>Setelah diselesaikan, didapatkan nilai x = 3 dan y = 2.</p>
+      </section>
     </div>
   );
 };
