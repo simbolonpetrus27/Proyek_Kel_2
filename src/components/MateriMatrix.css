@@ -11,66 +11,89 @@ body {
 h2, h3, h4 {
   font-weight: 600;
   margin: 0;
+  line-height: 1.4;
 }
 
-/* Kontainer */
+/* Kontainer Utama */
 .container {
   max-width: 900px;
   margin: 20px auto;
   padding: 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Jarak antar elemen */
+  overflow: hidden; /* Untuk efek animasi */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Materi Matrix */
-.materi {
-  background-color: #e8f5e9;
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 8px;
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.materi h2 {
+/* Materi */
+.materi, .jenis-matriks, .operasi-matriks, .manfaat-matriks {
+  padding: 25px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e3f2fd, #fff);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.materi:hover, .jenis-matriks:hover, .operasi-matriks:hover, .manfaat-matriks:hover {
+  background: linear-gradient(135deg, #ffffff, #e8f5e9);
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Efek Dekoratif */
+.materi::before, 
+.jenis-matriks::before, 
+.operasi-matriks::before, 
+.manfaat-matriks::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.materi:hover::before,
+.jenis-matriks:hover::before,
+.operasi-matriks:hover::before,
+.manfaat-matriks:hover::before {
+  opacity: 0;
+}
+
+.materi h2, .jenis-matriks h3, .operasi-matriks h3, .manfaat-matriks h3 {
   text-align: center;
-  color: #388e3c;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: inherit;
+  position: relative;
+  z-index: 1;
 }
 
-/* Jenis Matriks */
-.jenis-matriks {
-  background-color: #e3f2fd;
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 8px;
+/* Warna Heading */
+.materi h2 {
+  color: #4caf50;
 }
 
 .jenis-matriks h3 {
   color: #1e88e5;
 }
 
-/* Operasi Matriks */
-.operasi-matriks {
-  background-color: #fff8e1;
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-}
-
 .operasi-matriks h3 {
   color: #ff9800;
-}
-
-.operasi-matriks h4 {
-  color: #f57c00;
-}
-
-/* Manfaat Matriks */
-.manfaat-matriks {
-  background-color: #fbe9e7;
-  padding: 20px;
-  border-radius: 8px;
 }
 
 .manfaat-matriks h3 {
@@ -79,7 +102,7 @@ h2, h3, h4 {
 
 /* Paragraf dan List */
 p, li {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
   color: #555;
   margin-bottom: 15px;
 }
@@ -96,10 +119,25 @@ strong {
 a {
   color: #2196f3;
   text-decoration: none;
+  position: relative;
 }
 
-a:hover {
-  text-decoration: underline;
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #2196f3;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* Responsif untuk layar kecil */
@@ -114,18 +152,37 @@ a:hover {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   p, li {
     font-size: 0.9rem;
   }
+}
+
+/* Responsif untuk layar lebih kecil (smartphone) */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p, li {
+    font-size: 0.8rem;
+  }
 
   .container {
-    margin: 15px;
+    padding: 15px;
+  }
+
+  .materi, .jenis-matriks, .operasi-matriks, .manfaat-matriks {
+    padding: 15px;
   }
 }
