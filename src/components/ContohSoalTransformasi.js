@@ -1,41 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './ContohSoalTransformasi.css';
 
-function ContohSoalTransformasi() {
+const ContohSoalTransformasi = () => {
+  const [answers, setAnswers] = useState({});
+  const [notification, setNotification] = useState(null);
+  
+  const questions = [
+    {
+      question: 'Apa itu transformasi geometri?',
+      options: ['Perubahan posisi', 'Perubahan bentuk', 'Perubahan ukuran', 'Semua di atas'],
+      correctAnswer: 'Semua di atas'
+    },
+    {
+      question: 'Apa yang dimaksud dengan translasi?',
+      options: ['Perputaran', 'Perpindahan', 'Pemantulan', 'Penskalaan'],
+      correctAnswer: 'Perpindahan'
+    },
+    {
+      question: 'Apa itu rotasi dalam transformasi geometri?',
+      options: ['Perpindahan objek', 'Pembesaran objek', 'Pemutaran objek', 'Penurunan objek'],
+      correctAnswer: 'Pemutaran objek'
+    },
+    {
+      question: 'Pemantulan terhadap sumbu X menghasilkan...',
+      options: ['Perubahan posisi', 'Perubahan bentuk', 'Refleksi objek', 'Penskalaan objek'],
+      correctAnswer: 'Refleksi objek'
+    },
+    {
+      question: 'Apa yang terjadi pada objek setelah dilakukan penskalaan?',
+      options: ['Objek terputar', 'Objek mengalami pembesaran atau pengecilan', 'Objek dipindahkan', 'Objek terpantul'],
+      correctAnswer: 'Objek mengalami pembesaran atau pengecilan'
+    }
+  ];
+
+  const handleAnswer = (questionIndex, selectedAnswer) => {
+    const currentAnswer = questions[questionIndex].correctAnswer;
+    setAnswers({
+      ...answers,
+      [questionIndex]: {
+        selected: selectedAnswer,
+        correct: selectedAnswer === currentAnswer
+      }
+    });
+
+    setNotification({
+      questionIndex,
+      correct: selectedAnswer === currentAnswer
+    });
+
+    setTimeout(() => setNotification(null), 2000); // Hide notification after 2 seconds
+  };
+
   return (
-    <div className="container">
-      <h2>Soal Transformasi</h2>
-
-      <section className="soal">
-        <h3>Soal 01</h3>
-        <p>
-        <em>Diketahui gambar titik H seperti berikut.</em>
-        <br />
-        <img
-        src="https://www.quipper.com/id/blog/wp-content/uploads/2023/02/Contoh-Soal-2-Transformasi-Geometri.webp" alt="" className="image" />   
-        <br />
-        Jika titik H dirotasikan sejauh 180o terhadap titik pusat (0, 0), gambarkan posisi akhir titik H'!
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 02</h3>
-        <p>
-        <em>Titik B (2, -1) didilatasi terhadap pusat (4, 2). Jika faktor pengalinya 2, tentukan koordinat akhir titik B!</em>
-        </p>
-      </section>
-      <br />
-
-      <section className="soal">
-        <h3>Soal 03</h3>
-        <p>
-        <em>Bayangan titik A dengan (-1,4) jika direfleksikan terhadap garis y = -x adalah . . .</em>
-        </p>
-      </section>
+    <div className="question-container">
+      <h2>Soal Transformasi Geometri</h2>
+      {questions.map((question, index) => (
+        <div key={index} className="question-card">
+          <div className="question-number">
+            <strong>Soal {index + 1}</strong>
+          </div>
+          <div className="question-text">
+            {question.question}
+          </div>
+          <div className="options">
+            {question.options.map((option, optionIndex) => (
+              <button
+                key={optionIndex}
+                className="option"
+                onClick={() => handleAnswer(index, option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          {notification && notification.questionIndex === index && (
+            <div className={`notification ${notification.correct ? 'success' : 'error'}`}>
+              {notification.correct ? 'Jawaban Benar!' : `Jawaban Salah. Jawaban yang benar: ${question.correctAnswer}`}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default ContohSoalTransformasi;
-
-

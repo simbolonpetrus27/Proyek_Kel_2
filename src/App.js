@@ -45,6 +45,7 @@ import PembahasanTurunan from './components/PembahasanTurunan';
 import MiniQuizTurunan from './components/MiniQuizTurunan.js';
 
 import './App.css'; // CSS utama untuk aplikasi
+
 import './components/MatrixQuestions.css';
 import './components/MatrixDiscussion.css';
 import './components/MiniQuizMatriks.css';
@@ -53,6 +54,9 @@ import './components/MateriIntegral.css';
 import './components/ContohSoalIntegral.css';
 import './components/PembahasanSoalIntegral.css';
 import './components/MiniQuizIntegral.css';
+
+import './components/MateriTransformasi.css';
+import './components/ContohSoalTransformasi.css';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
