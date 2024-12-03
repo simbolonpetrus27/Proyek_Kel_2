@@ -28,6 +28,7 @@ h2, h3, h4 {
   gap: 25px; /* Jarak antar elemen */
   overflow: hidden; /* Untuk efek animasi */
   transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 700px; /* Menambahkan jarak atas untuk menghindari tumpang tindih dengan header */
 }
 
 .container:hover {
@@ -149,6 +150,7 @@ a:hover::after {
   .container {
     padding: 20px;
     max-width: 100%;
+    margin-top: 80px; /* Penambahan margin-top lebih besar untuk layar kecil */
   }
 
   h2 {
@@ -180,6 +182,7 @@ a:hover::after {
 
   .container {
     padding: 15px;
+    margin-top: 90px; /* Penambahan margin-top lebih besar untuk layar sangat kecil */
   }
 
   .materi, .jenis-matriks, .operasi-matriks, .manfaat-matriks {
