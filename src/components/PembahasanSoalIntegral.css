@@ -1,0 +1,42 @@
+/* Halaman Pembahasan Integral */
+.pembahasan-container {
+    background-color: #f4f1eb;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    font-size: 22px;
+    color: #8e6e4e;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .pembahasan-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e2b2b;
+  }
+  
+  .card-body {
+    font-size: 16px;
+    color: #3e2b2b;
+    margin-top: 10px;
+  }
+  
+  .card-footer {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e6e4e;
+    margin-top: 15px;
+  }
+  

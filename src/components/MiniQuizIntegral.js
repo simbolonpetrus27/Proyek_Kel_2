@@ -1,143 +1,95 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const MiniQuizIntegral = () => {
-  const [answers, setAnswers] = useState({});
-  const [essayAnswers, setEssayAnswers] = useState(["", ""]);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(null);
+  const questions = [
+    {
+      question: "Integral dari x² dx adalah?",
+      options: ["1/3 x³", "x³", "2x²", "x²"],
+      answer: "1/3 x³"
+    },
+    {
+      question: "Integral dari sin(x) dx adalah?",
+      options: ["-cos(x)", "cos(x)", "tan(x)", "sin(x)"],
+      answer: "-cos(x)"
+    },
+    {
+      question: "Integral dari e^x dx adalah?",
+      options: ["e^x", "e^x + C", "x", "e^x - C"],
+      answer: "e^x"
+    },
+    {
+      question: "Integral dari 1/x dx adalah?",
+      options: ["ln(x)", "x", "x²", "1/x²"],
+      answer: "ln(x)"
+    },
+    {
+      question: "Integral dari cos(x) dx adalah?",
+      options: ["sin(x)", "-sin(x)", "cos(x)", "-cos(x)"],
+      answer: "sin(x)"
+    }
+  ];
+
+  const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
 
-  const multipleChoiceQuestions = [
-    {
-      id: 1,
-      question: "Hitung integral dari ∫ x² dx?",
-      options: {
-        A: "x³ + C",
-        B: "(1/3)x³ + C",
-        C: "(1/2)x² + C",
-      },
-      correct: "B",
-    },
-    {
-      id: 2,
-      question: "Hasil integral dari ∫ e^x dx adalah?",
-      options: {
-        A: "e^x + C",
-        B: "ln(x) + C",
-        C: "(1/x) + C",
-      },
-      correct: "A",
-    },
-    {
-      id: 3,
-      question: "Hasil integral dari ∫ 1/(x²) dx adalah?",
-      options: {
-        A: "-1/x + C",
-        B: "ln(x) + C",
-        C: "1/x + C",
-      },
-      correct: "A",
-    },
-  ];
+  const handleAnswer = (questionIndex, selectedOption) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[questionIndex] = selectedOption;
+    setAnswers(updatedAnswers);
 
-  const essayQuestions = [
-    "Jelaskan kegunaan integral dalam ilmu fisika!",
-    "Berikan contoh penerapan integral pada bidang ekonomi!",
-  ];
-
-  const handleMultipleChoiceChange = (questionId, selectedOption) => {
-    setAnswers({ ...answers, [questionId]: selectedOption });
-  };
-
-  const handleMultipleChoiceSubmit = (e, questionId) => {
-    e.preventDefault();
-    const correctAnswer = multipleChoiceQuestions.find(
-      (q) => q.id === questionId
-    ).correct;
-
-    if (answers[questionId] === correctAnswer) {
-      alert("Jawaban Anda Benar!");
-      setScore(score + 1);
-    } else {
-      setShowCorrectAnswer({ questionId, correctAnswer });
-      setTimeout(() => setShowCorrectAnswer(null), 1000);
+    if (selectedOption === questions[questionIndex].answer) {
+      setScore(prevScore => prevScore + 1);
     }
   };
 
-  const handleEssayChange = (index, value) => {
-    const newEssayAnswers = [...essayAnswers];
-    newEssayAnswers[index] = value;
-    setEssayAnswers(newEssayAnswers);
+  const handleSubmit = () => {
+    setFinished(true);
   };
 
-  const handleEssaySubmit = (e) => {
-    e.preventDefault();
-    alert("Jawaban esai Anda telah disimpan!");
-  };
-
-  const resetQuiz = () => {
-    setAnswers({});
-    setEssayAnswers(["", ""]);
+  const handleRestart = () => {
+    setAnswers([]);
     setScore(0);
-    setShowCorrectAnswer(null);
+    setFinished(false);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Mini Quiz Integral</h2>
-      <h3>Pilihan Ganda</h3>
-      {multipleChoiceQuestions.map((q) => (
-        <form
-          key={q.id}
-          onSubmit={(e) => handleMultipleChoiceSubmit(e, q.id)}
-          style={{ marginBottom: "20px" }}
-        >
-          <p>{q.question}</p>
-          {Object.entries(q.options).map(([key, value]) => (
-            <label key={key} style={{ display: "block" }}>
-              <input
-                type="radio"
-                name={`question-${q.id}`}
-                value={key}
-                checked={answers[q.id] === key}
-                onChange={(e) =>
-                  handleMultipleChoiceChange(q.id, e.target.value)
-                }
-              />
-              {key}) {value}
-            </label>
+    <div className="quiz-container">
+      <h2>Mini Quiz - Integral</h2>
+
+      {!finished ? (
+        <div>
+          {questions.map((question, index) => (
+            <div className="question-card" key={index}>
+              <p className="question-number">{`Soal ${index + 1}`}</p>
+              <p className="question-text">{question.question}</p>
+              <div className="options">
+                {question.options.map((option, optionIndex) => (
+                  <button
+                    key={optionIndex}
+                    className="option"
+                    onClick={() => handleAnswer(index, option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              {answers[index] && (
+                <div className={`notification ${answers[index] === question.answer ? 'success' : 'error'}`}>
+                  {answers[index] === question.answer ? 'Jawaban Anda Benar!' : `Jawaban yang benar adalah: ${question.answer}`}
+                </div>
+              )}
+            </div>
           ))}
-          <button type="submit">Submit Jawaban</button>
-          {showCorrectAnswer?.questionId === q.id && (
-            <p style={{ color: "red" }}>
-              Jawaban benar adalah: {q.options[showCorrectAnswer.correctAnswer]}
-            </p>
-          )}
-        </form>
-      ))}
-
-      <h3>Esai</h3>
-      <form onSubmit={handleEssaySubmit}>
-        {essayQuestions.map((question, index) => (
-          <div key={index} style={{ marginBottom: "20px" }}>
-            <p>{question}</p>
-            <textarea
-              value={essayAnswers[index]}
-              onChange={(e) => handleEssayChange(index, e.target.value)}
-              rows="5"
-              cols="40"
-              placeholder="Tuliskan jawaban Anda di sini..."
-            />
-          </div>
-        ))}
-        <button type="submit">Submit Jawaban Esai</button>
-      </form>
-
-      <h3>Skor Anda</h3>
-      <p>Skor pilihan ganda: {score} / {multipleChoiceQuestions.length}</p>
-
-      <button onClick={resetQuiz} style={{ marginTop: "20px" }}>
-        Ulangi Quiz
-      </button>
+          <button className="submit-btn" onClick={handleSubmit}>Submit</button>
+        </div>
+      ) : (
+        <div className="results">
+          <h3>Hasil Quiz</h3>
+          <p>Skor Anda: {score} / {questions.length}</p>
+          <button className="restart-btn" onClick={handleRestart}>Ulangi Quiz</button>
+        </div>
+      )}
     </div>
   );
 };

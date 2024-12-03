@@ -49,6 +49,11 @@ import './components/MatrixQuestions.css';
 import './components/MatrixDiscussion.css';
 import './components/MiniQuizMatriks.css';
 
+import './components/MateriIntegral.css';
+import './components/ContohSoalIntegral.css';
+import './components/PembahasanSoalIntegral.css';
+import './components/MiniQuizIntegral.css';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
