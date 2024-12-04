@@ -73,8 +73,9 @@ function Home({ userName }) {
             flex-direction: column;
             align-items: center;
             margin: 0;
-            padding-bottom: 120px; /* Tambahkan jarak dengan footer */
+            padding-bottom: 0px;
             color: white;
+
           }
 
           .welcome-section {
@@ -99,7 +100,7 @@ function Home({ userName }) {
           }
 
           .card-section {
-            margin-top: 30px;
+            margin-top: 70px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -156,7 +157,7 @@ function Home({ userName }) {
 
           footer {
             width: 100%;
-            height: 60px; /* Pastikan tinggi tetap */
+            height: 450px; /* Pastikan tinggi tetap */
             background-color: #4b3621;
             color: white;
             display: flex;

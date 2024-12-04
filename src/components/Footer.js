@@ -21,6 +21,23 @@ function Footer() {
             </li>
           ))}
         </ul>
+
+        {/* Updated introduction in English */}
+        <p className="footer-icons-title">
+          For more updates and insights:
+        </p>
+
+        <div className="footer-icons">
+          <a href="https://www.instagram.com/mantappuacademy?igsh=MW5oMHAxdXJ0N2FraA==" title="Follow Mantappu Academy on Instagram" target="_blank" rel="noopener noreferrer" className="footer-link">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram logo" className="footer-icon" />
+          </a>
+          <a href="https://x.com/LatihanMat?t=JLsFgdGPC6Tg0o6N_yYCow&s=08" title="Tweet icons" target="_blank" rel="noopener noreferrer" className="footer-link">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Tweet icon" className="footer-icon" />
+          </a>
+          <a href="https://www.facebook.com/share/yKdXwox1rYp18f8D/" title="Facebook icons" target="_blank" rel="noopener noreferrer" className="footer-link">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" className="footer-icon" />
+          </a>
+        </div>
       </div>
       <p className="footer-bottom">&copy; 2024 MASI. All rights reserved.</p>
 
@@ -43,6 +60,7 @@ function Footer() {
             max-width: 600px; /* Lebar maksimal untuk konten footer */
             margin-bottom: 20px; /* Jarak dengan teks bawah */
             text-align: left; /* Rata kiri untuk daftar materi */
+            position: relative;
           }
 
           .footer-title {
@@ -68,6 +86,35 @@ function Footer() {
             margin-top: 10px;
             text-align: center; /* Tetap rata tengah untuk teks bawah */
           }
+
+          .footer-icons-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: black;
+          }
+
+          .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+          }
+
+          .footer-link {
+            display: inline-block;
+          }
+
+          .footer-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+          }
+
+          .footer-icon:hover {
+            transform: scale(1.1);
+          }
+
         `}
       </style>
     </footer>
