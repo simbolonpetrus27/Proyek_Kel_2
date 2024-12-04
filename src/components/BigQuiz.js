@@ -7,6 +7,7 @@ const BigQuiz = () => {
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState("");
+  const [answerStatus, setAnswerStatus] = useState("");
 
   const questions = [
     {
@@ -200,9 +201,6 @@ const BigQuiz = () => {
       setShowCorrectAnswer(`Jawaban yang benar adalah: ${correctAnswer}`);
     }
 
-    // Menghilangkan notifikasi setelah 1 detik
-    setTimeout(() => setShowCorrectAnswer(""), 1000); // Waktu lebih cepat, 1 detik
-
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -216,6 +214,18 @@ const BigQuiz = () => {
     setCurrentQuestionIndex(0);
     setIsQuizCompleted(false);
     setShowCorrectAnswer("");
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
   };
 
   return (
@@ -235,10 +245,31 @@ const BigQuiz = () => {
               </button>
             ))}
           </div>
+          {answerStatus && (
+            <p className={`answer-status ${answerStatus === "Benar!" ? "correct" : "incorrect"}`}>
+              {answerStatus}
+            </p>
+          )}
           {showCorrectAnswer && (
             <p className="correct-answer">{showCorrectAnswer}</p>
           )}
-        </div>
+          <div>
+            <button
+            onClick={handlePrevious}
+            className="previous-button"
+            disabled={currentQuestionIndex === 0}
+            >
+              Previous
+            </button>
+            <button
+              onClick={handleNext}
+              className="next-button"
+              disabled={currentQuestionIndex === questions.length - 1}
+            >
+              Next
+            </button>
+          </div>
+          </div>
       ) : (
         <div>
           <h2>Quiz Selesai!</h2>

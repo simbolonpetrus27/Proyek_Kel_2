@@ -138,3 +138,35 @@ p, .reset-button {
         font-size: 16px;
     }
 }
+
+.previous-button, .next-button {
+    margin-right: 15px;
+}
+
+.previous-button {
+    margin-right: 20px;
+}
+
+.previous-button, .next-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.answer-status {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.answer-status.correct {
+    color: green;
+}
+
+.answer-status.incorrect{
+    color: red;
+}
+
+.correct-answer {
+    font-style: italic;
+    color: #555;
+}
