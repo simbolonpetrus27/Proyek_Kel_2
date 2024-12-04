@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%; /* Lebar card 80% dari layar */
+    width: 90%; /* Lebar card 80% dari layar */
     max-width: 600px; /* Batas maksimal card */
     height: auto;
     margin: 0 auto;
@@ -59,7 +59,7 @@ p {
 /* Tombol pilihan jawaban */
 .quiz-button {
     display: inline-block;
-    background: linear-gradient(to right, #6c5ce7, #5a3dc4); /* Gradient tombol */
+    background: linear-gradient(to right, #e7b95c, #c49e3d); /* Gradient tombol */
     color: white;
     padding: 15px 30px;
     font-size: 18px;
@@ -75,7 +75,7 @@ p {
 }
 
 .quiz-button:hover {
-    background: linear-gradient(to right, #5a3dc4, #6c5ce7);
+    background: linear-gradient(to right, #986b2a, #7c5924);
     transform: translateY(-5px); /* Menggeser tombol sedikit ke atas */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -97,7 +97,7 @@ p {
 
 /* Tombol reset kuis */
 .reset-button {
-    background: linear-gradient(to right, #2ecc71, #27ae60);
+    background: linear-gradient(to right, #cc9a2e, #ae7827);
     color: white;
     padding: 15px 30px;
     border-radius: 12px;
@@ -112,7 +112,7 @@ p {
 }
 
 .reset-button:hover {
-    background: linear-gradient(to right, #27ae60, #2ecc71);
+    background: linear-gradient(to right, #d39726, #cc8f2e);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
