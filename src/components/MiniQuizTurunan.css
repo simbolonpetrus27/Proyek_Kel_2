@@ -54,7 +54,7 @@
   }
   
   button {
-    background-color: #007bff;
+    background-color: #d0a946;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -64,6 +64,6 @@
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #bd7d24;
   }
   
