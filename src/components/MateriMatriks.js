@@ -48,10 +48,31 @@ function MateriMatriks() {
       <section className="manfaat-matriks">
         <h3>Manfaat Matriks</h3>
         <ul>
-          <li>Matematika (aljabar linier, transformasi geometris).</li>
-          <li>Fisika (simulasi mekanik, analisis struktur).</li>
-          <li>Komputer (grafik komputer, algoritma pencarian).</li>
-          <li>Ekonomi (analisis input-output, model linier).</li>
+          <li>1.  Memperkuat Fondasi Matematika</li>
+          <em>Berpikir Logis dan Terstruktur: Matriks melatih kamu untuk berpikir secara logis, sistematis, dan terstruktur dalam menyelesaikan masalah.</em>
+          <em>Memahami Konsep Abstrak: Matriks memperkenalkan konsep matematika yang abstrak, yang akan membantu kamu dalam memahami materi matematika tingkat lanjut.</em>
+          <em>Meningkatkan Kemampuan Aljabar: Operasi matriks seperti penjumlahan, pengurangan, perkalian, dan invers akan mengasah kemampuan aljabar kamu.</em>
+          <br />
+          <br />
+
+          <li>2.  Menguasai Materi Pelajaran</li>
+          <em>Sistem Persamaan Linear: Kamu akan belajar menyelesaikan sistem persamaan linear dengan metode matriks, yang jauh lebih efisien daripada metode substitusi atau eliminasi biasa, terutama untuk sistem persamaan yang kompleks.</em>
+          <em>Transformasi Geometri: Matriks digunakan untuk merepresentasikan transformasi geometri seperti rotasi, refleksi, dilatasi, yang akan membantu kamu memahami konsep geometri analitik lebih dalam.</em>
+          <em>Aplikasi di Berbagai Bidang: Konsep matriks akan kamu temukan lagi di berbagai mata pelajaran lain seperti fisika, ekonomi, dan informatika.</em>
+          <br />
+          <br />
+
+          <li>3.  Pengembangan Kemampuan Diri</li>
+          <em>Kemampuan Analitis: Menganalisis dan menyelesaikan soal-soal matriks akan mengasah kemampuan analitis dan pemecahan masalah kamu.</em>
+          <em>Ketelitian dan Akurasi: Operasi matriks menuntut ketelitian dan akurasi tinggi, sehingga melatih kamu untuk lebih cermat dan teliti dalam mengerjakan sesuatu.</em>
+          <em>Berpikir Kreatif: Mencari solusi dan strategi dalam menyelesaikan soal matriks dapat merangsang kreativitas kamu.</em>
+          <br />
+          <br />
+
+          <li>4.  Manfaat untuk Masa Depan</li>
+          <em>Melanjutkan Studi: Konsep matriks menjadi dasar penting untuk studi lanjut di bidang STEM (Science, Technology, Engineering, and Mathematics).</em>
+          <em>Karir di Bidang Teknologi: Matriks banyak digunakan dalam bidang teknologi seperti data science, machine learning, dan artificial intelligence.</em>
+          <em>Pemecahan Masalah di Dunia Nyata: Kemampuan menyelesaikan masalah dengan matriks akan berguna dalam berbagai bidang pekerjaan dan kehidupan sehari-hari.</em>
         </ul>
       </section>
     </div>
