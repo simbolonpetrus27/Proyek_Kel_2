@@ -76,11 +76,11 @@ function Register() {
 
   return (
     <div style={styles.container}>
-      <h2>Register</h2>
+      <h2>Daftar</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Nama Pengguna"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
@@ -88,14 +88,14 @@ function Register() {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Kata Sandi"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
           style={styles.input}
         />
-        <button type="submit" style={styles.button}>
-          Register
+        <button type="Kirim" style={styles.button}>
+          Daftar
         </button>
       </form>
 
@@ -103,9 +103,9 @@ function Register() {
       {message && <div style={styles.message}>{message}</div>}
 
       <p className="mt-3 text-center">
-        Already have an account?{' '}
+        Sudah memiliki akun?{' '}
         <Link to="/login" style={styles.link}>
-          Login here
+          Masuk Disini
         </Link>
       </p>
     </div>

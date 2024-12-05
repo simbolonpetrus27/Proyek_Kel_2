@@ -10,7 +10,7 @@ const Header = ({ userName, onLogout }) => {
       <nav className="header-nav">
         <ul>
           <li className="user-info">
-            <strong><em>Welcome, {userName}</em></strong>
+            <strong><em>Selamat datang, {userName}</em></strong>
             <div className="user-profile">
               <img
                 src="https://api.dicebear.com/6.x/adventurer/svg?seed=User" // Avatar animasi
@@ -21,7 +21,7 @@ const Header = ({ userName, onLogout }) => {
           </li>
           <li>
             <button onClick={onLogout} className="logout-button">
-              Logout
+              Keluar
             </button>
           </li>
         </ul>

@@ -69,10 +69,10 @@ function Logout({ username }) {
         />
         <h2 style={styles.heading}>Goodbye, {username}!</h2>
         <p style={styles.message}>
-          Thank you for visiting MILI. We hope to see you again soon!
+          Terima kasih telah mengunjungi MASI. Kami berharap dapat segera bertemu Anda lagi!
         </p>
         <Link to="/" style={styles.button}>
-          Back to Home
+          Kembali Ke Beranda
         </Link>
       </div>
     </div>

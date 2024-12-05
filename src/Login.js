@@ -19,10 +19,10 @@ function Login({ onLogin }) {
 
     if (user) {
       onLogin(username); // Set pengguna sebagai terautentikasi
-      setErrorMessage('Login successful!'); // Set pesan sukses
+      setErrorMessage('Masuk berhasil!'); // Set pesan sukses
       setTimeout(() => navigate('/'), 1000); // Arahkan ke halaman Home setelah 1 detik
     } else {
-      setErrorMessage('Invalid username or password. Please try again.'); // Set pesan error
+      setErrorMessage('Nama pengguna atau kata sandi tidak valid'); // Set pesan error
     }
   };
 
@@ -70,11 +70,11 @@ function Login({ onLogin }) {
 
   return (
     <div style={styles.container}>
-      <h2>Login</h2>
+      <h2>Masuk</h2>
       <form onSubmit={handleLogin} style={styles.form}>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Nama Pengguna"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
@@ -82,14 +82,14 @@ function Login({ onLogin }) {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Kata Sandi"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
           style={styles.input}
         />
-        <button type="submit" style={styles.button}>
-          Login
+        <button type="Kirim" style={styles.button}>
+          Masuk
         </button>
       </form>
 

@@ -14,29 +14,32 @@ function Footer() {
     <footer>
       <div className="footer-content">
         <p className="footer-title">Daftar Materi:</p>
-        <ul className="footer-list">
-          {materials.map((material, index) => (
-            <li key={index} className="footer-item">
-              {material}
-            </li>
-          ))}
-        </ul>
+        <div className="footer-flex-container">
+          <ul className="footer-list">
+            {materials.map((material, index) => (
+              <li key={index} className="footer-item">
+                {material}
+              </li>
+            ))}
+          </ul>
 
-        {/* Updated introduction in English */}
-        <p className="footer-icons-title">
-          For more updates and insights:
-        </p>
-
-        <div className="footer-icons">
-          <a href="https://www.instagram.com/mantappuacademy?igsh=MW5oMHAxdXJ0N2FraA==" title="Follow Mantappu Academy on Instagram" target="_blank" rel="noopener noreferrer" className="footer-link">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram logo" className="footer-icon" />
-          </a>
-          <a href="https://x.com/LatihanMat?t=JLsFgdGPC6Tg0o6N_yYCow&s=08" title="Tweet icons" target="_blank" rel="noopener noreferrer" className="footer-link">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Tweet icon" className="footer-icon" />
-          </a>
-          <a href="https://www.facebook.com/share/yKdXwox1rYp18f8D/" title="Facebook icons" target="_blank" rel="noopener noreferrer" className="footer-link">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" className="footer-icon" />
-          </a>
+          {/* Updated introduction in English */}
+          <div className="footer-icons-container">
+            <p className="footer-icons-title">
+              Untuk informasi dan info lebih lanjut:
+            </p>
+            <div className="footer-icons">
+              <a href="https://www.instagram.com/mantappuacademy?igsh=MW5oMHAxdXJ0N2FraA==" title="Follow Mantappu Academy on Instagram" target="_blank" rel="noopener noreferrer" className="footer-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram logo" className="footer-icon" />
+              </a>
+              <a href="https://x.com/LatihanMat?t=JLsFgdGPC6Tg0o6N_yYCow&s=08" title="Tweet icons" target="_blank" rel="noopener noreferrer" className="footer-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Tweet icon" className="footer-icon" />
+              </a>
+              <a href="https://www.facebook.com/share/yKdXwox1rYp18f8D/" title="Facebook icons" target="_blank" rel="noopener noreferrer" className="footer-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" className="footer-icon" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <p className="footer-bottom">&copy; 2024 MASI. All rights reserved.</p>
@@ -63,6 +66,12 @@ function Footer() {
             position: relative;
           }
 
+          .footer-flex-container {
+            display: flex;
+            justify-content: space-between; /* Memisahkan daftar dan ikon */
+            align-items: flex-start; /* Rata atas untuk daftar dan ikon */
+          }
+
           .footer-title {
             font-size: 1.2rem;
             font-weight: bold;
@@ -74,6 +83,7 @@ function Footer() {
             list-style: none;
             padding: 0;
             margin: 0;
+            flex: 1; /* Membiarkan daftar mengambil ruang yang tersedia */
           }
 
           .footer-item {
@@ -92,6 +102,13 @@ function Footer() {
             margin-bottom: 15px;
             text-align: center;
             color: black;
+          }
+
+          .footer-icons-container {
+            display: flex;
+            flex-direction: column; /* Menyusun ikon secara vertikal */
+            align-items: flex-end; /* Rata kanan untuk ikon */
+            margin-left: 20px; /* Jarak antara daftar dan ikon */
           }
 
           .footer-icons {
