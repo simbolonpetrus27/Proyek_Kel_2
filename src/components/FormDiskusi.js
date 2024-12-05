@@ -38,20 +38,18 @@ function FormDiskusii() {
             padding: 0;
           }
 
-.container {
-  padding: 50px; /* Mengurangi padding agar tidak terlalu besar */
-  background-image: url('https://i.pinimg.com/736x/4d/1a/1a/4d1a1ad0f578f3f78bc24006a58ec1f6.jpg'); /* Menambahkan gambar latar */
-  background-size: cover; /* Agar gambar memenuhi seluruh elemen */
-  background-position: center; /* Pusatkan gambar */
-  background-repeat: no-repeat; /* Hindari pengulangan gambar */
-  width: calc(100% - 40px); /* Mengisi hampir seluruh lebar layar, dengan jarak 20px di setiap sisi */
-  margin: 30px auto;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-
+          .container {
+            padding: 50px; /* Mengurangi padding agar tidak terlalu besar */
+            background-image: url('https://i.pinimg.com/736x/4d/1a/1a/4d1a1ad0f578f3f78bc24006a58ec1f6.jpg'); /* Menambahkan gambar latar */
+            background-size: cover; /* Agar gambar memenuhi seluruh elemen */
+            background-position: center; /* Pusatkan gambar */
+            background-repeat: no-repeat; /* Hindari pengulangan gambar */
+            width: calc(100% - 40px); /* Mengisi hampir seluruh lebar layar, dengan jarak 20px di setiap sisi */
+            margin: 30px auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+          }
 
           h2 {
             color: #5a3c2d;
@@ -139,14 +137,14 @@ function FormDiskusii() {
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder="Nama"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="input"
             required
           />
           <textarea
-            placeholder="What Do You Want To Discuss"
+            placeholder="Apa yang ingin kamu diskusikan?"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="input"
@@ -154,7 +152,7 @@ function FormDiskusii() {
             required
           />
           <button type="submit" className="button">
-            Send !
+            Kirim !
           </button>
         </form>
 

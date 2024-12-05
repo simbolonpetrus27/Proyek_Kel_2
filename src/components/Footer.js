@@ -24,7 +24,7 @@ function Footer() {
 
         {/* Updated introduction in English */}
         <p className="footer-icons-title">
-          For more updates and insights:
+        Untuk informasi dan info lebih lanjut:
         </p>
 
         <div className="footer-icons">

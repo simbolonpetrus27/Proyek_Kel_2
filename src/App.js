@@ -103,13 +103,13 @@ function App() {
 
         <header>
           <nav>
-            <Link to="/">Home</Link>
+            <Link to="/">Beranda</Link>
 
             {/* Tampilkan link Register dan Login hanya jika pengguna belum login */}
             {!isAuthenticated && (
               <>
-                <Link to="/register">Register</Link>
-                <Link to="/login">Login</Link>
+                <Link to="/register">Daftar</Link>
+                <Link to="/login">Masuk</Link>
               </>
             )}
 
@@ -117,8 +117,8 @@ function App() {
             {isAuthenticated && (
               <>
                 <Link to="/formdiskusi">Diskusi</Link>
-                <Link to="/bigquiz">Big Quiz</Link>
-                <Link to="/logout">Logout</Link>
+                <Link to="/bigquiz">Kuis Besar</Link>
+                <Link to="/logout">Keluar</Link>
               </>
             )}
           </nav>
