@@ -157,7 +157,7 @@ function Home({ userName }) {
 
           footer {
             width: 100%;
-            height: 450px; /* Pastikan tinggi tetap */
+            height: 310px; /* Pastikan tinggi tetap */
             background-color: #4b3621;
             color: white;
             display: flex;
